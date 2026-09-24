@@ -14,5 +14,7 @@
   "vatStatus": "Not registered for VAT",
   "contactEmail": "hello@bankandbivvy.co.uk",
   "turnstileSiteKey": "1x00000000000000000000AA",
-  "_notice": "Domain bankandbivvy.co.uk registered (Namecheap). Amazon tag bankandbivvy01-21. Infra set up via ~/perso/leadgen-launcher (sites/bankandbivvy.co.uk/state.json)."
+  "_notice": "Domain bankandbivvy.co.uk registered (Namecheap). Amazon tag bankandbivvy01-21. Infra set up via ~/perso/leadgen-launcher (sites/bankandbivvy.co.uk/state.json).",
+  "matomoUrl": "//analytics.webfocus.fr/",
+  "matomoSiteId": "23"
 }
