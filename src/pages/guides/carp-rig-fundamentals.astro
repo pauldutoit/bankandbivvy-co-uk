@@ -1,0 +1,183 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import products from "../../data/products.json";
+import siteConfig from "../../data/site.config.json";
+import { amazonProductLink, money, stars } from "../../lib/amazon";
+import { breadcrumbListJsonLd, faqJsonLd } from "../../lib/schema";
+
+const siteUrl = `https://${siteConfig.domain}`;
+const title = `Carp rig fundamentals UK ${new Date().getFullYear()} - hair, chod, zig, safe leadcore explained`;
+const description = `The four carp rigs every UK angler should know - hair rig, chod rig, zig rig, safe leadcore. What each does, when to use it, what tackle it needs, and the mistakes to avoid.`;
+
+const rigPicks = [
+  products.find((p) => p.slug === "nash-scope-black-ops-12ft-3lb"),
+  products.find((p) => p.slug === "mainline-cell-boilies-1kg"),
+  products.find((p) => p.slug === "nash-titan-t3-unhooking-cradle"),
+].filter((p): p is NonNullable<typeof p> => Boolean(p));
+
+const faqs = [
+  { q: "Which rig should I use as a beginner?", a: "Start with a standard hair rig on a 6-8 inch braided hooklink with a size 6 or 8 hook. It catches on 90% of UK stillwaters, it is easy to tie, and it teaches you the fundamentals of presentation. Move to chod or zig rigs only after you understand why the hair rig works and where it fails." },
+  { q: "Do I really need to worry about lead safety?", a: "Yes, and syndicate rules increasingly enforce it. A safe leadcore setup that drops the lead if a fish becomes tethered saves fish welfare on snag-heavy waters. The cost is a £3-5 lead clip and 5 minutes of rig tying - there is no reason not to do it." },
+  { q: "How often should I change my hooklink?", a: "Every session, minimum. Braided hooklinks fray at the hair-loop knot after 3-5 fish, and fluorocarbon develops memory kinks that reduce presentation. A pack of 20 pre-tied hair rigs costs £5 and saves the mid-session panic when you lose a fish to a failed knot." },
+  { q: "What weight lead should I be casting?", a: "Match to distance and water. Under 60 m: 2-2.5 oz. 60-90 m: 3 oz. Over 90 m: 3.5-4 oz. Any less than 2 oz and you struggle for accuracy; any more than 4 oz and you need a heavier test-curve rod (3.5 lb TC minimum)." },
+];
+
+const jsonLd = [
+  breadcrumbListJsonLd([
+    { label: "Home", url: `${siteUrl}/` },
+    { label: "Guides", url: `${siteUrl}/guides/` },
+    { label: "Carp rig fundamentals", url: `${siteUrl}/guides/carp-rig-fundamentals/` },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+<BaseLayout
+  title={title}
+  description={description}
+  indexable={true}
+  crumbs={[
+    { label: "Guides" },
+    { label: "Carp rig fundamentals" },
+  ]}
+  jsonLd={jsonLd}
+>
+  <div class="wrap">
+    <article class="guide-content">
+      <div class="page-head">
+        <div class="kicker">Guide · Rigs · UK · {new Date().getFullYear()}</div>
+        <h1>Carp rig fundamentals</h1>
+        <p class="lede">The four carp rigs every UK angler should understand - hair rig, chod rig, zig rig, safe leadcore. What each does, when to use it, and the tackle it needs.</p>
+        <p class="byline">By <strong>{siteConfig.authorName}</strong> · Updated {new Date().toLocaleDateString("en-GB", { month: "long", year: "numeric" })}</p>
+      </div>
+
+      <p>
+        Rig choice sits between kit choice and watercraft in the ranking of things that decide how many carp you catch. Most UK carpers over-rotate on rig complexity - 20-page threads on hair-loop knots, custom stiff-rig materials, exotic pop-up positioning. The truth is that four rigs cover 95 % of realistic UK carp fishing situations, and knowing when to use each of them matters more than knowing 15 variants of each.
+      </p>
+
+      <div class="aff-notice">
+        <strong>Affiliate disclosure:</strong> The kit suggestions in this guide link to Amazon UK and earn us a commission at no extra cost to you. It does not affect what we recommend. <a href="/affiliate-disclosure/">Details</a>.
+      </div>
+
+      <h2>1. The hair rig - the UK default</h2>
+      <p>
+        The hair rig, invented by Kevin Maddocks and Lenny Middleton in the late 1970s, remains the single most productive carp rig in UK waters. The principle: the hookbait sits on a short "hair" of braid or fluorocarbon behind the hook, so a feeding carp sucks the bait in, feels the hook only after committing to the take, and self-hooks against the weight of a fixed lead.
+      </p>
+      <p>
+        <strong>When to use it:</strong> default for any bottom-fishing situation with a firm lake bed - gravel, hard clay, clean silt. Fishmeal boilies (Mainline Cell, Sticky Krill) over a matched freebie bed. Works from March through November on most UK venues.
+      </p>
+      <p>
+        <strong>Tackle it needs:</strong> 6-8 inch braided hooklink (25-35 lb breaking strain), size 6-8 wide-gape or curve-shank hook, 3-80lb hair braid, hair stops, standard 2.5-3 oz lead.
+      </p>
+      <p>
+        <strong>Common mistake:</strong> hair length too short. A 5-8 mm gap between the bait and the hook shank is the sweet spot; too tight and the fish feels the hook before taking the bait fully.
+      </p>
+
+      <h2>2. The chod rig - for weedy or silty bottoms</h2>
+      <p>
+        Developed by Terry Hearn in the late 1990s for weedy Yateley pits, the chod rig presents a buoyant pop-up on a short stiff link that sits above the lake bed regardless of what the bed is made of. The stiff link can slide up the mainline before casting, so the pop-up settles cleanly even when the lead lands in weed, silt or leaf debris.
+      </p>
+      <p>
+        <strong>When to use it:</strong> weed-heavy waters, silty summer swims, deep leaf debris in autumn, any situation where a hair-rigged bait would be lost in bottom cover. Not for firm gravel - the chod rig's advantage disappears on clean beds.
+      </p>
+      <p>
+        <strong>Tackle it needs:</strong> stiff fluorocarbon (25 lb+, "Chod Filament"), short chod hook (size 4-6), pop-up boilie (10-12 mm), buffer bead, chod safety clip, standard 2.5-3 oz lead.
+      </p>
+      <p>
+        <strong>Common mistake:</strong> using too soft a fluorocarbon. The chod link needs to hold its curve under water - 20 lb standard fluorocarbon will collapse and defeat the point.
+      </p>
+
+      <h2>3. The zig rig - for mid-water and surface feeding carp</h2>
+      <p>
+        A zig rig suspends a buoyant hookbait (usually foam or artificial "zig alignment") in the middle of the water column, targeting carp that are cruising or feeding at mid-depth rather than on the bottom. Especially productive in warm summer months when carp move up to warmer water layers.
+      </p>
+      <p>
+        <strong>When to use it:</strong> May through September on deep waters (2 m+), sunny afternoons when carp show at surface but won't feed on the deck. Bright yellow or black foam zigs are the traditional starting patterns.
+      </p>
+      <p>
+        <strong>Tackle it needs:</strong> long fluorocarbon zig link (adjustable, typically 3-10 ft), fine wire zig hook (size 8-10), foam or artificial hookbait, 3-4 oz lead to hold the link at set depth. Zig depth adjusters (£4) make length changes fast on the bank.
+      </p>
+      <p>
+        <strong>Common mistake:</strong> fishing zigs too shallow. Start halfway to the bottom, adjust in 1 ft increments based on where you see fish showing.
+      </p>
+
+      <h2>4. Safe leadcore - the welfare non-negotiable</h2>
+      <p>
+        Leadcore is a braided mainline sleeve with a lead-based core, used at the business end of your setup for weight and abrasion resistance. Safe leadcore means that if the fish becomes tethered (line snagged around a snag), the lead drops away rather than staying attached to the hook - vastly reducing the chance of a fish trailing tackle and suffering welfare damage.
+      </p>
+      <p>
+        <strong>When to use it:</strong> always, on any water with real snags (trees, weedbeds, submerged features). Most UK syndicates now require safe rigs by rule; day-ticket waters are increasingly following.
+      </p>
+      <p>
+        <strong>Tackle it needs:</strong> 45-65 lb leadcore leader (2-3 ft), lead clip with tail rubber, standard 2.5-3 oz lead. The lead clip holds the lead in the tail rubber during casting and playing, but releases it if the fish is snagged and the tension pulls the leader through the clip.
+      </p>
+      <p>
+        <strong>Common mistake:</strong> using a lead clip without testing the release. Every 5 sessions, check that the lead genuinely releases when you pull hard on the leader against a fixed point.
+      </p>
+
+      <h2>The kit that makes rig work matter</h2>
+      <p>
+        A rig is only as good as the rod that casts it, the bait that goes over it, and the mat that welcomes the fish. Three flagship picks that let good rig work convert to fish on the bank:
+      </p>
+
+      {rigPicks.map((p, i) => {
+        const tier = i === 0 ? "Rod that casts every rig accurately" : i === 1 ? "Bait that trusts your rig work" : "Mat for the fish that come off your rig";
+        return (
+          <div class="product-card">
+            <div class="row g-3 align-items-start">
+              <div class="col">
+                <div class="rank">{tier}</div>
+                <h3><a href={`/reviews/${p.slug}/`}>{p.name}</a></h3>
+                <div class="mb-1"><span class="stars">{stars(p.rating)}</span> <small class="text-muted ms-1">{p.rating.toFixed(1)}/5</small></div>
+                <p class="verdict">{p.verdict}</p>
+                <div class="d-flex flex-wrap gap-2">
+                  <a class="btn btn-amazon" rel="sponsored nofollow noopener" target="_blank" href={amazonProductLink({ asin: p.asin, brand: p.brand, product: p.name })}>See on Amazon UK</a>
+                  <a class="btn btn-outline-secondary" href={`/reviews/${p.slug}/`}>Full review</a>
+                </div>
+              </div>
+              <div class="col-auto text-end">
+                <div class="price">{money(p.price)}</div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+
+      <h2>Rig terminology cheat sheet</h2>
+      <div class="table-responsive">
+        <table class="table compare mb-0">
+          <tbody>
+            <tr><th style="width: 30%;">Hair</th><td>The short braid loop behind the hook that holds the bait. Named because early rigs used strands of human hair.</td></tr>
+            <tr><th>Hooklink</th><td>The line between the swivel and the hook. Typically 6-12 inches of braid, fluorocarbon or stiff monofilament.</td></tr>
+            <tr><th>Bolt rig</th><td>Any rig using a fixed lead that pulls the hook home when the fish takes off. Hair rigs and chod rigs are both bolt-rig variants.</td></tr>
+            <tr><th>Leadcore</th><td>A lead-cored braided sleeve used as a leader between mainline and rig for weight and abrasion resistance.</td></tr>
+            <tr><th>Lead clip</th><td>A safety device that releases the lead if the leader is snagged, allowing the fish to shed the weight.</td></tr>
+            <tr><th>Pop-up</th><td>A buoyant boilie that floats above the lake bed on a short hair. Used in chod, zig and buoyant-hookbait presentations.</td></tr>
+            <tr><th>Wafter</th><td>A near-neutral-buoyancy boilie that hovers just above the bed like a natural bait that has settled.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout">
+        <strong>The one-line summary.</strong> Learn the hair rig first, master it, use it as your default. Add the chod rig for weedy waters, the zig rig for warm-weather mid-water fishing, and always run safe leadcore. Everything else in the rig catalogue is refinement, not fundamentals.
+      </div>
+
+      <h2>Common questions</h2>
+      {faqs.map((f) => (
+        <details class="faq"><summary>{f.q}</summary><p>{f.a}</p></details>
+      ))}
+
+      <div class="cta-banner">
+        <h3>Kit for every rig on this page</h3>
+        <p>Rods, bait, hooks, hooklinks, mats and leaders - every category in one guide, all with Amazon UK links.</p>
+        <a class="btn btn-amazon" href="/">See the pillar gear guide →</a>
+      </div>
+
+      <h2>Continue reading</h2>
+      <div class="cat-grid">
+        <a class="cat-card" href="/guides/uk-carp-welfare-and-legal-basics/"><h3>UK carp welfare & legal basics</h3><p>Unhooking, retention, catch-release, syndicate norms - what UK rules require and best practice on top.</p><div class="meta"><span>Guide</span><span>Read →</span></div></a>
+        <a class="cat-card" href="/gear/carp-rods/"><h3>Carp rods reviewed</h3><p>12ft and 13ft rods in 2.75-3.5 lb TC - what each range does and which brand to pick.</p><div class="meta"><span>Category</span><span>Read →</span></div></a>
+        <a class="cat-card" href="/guides/boilies-explained/"><h3>Boilies explained</h3><p>Shelf-life vs freezer, fishmeal vs birdfood - the bait that goes on your rig.</p><div class="meta"><span>Guide</span><span>Read →</span></div></a>
+      </div>
+    </article>
+  </div>
+</BaseLayout>

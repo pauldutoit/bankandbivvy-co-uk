@@ -1,0 +1,208 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import siteConfig from "../data/site.config.json";
+import { breadcrumbListJsonLd } from "../lib/schema";
+
+const siteUrl = `https://${siteConfig.domain}`;
+const pageUrl = `${siteUrl}/contact/`;
+const title = `Contact - ${siteConfig.siteName}`;
+const description = `Get in touch with ${siteConfig.siteName}. Contact form protected by Cloudflare Turnstile. We answer every genuine reader message.`;
+
+const jsonLd = [breadcrumbListJsonLd([
+  { label: "Home", url: `${siteUrl}/` },
+  { label: "Contact", url: pageUrl },
+])];
+---
+<BaseLayout title={title} description={description} indexable={true} crumbs={[{ label: "Contact" }]} jsonLd={jsonLd}>
+  <div class="wrap">
+    <article class="guide-content">
+      <div class="page-head">
+        <h1>Contact</h1>
+        <p class="lede">Reader questions, corrections, and story ideas welcome. PR pitches ignored.</p>
+      </div>
+
+      <p>Fill in the form below and we will reply within a few working days. No email address published on this page for spam-protection reasons - the form goes directly to our inbox via a secure transactional email service.</p>
+
+      <form id="contact-form" class="contact-form" novalidate>
+        <div class="contact-row">
+          <label for="cf-name">Your name <span aria-hidden="true">*</span></label>
+          <input type="text" id="cf-name" name="name" required autocomplete="name" maxlength="120" />
+        </div>
+
+        <div class="contact-row">
+          <label for="cf-email">Your email <span aria-hidden="true">*</span></label>
+          <input type="email" id="cf-email" name="email" required autocomplete="email" maxlength="200" />
+        </div>
+
+        <div class="contact-row">
+          <label for="cf-subject">Subject (optional)</label>
+          <input type="text" id="cf-subject" name="subject" maxlength="200" />
+        </div>
+
+        <div class="contact-row">
+          <label for="cf-message">Message <span aria-hidden="true">*</span></label>
+          <textarea id="cf-message" name="message" required rows="6" maxlength="4000"></textarea>
+          <small class="contact-hint">Minimum 10 characters. Please give enough context that we can reply usefully.</small>
+        </div>
+
+        <input type="text" name="company_hp" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;pointer-events:none;" aria-hidden="true" />
+
+        <div class="contact-row">
+          <div class="cf-turnstile" data-sitekey={import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || siteConfig.turnstileSiteKey} data-theme="light"></div>
+        </div>
+
+        <div class="contact-row">
+          <button type="submit" id="cf-submit" class="btn btn-amazon">Send message</button>
+          <span id="cf-status" class="contact-status" role="status" aria-live="polite"></span>
+        </div>
+
+        <p class="small text-muted mt-2">
+          This form is protected by <a href="https://www.cloudflare.com/products/turnstile/" rel="nofollow noopener" target="_blank">Cloudflare Turnstile</a>, which replaces the need for CAPTCHA challenges. By submitting, you agree to our <a href="/privacy/">privacy policy</a>.
+        </p>
+      </form>
+
+      <h2>What we answer</h2>
+      <ul>
+        <li>Questions from readers about specific products or setups.</li>
+        <li>Corrections - if we got a spec, a price bracket or an interpretation wrong, tell us and we'll update the page.</li>
+        <li>Suggestions for products we should test next.</li>
+      </ul>
+
+      <h2>What we don't</h2>
+      <ul>
+        <li>Manufacturer or agency PR pitches (product placements, sponsored content).</li>
+        <li>Requests to remove genuine editorial criticism.</li>
+      </ul>
+
+      <div class="cta-banner">
+        <h3>Or dive back into the kit guide</h3>
+        <p>The seven kit families for a modern UK carp setup, three price tiers each, with Amazon UK links.</p>
+        <a class="btn btn-amazon" href="/">See the pillar gear guide -></a>
+      </div>
+    </article>
+  </div>
+
+  <style>
+    .contact-form {
+      background: #fffcf3;
+      border: 1px solid #e2dbc4;
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      margin: 1.25rem 0;
+    }
+    .contact-row {
+      margin-bottom: 1rem;
+    }
+    .contact-row label {
+      display: block;
+      font-family: "Fraunces", serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.35rem;
+      color: var(--brand-ink);
+    }
+    .contact-row label span {
+      color: var(--accent);
+    }
+    .contact-row input[type="text"],
+    .contact-row input[type="email"],
+    .contact-row textarea {
+      width: 100%;
+      padding: 0.55rem 0.7rem;
+      border: 1px solid #d0c8ac;
+      border-radius: 0.35rem;
+      font-family: "Inter", sans-serif;
+      font-size: 1rem;
+      background: #fff;
+    }
+    .contact-row input:focus,
+    .contact-row textarea:focus {
+      outline: 2px solid var(--brand);
+      outline-offset: 1px;
+      border-color: var(--brand);
+    }
+    .contact-row input.error,
+    .contact-row textarea.error {
+      border-color: var(--accent);
+      background: rgba(217, 119, 6, 0.04);
+    }
+    .contact-hint {
+      display: block;
+      color: #5c5d54;
+      font-size: 0.85rem;
+      margin-top: 0.25rem;
+    }
+    .contact-status {
+      margin-left: 1rem;
+      font-size: 0.95rem;
+    }
+    .contact-status.success { color: #3d5a2c; font-weight: 600; }
+    .contact-status.error { color: var(--accent-ink); font-weight: 600; }
+  </style>
+
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <script is:inline>
+    (function () {
+      const form = document.getElementById('contact-form');
+      const submitBtn = document.getElementById('cf-submit');
+      const statusEl = document.getElementById('cf-status');
+      if (!form) return;
+
+      form.addEventListener('submit', async function (ev) {
+        ev.preventDefault();
+        statusEl.className = 'contact-status';
+        statusEl.textContent = '';
+        form.querySelectorAll('.error').forEach((el) => el.classList.remove('error'));
+
+        const fd = new FormData(form);
+        const payload = {
+          name: (fd.get('name') || '').toString().trim(),
+          email: (fd.get('email') || '').toString().trim(),
+          subject: (fd.get('subject') || '').toString().trim(),
+          message: (fd.get('message') || '').toString().trim(),
+          company_hp: (fd.get('company_hp') || '').toString(),
+          'cf-turnstile-response': (fd.get('cf-turnstile-response') || '').toString(),
+        };
+
+        submitBtn.disabled = true;
+        statusEl.textContent = 'Sending...';
+
+        try {
+          const res = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+          const json = await res.json().catch(() => ({}));
+
+          if (res.ok && json.ok) {
+            statusEl.className = 'contact-status success';
+            statusEl.textContent = 'Message sent - we will reply soon.';
+            form.reset();
+            if (window.turnstile) {
+              try { window.turnstile.reset(); } catch (e) { /* noop */ }
+            }
+          } else if (json.error === 'validation' && Array.isArray(json.fields)) {
+            statusEl.className = 'contact-status error';
+            statusEl.textContent = 'Please check the highlighted fields.';
+            json.fields.forEach((f) => {
+              const el = form.querySelector('[name="' + f + '"]');
+              if (el) el.classList.add('error');
+            });
+          } else if (json.error === 'captcha') {
+            statusEl.className = 'contact-status error';
+            statusEl.textContent = 'Please complete the Turnstile check above and try again.';
+          } else {
+            statusEl.className = 'contact-status error';
+            statusEl.textContent = 'Something went wrong. Please try again in a moment.';
+          }
+        } catch (err) {
+          statusEl.className = 'contact-status error';
+          statusEl.textContent = 'Network error. Please try again.';
+        } finally {
+          submitBtn.disabled = false;
+        }
+      });
+    })();
+  </script>
+</BaseLayout>

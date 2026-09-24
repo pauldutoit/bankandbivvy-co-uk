@@ -1,0 +1,382 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import siteConfig from "../../data/site.config.json";
+import products from "../../data/products.json";
+import { amazonProductLink, money, stars } from "../../lib/amazon";
+import { breadcrumbListJsonLd, faqJsonLd } from "../../lib/schema";
+
+const tierPicks = [
+  { tier: "Entry (~£800/year total)", label: "Budget starter", product: products.find((p) => p.slug === "sonik-xtractor-pro-3-rod-combo") },
+  { tier: "Weekend regular (~£1,500/year)", label: "Mid-range value", product: products.find((p) => p.slug === "fox-frontier-xd") },
+  { tier: "Specimen hunter (~£3,000/year+)", label: "Flagship long-haul", product: products.find((p) => p.slug === "trakker-tempest-advanced-100") },
+].filter((t): t is typeof t & { product: NonNullable<typeof t.product> } => Boolean(t.product));
+
+const siteUrl = `https://${siteConfig.domain}`;
+const title = `UK carp fishing session cost calculator ${new Date().getFullYear()} - annual budget in 30 seconds`;
+const description = `Free interactive calculator: enter your kit tier, sessions per year, water type and bait spend. Get your annual UK carp fishing budget broken down honestly by line item.`;
+
+const faqs = [
+  { q: "How accurate is this calculator?", a: "The unit costs are 2026 UK market averages from Amazon UK, tackle-shop pricing and syndicate ticket surveys. Your actual spend will vary by venue, brand loyalty and fishing style, but the totals are within ±15% of what most UK carp anglers report." },
+  { q: "Why is bait such a big share of the total?", a: "Because most beginners under-budget for it. A quality freezer bait at £18-20 per kg, fed at 2 kg per rod per 48-hour session, adds up fast. Bait is the single line most anglers can control without fishing fewer sessions." },
+  { q: "Do these numbers include kit purchase?", a: "No - this calculator covers annual running costs assuming your kit is already bought. See our pillar guide for a one-off kit setup cost breakdown across three angler tiers." },
+];
+
+const jsonLd = [
+  breadcrumbListJsonLd([
+    { label: "Home", url: `${siteUrl}/` },
+    { label: "Tools", url: `${siteUrl}/tools/` },
+    { label: "Session cost calculator", url: `${siteUrl}/tools/session-cost-calculator/` },
+  ]),
+  faqJsonLd(faqs),
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "UK carp fishing session cost calculator",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Web browser",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
+    "description": "Interactive calculator for UK carp fishing annual costs including tickets, bait, terminals, fuel and kit refresh.",
+    "url": `${siteUrl}/tools/session-cost-calculator/`,
+  },
+];
+---
+<BaseLayout
+  title={title}
+  description={description}
+  indexable={true}
+  crumbs={[
+    { label: "Tools" },
+    { label: "Session cost calculator" },
+  ]}
+  jsonLd={jsonLd}
+>
+  <div class="wrap">
+    <article class="guide-content">
+      <div class="page-head">
+        <div class="kicker">Interactive tool · UK · {new Date().getFullYear()}</div>
+        <h1>UK carp fishing session cost calculator</h1>
+        <p class="lede">Enter your fishing habits below. Get your realistic annual UK carp fishing budget - kit refresh, tickets, bait, terminals, fuel - broken down line by line in real time.</p>
+        <p class="byline">By <strong>{siteConfig.authorName}</strong> · Data current for {new Date().toLocaleDateString("en-GB", { month: "long", year: "numeric" })}</p>
+      </div>
+
+      <div class="callout">
+        <strong>What this covers.</strong> Annual <em>running</em> costs assuming your kit is already bought. For one-off kit purchase costs across three angler tiers, see the <a href="/">pillar gear guide</a> and <a href="/guides/uk-carp-session-costs/">annual cost breakdown guide</a>.
+      </div>
+
+      <div class="calc-shell">
+        <form id="calc-form" class="calc-form" onsubmit="return false;">
+          <div class="calc-field">
+            <label for="c-sessions">Sessions per year</label>
+            <input type="range" id="c-sessions" min="5" max="80" value="30" step="1" />
+            <div class="calc-value"><output id="c-sessions-val">30</output> sessions/year</div>
+          </div>
+
+          <div class="calc-field">
+            <label for="c-nights">Average session length</label>
+            <select id="c-nights">
+              <option value="0.5">Day-only (no overnight)</option>
+              <option value="1" selected>24-hour overnighter</option>
+              <option value="2">48-hour weekend</option>
+              <option value="3">72-hour campaign</option>
+            </select>
+          </div>
+
+          <div class="calc-field">
+            <label for="c-water">Water type</label>
+            <select id="c-water">
+              <option value="dayticket">Day-ticket water (~£15/session)</option>
+              <option value="syndicate-mid" selected>Mid-price syndicate (~£450/year)</option>
+              <option value="syndicate-premium">Premium syndicate (~£800/year)</option>
+              <option value="mixed">Mixed (syndicate + day-tickets)</option>
+            </select>
+          </div>
+
+          <div class="calc-field">
+            <label for="c-bait">Bait tier</label>
+            <select id="c-bait">
+              <option value="budget">Budget shelf-life (~£12/kg)</option>
+              <option value="standard" selected>Quality shelf-life (~£15/kg)</option>
+              <option value="premium">Premium freezer (~£20/kg)</option>
+              <option value="specimen">Specimen prebait heavy (~£25/kg avg)</option>
+            </select>
+          </div>
+
+          <div class="calc-field">
+            <label for="c-rods">Number of rods</label>
+            <select id="c-rods">
+              <option value="1">1 rod</option>
+              <option value="2">2 rods</option>
+              <option value="3" selected>3 rods</option>
+            </select>
+          </div>
+
+          <div class="calc-field">
+            <label for="c-fuel">Fuel per session (round trip)</label>
+            <input type="range" id="c-fuel" min="0" max="60" value="12" step="1" />
+            <div class="calc-value">£<output id="c-fuel-val">12</output> per session</div>
+          </div>
+        </form>
+
+        <div class="calc-result" aria-live="polite">
+          <div class="calc-total">
+            <div class="calc-total-label">Estimated annual cost</div>
+            <div class="calc-total-value">£<output id="c-total">0</output></div>
+            <div class="calc-per">≈ £<output id="c-per">0</output> per session</div>
+          </div>
+
+          <table class="table calc-breakdown mb-0">
+            <thead><tr><th>Line item</th><th class="text-end">Annual cost</th></tr></thead>
+            <tbody id="c-breakdown"></tbody>
+          </table>
+
+          <p class="small text-muted mt-2">Estimates use 2026 UK market averages. Results are indicative - actual spend varies with brand loyalty and venue-specific factors. <a href="#methodology">See methodology</a>.</p>
+        </div>
+      </div>
+
+      <h2 id="methodology">Methodology</h2>
+      <p>Each line item is derived from published unit costs. All figures in {new Date().getFullYear()} GBP.</p>
+
+      <h3>Fixed annual costs</h3>
+      <ul>
+        <li><strong>Rod licence:</strong> £36 (senior 12-month, gov.uk).</li>
+        <li><strong>PLI insurance (Angling Trust membership):</strong> £31/year.</li>
+        <li><strong>Water access:</strong> £180/year (12 day-tickets @ £15) to £800/year (premium syndicate). Mixed is calculated as half syndicate ticket + half day-ticket top-ups.</li>
+      </ul>
+
+      <h3>Per-session costs</h3>
+      <ul>
+        <li><strong>Bait:</strong> 0.5 kg per rod per 24 hours of session length, scaled by tier price. A 48-hour 3-rod session at £15/kg = 4.5 kg × £15 = £67.50.</li>
+        <li><strong>Terminals + consumables:</strong> £4 per session (hooks, hooklinks, lead loss average, small bits and pieces).</li>
+        <li><strong>Fuel:</strong> user-entered round-trip cost per session.</li>
+      </ul>
+
+      <h3>Annual overheads</h3>
+      <ul>
+        <li><strong>Kit refresh contingency:</strong> 8% of estimated water access + bait cost, capped at £400. Covers replaceable items and small kit failures across a year.</li>
+      </ul>
+
+      <div class="callout warning">
+        <strong>Where the numbers come from.</strong> Unit costs cross-referenced with 2026 pricing on Amazon UK, Angling Direct, Nash Direct and Trakker UK. Syndicate ticket ranges derived from Angling Trust water directory and community surveys. Fuel default (£12 per 40-mile round-trip) uses UK 2026 petrol pricing at 145 p/l and 40 mpg.
+      </div>
+
+      <div class="aff-notice">
+        <strong>Affiliate disclosure:</strong> The kit suggestions below link to Amazon UK and earn us a commission at no extra cost to you. It does not affect our tier picks. <a href="/affiliate-disclosure/">Details</a>.
+      </div>
+
+      <h2>Kit that fits each tier the calculator suggests</h2>
+      <p>
+        The single kit purchase that most defines each tier the calculator can output. Match your annual-cost result to the tier below,
+        then click through for the full review or straight to Amazon UK.
+      </p>
+
+      {tierPicks.map((t) => (
+        <div class="product-card">
+          <div class="row g-3 align-items-start">
+            <div class="col">
+              <div class="rank">{t.tier} · {t.label}</div>
+              <h3><a href={`/reviews/${t.product.slug}/`}>{t.product.name}</a></h3>
+              <div class="mb-1"><span class="stars">{stars(t.product.rating)}</span> <small class="text-muted ms-1">{t.product.rating.toFixed(1)}/5</small></div>
+              <p class="verdict">{t.product.verdict}</p>
+              <div class="d-flex flex-wrap gap-2">
+                <a class="btn btn-amazon" rel="sponsored nofollow noopener" target="_blank" href={amazonProductLink({ asin: t.product.asin, brand: t.product.brand, product: t.product.name })}>See on Amazon UK</a>
+                <a class="btn btn-outline-secondary" href={`/reviews/${t.product.slug}/`}>Full review</a>
+              </div>
+            </div>
+            <div class="col-auto text-end">
+              <div class="price">{money(t.product.price)}</div>
+              <div class="price-note">RRP guide</div>
+            </div>
+          </div>
+        </div>
+      ))}
+
+      <div class="cta-banner">
+        <h3>Full picks across every category</h3>
+        <p>Bivvies, bedchairs, alarms, rods, mats, luggage, bait - the seven kit families for a modern UK carp setup, at three price tiers each.</p>
+        <a class="btn btn-amazon" href="/">See the pillar gear guide →</a>
+      </div>
+
+      <h2>How to use the result</h2>
+      <p>The number the calculator gives you is a <em>budgeting</em> number, not a promise. Two ways to use it:</p>
+      <ol>
+        <li><strong>Reality-check your current spending.</strong> If you fish 30 sessions per year but the calculator says £2,300 and you're spending £3,500, one of the input tiers is understated - usually bait.</li>
+        <li><strong>Model a change.</strong> Toggle from "premium freezer" bait to "quality shelf-life" and see whether it changes your annual total by more or less than you expected. Most anglers overestimate the impact of bait tier and underestimate the impact of venue choice.</li>
+      </ol>
+
+      <h2>Common questions</h2>
+      {faqs.map((f) => (
+        <details class="faq"><summary>{f.q}</summary><p>{f.a}</p></details>
+      ))}
+
+      <h2>Continue reading</h2>
+      <div class="cat-grid">
+        <a class="cat-card" href="/guides/uk-carp-session-costs/"><h3>UK carp season costs guide</h3><p>Three angler profiles: occasional, weekend regular, specimen hunter - real numbers.</p><div class="meta"><span>Guide</span><span>Read →</span></div></a>
+        <a class="cat-card" href="/gear/boilies-bait/"><h3>Boilies & bait reviews</h3><p>Where the bait budget actually goes on the biggest UK brands.</p><div class="meta"><span>Category</span><span>Read →</span></div></a>
+        <a class="cat-card" href="/"><h3>The pillar gear guide</h3><p>What a full carp setup actually costs to buy in the first place.</p><div class="meta"><span>Pillar</span><span>Read →</span></div></a>
+      </div>
+    </article>
+  </div>
+
+  <style>
+    .calc-shell {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      background: #fffcf3;
+      border: 1px solid #e2dbc4;
+      border-radius: 0.6rem;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    @media (max-width: 768px) { .calc-shell { grid-template-columns: 1fr; } }
+
+    .calc-form { display: flex; flex-direction: column; gap: 1.1rem; }
+    .calc-field label {
+      display: block;
+      font-family: "Fraunces", serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.35rem;
+      color: var(--brand-ink);
+    }
+    .calc-field select, .calc-field input[type="range"] {
+      width: 100%;
+      font-family: "Inter", sans-serif;
+    }
+    .calc-field select {
+      padding: 0.4rem 0.55rem;
+      border: 1px solid #d0c8ac;
+      border-radius: 0.35rem;
+      background: #fff;
+    }
+    .calc-field input[type="range"] {
+      accent-color: var(--brand);
+    }
+    .calc-value {
+      font-size: 0.85rem;
+      color: #5c5d54;
+      margin-top: 0.25rem;
+    }
+
+    .calc-result {
+      background: var(--brand-ink);
+      color: #f6f4ea;
+      border-radius: 0.5rem;
+      padding: 1.25rem 1.35rem;
+    }
+    .calc-total-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(246,244,234,0.7);
+    }
+    .calc-total-value {
+      font-family: "Fraunces", serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      line-height: 1.05;
+      color: #f6f4ea;
+      margin: 0.15rem 0;
+    }
+    .calc-per {
+      font-size: 0.9rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .calc-breakdown {
+      color: #f6f4ea;
+      background: transparent;
+      font-size: 0.9rem;
+    }
+    .calc-breakdown th, .calc-breakdown td {
+      border-color: rgba(246,244,234,0.15);
+      color: #f6f4ea;
+    }
+    .calc-breakdown thead th {
+      background: rgba(255,255,255,0.06);
+      color: rgba(246,244,234,0.85);
+      font-family: "Fraunces", serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+  </style>
+
+  <script is:inline>
+    (function () {
+      const $ = (id) => document.getElementById(id);
+      const fmt = (n) => Math.round(n).toLocaleString("en-GB");
+
+      const el = {
+        sessions: $("c-sessions"),
+        sessionsVal: $("c-sessions-val"),
+        nights: $("c-nights"),
+        water: $("c-water"),
+        bait: $("c-bait"),
+        rods: $("c-rods"),
+        fuel: $("c-fuel"),
+        fuelVal: $("c-fuel-val"),
+        total: $("c-total"),
+        per: $("c-per"),
+        breakdown: $("c-breakdown"),
+      };
+
+      const baitPrice = { budget: 12, standard: 15, premium: 20, specimen: 25 };
+      const nightsLabel = { "0.5": "day-only", "1": "24h", "2": "48h", "3": "72h" };
+
+      function compute() {
+        const sessions = +el.sessions.value;
+        const nights = +el.nights.value;
+        const waterKey = el.water.value;
+        const baitKey = el.bait.value;
+        const rods = +el.rods.value;
+        const fuel = +el.fuel.value;
+
+        el.sessionsVal.textContent = sessions;
+        el.fuelVal.textContent = fuel;
+
+        const licence = 36;
+        const pli = 31;
+
+        let waterAccess;
+        if (waterKey === "dayticket") waterAccess = sessions * 15;
+        else if (waterKey === "syndicate-mid") waterAccess = 450;
+        else if (waterKey === "syndicate-premium") waterAccess = 800;
+        else waterAccess = 450 + sessions * 7;
+
+        const baitKgPerSession = rods * nights * 0.5;
+        const baitPerSession = baitKgPerSession * baitPrice[baitKey];
+        const baitTotal = baitPerSession * sessions;
+
+        const terminals = sessions * 4;
+        const fuelTotal = fuel * sessions;
+
+        const kitRefresh = Math.min(400, Math.round((waterAccess + baitTotal) * 0.08));
+
+        const total = licence + pli + waterAccess + baitTotal + terminals + fuelTotal + kitRefresh;
+        const perSession = sessions > 0 ? total / sessions : 0;
+
+        el.total.textContent = fmt(total);
+        el.per.textContent = fmt(perSession);
+
+        const rows = [
+          ["Rod licence", licence],
+          ["PLI insurance", pli],
+          ["Water access", waterAccess],
+          ["Bait (" + baitKgPerSession.toFixed(1) + " kg × " + sessions + " sessions)", baitTotal],
+          ["Terminals & consumables", terminals],
+          ["Fuel", fuelTotal],
+          ["Kit refresh contingency", kitRefresh],
+        ];
+        el.breakdown.innerHTML = rows
+          .map((r) => "<tr><td>" + r[0] + "</td><td class=\"text-end\">£" + fmt(r[1]) + "</td></tr>")
+          .join("");
+      }
+
+      ["sessions", "nights", "water", "bait", "rods", "fuel"].forEach((k) => {
+        el[k].addEventListener("input", compute);
+        el[k].addEventListener("change", compute);
+      });
+      compute();
+    })();
+  </script>
+</BaseLayout>

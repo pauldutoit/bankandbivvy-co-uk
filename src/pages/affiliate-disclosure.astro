@@ -1,0 +1,46 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import siteConfig from "../data/site.config.json";
+import { breadcrumbListJsonLd } from "../lib/schema";
+import { legalUpdated } from "../lib/legal";
+
+const siteUrl = `https://${siteConfig.domain}`;
+const pageUrl = `${siteUrl}/affiliate-disclosure/`;
+const title = `Affiliate disclosure - ${siteConfig.siteName}`;
+const description = `How ${siteConfig.siteName} earns commission from Amazon.co.uk links, what it costs you (nothing), and what it does not change about our reviews.`;
+
+const jsonLd = [breadcrumbListJsonLd([
+  { label: "Home", url: `${siteUrl}/` },
+  { label: "Affiliate disclosure", url: pageUrl },
+])];
+---
+<BaseLayout title={title} description={description} indexable={true} crumbs={[{ label: "Affiliate disclosure" }]} jsonLd={jsonLd}>
+  <div class="wrap">
+    <article class="guide-content">
+      <div class="page-head">
+        <h1>Affiliate disclosure</h1>
+        <p class="lede"><strong>As an Amazon Associate we earn from qualifying purchases.</strong> Here is what that means in practice.</p>
+        <p class="byline">Last updated <time>{legalUpdated}</time></p>
+      </div>
+
+      <h2>How it works</h2>
+      <p>{siteConfig.siteName} is a participant in the Amazon EU Associates Programme. Many of our pages link to product pages on {siteConfig.amazonMarketplace}. Those links carry our Associates tracking ID. If you click one and then buy something on Amazon, Amazon pays us a small commission.</p>
+
+      <h2>What it costs you</h2>
+      <p>Nothing. <strong>The price you pay is the same</strong> with or without our link. Prices, availability and delivery terms are set by Amazon and the seller, and they change often, which is why we do not print live prices on the reviews. Check the listing before you order.</p>
+
+      <h2>How you can recognise our links</h2>
+      <ul>
+        <li>Buttons that lead to Amazon say so - for example "See on Amazon" - and open in a new tab.</li>
+        <li>These links are marked <code>rel="sponsored"</code> so search engines know they are commercial.</li>
+        <li>Links to sources (manufacturer pages, industry bodies, third parties) are ordinary links and do not earn us anything.</li>
+      </ul>
+
+      <h2>What it does not change</h2>
+      <p>The reviews reflect what the editorial team thinks after testing. We have removed products from our recommendations after long-term testing revealed problems, and we will do it again. If you think a page gets something wrong, tell us through the <a href="/contact/">contact page</a> and we will fix it.</p>
+
+      <h2>More about the site</h2>
+      <p>See <a href="/about/">how this site works</a> and <a href="/privacy/">our privacy policy</a>.</p>
+    </article>
+  </div>
+</BaseLayout>

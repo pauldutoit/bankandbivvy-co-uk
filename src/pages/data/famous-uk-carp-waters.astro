@@ -1,0 +1,308 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import products from "../../data/products.json";
+import siteConfig from "../../data/site.config.json";
+import { amazonProductLink, money, stars } from "../../lib/amazon";
+import { breadcrumbListJsonLd, faqJsonLd } from "../../lib/schema";
+
+const siteUrl = `https://${siteConfig.domain}`;
+const title = `Famous UK carp waters ${new Date().getFullYear()} - Redmire to Waterside, records & access`;
+const description = `The UK carp waters every angler should know. From Redmire (Walker's Clarissa) to Waterside (2026 BRFC record). Access status, named fish, water size, and the kit that suits each type of water.`;
+
+const waterKitPicks = [
+  products.find((p) => p.slug === "trakker-tempest-advanced-100"),
+  products.find((p) => p.slug === "delkim-txi-plus-set"),
+  products.find((p) => p.slug === "nash-scope-black-ops-12ft-3lb"),
+  products.find((p) => p.slug === "nash-titan-t3-unhooking-cradle"),
+].filter((p): p is NonNullable<typeof p> => Boolean(p));
+
+const historicWaters = [
+  {
+    name: "Redmire Pool",
+    location: "Herefordshire",
+    size: "~3 acres",
+    access: "Private / very restricted",
+    notable: "The cradle of UK carp fishing. Stocked with Leney carp in 1934. Home of Walker's Clarissa (44 lb, 1952 British record, held 28 years). Also Yates's Bishop (44+ lb, 1980). Clarissa died at London Zoo 1972; her preserved specimen was sold in 2024 to the Fisherman's Arms pub in Docklow, where it is on public display.",
+    sourceUrl: "https://en.wikipedia.org/wiki/Redmire_Pool",
+    sourceLabel: "Wikipedia · Redmire Pool"
+  },
+  {
+    name: "Wraysbury 1",
+    location: "Middlesex",
+    size: "Big-pit",
+    access: "Closed syndicate",
+    notable: "The first modern big-pit British record water. Terry Hearn's Mary at 55 lb 13 oz (November 1996) was the British record for its era. Mary later grew and was recaptured by Kev Cummins at 56 lb 6 oz. Wraysbury represents the shift from small estate lakes to big gravel pits as record-producing waters.",
+    sourceUrl: "https://www.totalcarpmagazine.com/icons-mary",
+    sourceLabel: "Total Carp · Mary"
+  },
+  {
+    name: "Conningbrook (Mid Kent Fisheries)",
+    location: "Kent",
+    size: "Syndicate lake, ~30 known carp",
+    access: "Syndicate",
+    notable: "Home of Two Tone - Lee Jackson's 61 lb 7 oz British record (August 2002), the first British carp to break 60 lb. Two Tone peaked at 67 lb 14 oz and died in August 2010, but during her life became the most-photographed named carp in UK history.",
+    sourceUrl: "https://www.kentonline.co.uk/ashford/news/king-of-the-carps-the-story-of-kents-celebrity-fish-249478/",
+    sourceLabel: "Kent Online · Two Tone"
+  },
+  {
+    name: "Cranwells Lake, Wasing Estate",
+    location: "Berkshire",
+    size: "Syndicate estate lake",
+    access: "Syndicate",
+    notable: "Where Dean Fletcher caught The Parrot at 68 lb 1 oz (January 2016) - the British carp record for a decade. The Parrot died in 2017. Wasing Estate remains one of the UK's most sought-after syndicate memberships.",
+    sourceUrl: "https://www.carpology.net/article/features/dean-fletcher-its-a-new-british-record/",
+    sourceLabel: "Carpology · Fletcher / The Parrot"
+  },
+  {
+    name: "Waterside Fishery",
+    location: "Chesham, Buckinghamshire",
+    size: "Exclusive booking",
+    access: "Exclusive / private bookings",
+    notable: "Current British carp record water: Mike Nixon's Waterside Common at 68 lb 8 oz (1 May 2026), officially ratified by the BRFC in June 2026. This is the first common carp to hold the outright British record since Walker's Clarissa in 1952.",
+    sourceUrl: "https://anglingtrust.net/2026/06/11/british-carp-record/",
+    sourceLabel: "Angling Trust · BRFC ratification"
+  }
+];
+
+const currentWaters = [
+  {
+    name: "Yateley Complex",
+    location: "Hampshire",
+    size: "Multi-lake complex (Car Park, North, Nursery, Pads, etc.)",
+    access: "Mix of syndicate + day-ticket",
+    notable: "Historic multi-lake complex where Terry Hearn cut his teeth in the 1990s. Home to Bazil - the king of North Lake, a giant mirror carp that has been caught by generations of UK carpers.",
+    sourceUrl: "https://en.wikipedia.org/wiki/Yateley_Complex",
+    sourceLabel: "Wikipedia · Yateley Complex"
+  },
+  {
+    name: "Sandhurst Lake",
+    location: "Yateley / Berkshire border",
+    size: "14 acres",
+    access: "Day-ticket £25-£35",
+    notable: "One of the UK's premier day-ticket waters. Venue record 49 lb 8 oz. Over 17 forty-pound carp in the stock. Average fish size around 26 lb - exceptional for a day-ticket venue.",
+    sourceUrl: "https://www.sandhurstlake.co.uk/",
+    sourceLabel: "Sandhurst Lake"
+  },
+  {
+    name: "Elphicks Fishery",
+    location: "Kent",
+    size: "7-lake complex",
+    access: "Day-ticket from £13/rod",
+    notable: "Accessible day-ticket carp fishing at real quality. North Lake holds 60 lb+ specimens; Pullens and West End lakes hold 50 lb+ fish. One of the most highly-rated day-ticket complexes in South East England.",
+    sourceUrl: "https://www.elphicks-fisheries.co.uk/",
+    sourceLabel: "Elphicks Fisheries"
+  },
+  {
+    name: "Linear Fisheries",
+    location: "Oxfordshire",
+    size: "7 day-ticket + 3 syndicate waters",
+    access: "Day-ticket + syndicate",
+    notable: "The UK's largest carp-focused fishery operator. Oxlease Big Common at ~53 lb; St John's records 48 lb common and 48 lb 12 oz mirror. Comprehensive online booking and detailed venue guides for each lake.",
+    sourceUrl: "https://www.linear-fisheries.co.uk/",
+    sourceLabel: "Linear Fisheries"
+  },
+  {
+    name: "Sonning Eye (RDAA)",
+    location: "Oxfordshire",
+    size: "120-acre gravel pit",
+    access: "Reading & District Angling Association club water",
+    notable: "One of the biggest club-water carp venues in the UK. Carp over 50 lb alongside bream, tench and pike. Requires RDAA membership - far more accessible than most 120-acre syndicate waters.",
+    sourceUrl: "https://carpworld.co.uk/fishery/sonning-eye-rdaa/",
+    sourceLabel: "Carpworld · Sonning Eye"
+  },
+  {
+    name: "Frimley Pits",
+    location: "Surrey",
+    size: "4-lake complex, ~100 acres",
+    access: "Club water (former CEMEX complex)",
+    notable: "Historic Surrey big-pit complex, formerly under CEMEX ownership. Multi-lake system with distinct fish populations and different feeding characteristics per lake.",
+    sourceUrl: "https://carpworld.co.uk/fishery/frimley-pits-fishery/",
+    sourceLabel: "Carpworld · Frimley Pits"
+  },
+  {
+    name: "Horton Church Lake",
+    location: "Berks/Bucks (RK Leisure)",
+    size: "15 acres",
+    access: "Syndicate",
+    notable: "Five fifty-pound carp and over 20 forties. Jack Forrester's 54 lb 8 oz mirror in May 2026 was caught within 24 hours of joining the syndicate - the kind of headline that sends waiting-list applications through the roof.",
+    sourceUrl: "https://www.rkleisure.com/water/horton-church-lake/",
+    sourceLabel: "RK Leisure · Horton Church Lake"
+  }
+];
+
+const faqs = [
+  {
+    q: "Which UK carp waters are still open to new syndicate members in 2026?",
+    a: "Availability changes annually. RK Leisure (Horton Church, Church Pit, other Berkshire/Buckinghamshire waters), Linear Fisheries syndicate lakes, and Mid Kent Fisheries all publicly advertise vacancies through the season. Wasing Estate, Waterside and legacy Yateley waters typically have multi-year waiting lists. Always check the operator's official page - second-hand syndicate transfer information on forums is often stale."
+  },
+  {
+    q: "How much does a UK syndicate ticket cost in 2026?",
+    a: "Mid-range syndicates (Linear Fisheries, Mid Kent, RK Leisure): £400-£700 per year. Premium waters (Wasing, top RK Leisure syndicates): £700-£1,200. Genuinely exclusive waters (Waterside-style booking-only): £1,500+ per session or invitation-only. Day-tickets at good venues (Elphicks, Sandhurst): £13-£35 per day."
+  },
+  {
+    q: "Are named fish like Clarissa, Mary, Bazil, Two Tone still alive?",
+    a: "Most historic named UK carp have passed. Clarissa died at London Zoo in 1972 (specimen at Fisherman's Arms, Docklow since 2024). Two Tone died August 2010. The Parrot died 2017. Some named fish like Bazil at Yateley North Lake and various Wraysbury named carp remain in living stocks - the current generation of UK carpers is building the next set of legendary catches."
+  },
+  {
+    q: "What is the best UK carp water for a beginner?",
+    a: "Well-run day-ticket complexes: Elphicks (Kent, from £13), Linear Fisheries (Oxfordshire, from £15), Sandhurst Lake (Berkshire, £25-£35). These offer genuine 20 lb+ carp in numbers, on-site staff and rules that make first sessions manageable. Avoid unmanaged commercial fisheries with heavy nuisance-species stocks for a first serious carp trip."
+  }
+];
+
+const jsonLd = [
+  breadcrumbListJsonLd([
+    { label: "Home", url: `${siteUrl}/` },
+    { label: "Data", url: `${siteUrl}/data/` },
+    { label: "Famous UK carp waters", url: `${siteUrl}/data/famous-uk-carp-waters/` },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+<BaseLayout
+  title={title}
+  description={description}
+  indexable={true}
+  crumbs={[
+    { label: "Data" },
+    { label: "Famous UK carp waters" },
+  ]}
+  jsonLd={jsonLd}
+>
+  <div class="wrap">
+    <article class="guide-content">
+      <div class="page-head">
+        <div class="kicker">Data · Waters · UK · {new Date().getFullYear()}</div>
+        <h1>Famous UK carp waters</h1>
+        <p class="lede">Twelve waters every UK carp angler should know - from Redmire (where the sport was born) to Waterside (which holds the 2026 British record). Access status, named fish, and the kit that suits each type.</p>
+        <p class="byline">By <strong>{siteConfig.authorName}</strong> · Updated {new Date().toLocaleDateString("en-GB", { month: "long", year: "numeric" })}</p>
+      </div>
+
+      <p>
+        UK carp fishing has been shaped by a small number of iconic waters over the last 75 years. Redmire in Herefordshire produced the fish that started the sport (Walker's Clarissa, 1952). Waters like Wraysbury, Conningbrook, Wasing and now Waterside each defined an era through a single record-breaking catch. Alongside them, a handful of syndicate and day-ticket venues - Yateley, Linear, Sandhurst, Elphicks - have supplied thousands of UK anglers with realistic access to specimen carp.
+      </p>
+      <p>
+        This page covers both categories: the historic waters where UK carp records were set (five below), and the contemporary syndicates and day-ticket complexes that currently produce the sport's biggest catches (seven below). Each entry gives current access status, notable named fish, and links to the operator's official page or the definitive published source.
+      </p>
+
+      <div class="aff-notice">
+        <strong>Affiliate disclosure:</strong> The kit picks in the "gear for waters like these" section link to Amazon UK and earn us a commission at no extra cost to you. <a href="/affiliate-disclosure/">Details</a>.
+      </div>
+
+      <h2>The record-producing historic waters</h2>
+      <p>The five UK waters that have produced British record carp since 1952. Some are essentially private now; others accept new members through structured syndicate programmes.</p>
+
+      <div class="table-responsive">
+        <table class="table compare mb-0">
+          <thead>
+            <tr>
+              <th>Water</th>
+              <th>Location</th>
+              <th>Size</th>
+              <th>Access</th>
+            </tr>
+          </thead>
+          <tbody>
+            {historicWaters.map((w) => (
+              <tr>
+                <td><strong>{w.name}</strong></td>
+                <td>{w.location}</td>
+                <td>{w.size}</td>
+                <td>{w.access}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {historicWaters.map((w) => (
+        <>
+          <h3>{w.name} <small class="text-muted">- {w.location}</small></h3>
+          <p>{w.notable}</p>
+          <p class="small"><strong>Source:</strong> <a href={w.sourceUrl} rel="nofollow noopener" target="_blank">{w.sourceLabel}</a></p>
+        </>
+      ))}
+
+      <h2>Contemporary waters worth knowing</h2>
+      <p>Seven currently-productive syndicates and day-ticket complexes that shape modern UK carp fishing. Mix of accessible and exclusive; all consistently producing named fish and specimen carp.</p>
+
+      <div class="table-responsive">
+        <table class="table compare mb-0">
+          <thead>
+            <tr>
+              <th>Water</th>
+              <th>Location</th>
+              <th>Access</th>
+              <th>Typical fish</th>
+            </tr>
+          </thead>
+          <tbody>
+            {currentWaters.map((w) => (
+              <tr>
+                <td><strong>{w.name}</strong></td>
+                <td>{w.location}</td>
+                <td>{w.access}</td>
+                <td class="small text-muted">See notes below</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {currentWaters.map((w) => (
+        <>
+          <h3>{w.name} <small class="text-muted">- {w.location}</small></h3>
+          <p>{w.notable}</p>
+          <p class="small"><strong>Source:</strong> <a href={w.sourceUrl} rel="nofollow noopener" target="_blank">{w.sourceLabel}</a></p>
+        </>
+      ))}
+
+      <h2>Gear for waters like these</h2>
+      <p>Waters that hold genuine 40 lb+ carp punish inadequate kit. If you're serious enough about carp fishing to be reading a page on the UK's famous waters, you should be running flagship kit in the three categories that matter most: shelter for long sessions, alarms sensitive enough to catch every drop-back, and rods that will land big fish confidently.</p>
+
+      {waterKitPicks.map((p, i) => {
+        const tier = ["Long-session shelter", "Sensitivity that catches specimen fish", "Rod for playing big carp", "Welfare kit non-negotiable"][i];
+        return (
+          <div class="product-card">
+            <div class="row g-3 align-items-start">
+              <div class="col">
+                <div class="rank">{tier}</div>
+                <h3><a href={`/reviews/${p.slug}/`}>{p.name}</a></h3>
+                <div class="mb-1"><span class="stars">{stars(p.rating)}</span> <small class="text-muted ms-1">{p.rating.toFixed(1)}/5</small></div>
+                <p class="verdict">{p.verdict}</p>
+                <div class="d-flex flex-wrap gap-2">
+                  <a class="btn btn-amazon" rel="sponsored nofollow noopener" target="_blank" href={amazonProductLink({ asin: p.asin, brand: p.brand, product: p.name })}>See on Amazon UK</a>
+                  <a class="btn btn-outline-secondary" href={`/reviews/${p.slug}/`}>Full review</a>
+                </div>
+              </div>
+              <div class="col-auto text-end">
+                <div class="price">{money(p.price)}</div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+
+      <div class="callout warning">
+        <strong>Water access changes.</strong> Syndicate memberships come and go, day-ticket pricing shifts, and named fish do eventually die. This page is accurate as of {new Date().toLocaleDateString("en-GB", { month: "long", year: "numeric" })} - always verify current status via the operator's official page (linked above) before booking.
+      </div>
+
+      <h2>Common questions</h2>
+      {faqs.map((f) => (
+        <details class="faq"><summary>{f.q}</summary><p>{f.a}</p></details>
+      ))}
+
+      <div class="cta-banner">
+        <h3>Kit that survives famous-water sessions</h3>
+        <p>Bivvies, bedchairs, alarms, rods, welfare kit - the seven kit families for a modern UK carp setup.</p>
+        <a class="btn btn-amazon" href="/">See the pillar gear guide →</a>
+      </div>
+
+      <h2>Continue reading</h2>
+      <div class="cat-grid">
+        <a class="cat-card" href="/data/uk-carp-records/"><h3>UK carp records</h3><p>The full BRFC-ratified history from Walker's Clarissa (1952) to Waterside (2026).</p><div class="meta"><span>Data</span><span>Read →</span></div></a>
+        <a class="cat-card" href="/data/uk-carp-fishing-stats/"><h3>UK carp fishing stats</h3><p>Rod licence sales, market size, participation trends - from EA and Angling Trust data.</p><div class="meta"><span>Data</span><span>Read →</span></div></a>
+        <a class="cat-card" href="/data/when-to-buy-carp-gear/"><h3>When to buy carp gear</h3><p>Amazon UK promo calendar and seasonality data - the months when kit gets cheapest.</p><div class="meta"><span>Data</span><span>Read →</span></div></a>
+      </div>
+    </article>
+  </div>
+</BaseLayout>

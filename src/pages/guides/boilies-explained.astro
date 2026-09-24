@@ -1,0 +1,155 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import products from "../../data/products.json";
+import siteConfig from "../../data/site.config.json";
+import { amazonProductLink, money } from "../../lib/amazon";
+import { breadcrumbListJsonLd, faqJsonLd } from "../../lib/schema";
+
+const siteUrl = `https://${siteConfig.domain}`;
+const title = `Boilies explained UK ${new Date().getFullYear()} - shelf-life vs freezer, fishmeal vs birdfood`;
+const description = `The plain-English guide to UK boilie selection. What the categories actually mean, which type suits your venue and when to switch bait on pressured water.`;
+
+const baitPicks = products.filter((p) => p.category === "boilies-bait");
+
+const faqs = [
+  { q: "Are shelf-life boilies really inferior to freezer baits?", a: "Not always. Modern shelf-life baits from top UK brands use quality fishmeals and effective preservatives; the trade-off is slightly lower attractor levels than freezer equivalents. On a busy day-ticket water it rarely matters. On a low-stock pressured venue where every angler is on the same shelf-life boilie, switching to freezer bait genuinely helps." },
+  { q: "How long does a bag of boilies actually last on a session?", a: "Depends on your feeding style. Little-and-often anglers get 25-30 fishing hours from 1 kg. Heavy prebaiters put 2-3 kg through a single 48-hour session. As a rough baseline, budget 1 kg per rod per 24 hours of fishing on a moderately-stocked water." },
+  { q: "Do carp really tell the difference between boilie brands?", a: "Yes - on pressured waters where fish have seen the same bait for months, changing to a different attractor profile (fishmeal to birdfood, or vice versa) often triggers takes. On new venues or high-stock waters, differences between quality brands are marginal." },
+  { q: "Can I use pop-ups from one brand over a bed of freebies from another?", a: "Yes and it often works. A visually contrasting pop-up over a matched-colour freebie bed is a classic combination. What matters is consistent attractor profile - do not mix a heavy fishmeal freebie bed with a fruity birdfood pop-up unless you specifically want the contrast." },
+];
+
+const jsonLd = [
+  breadcrumbListJsonLd([
+    { label: "Home", url: `${siteUrl}/` },
+    { label: "Guides", url: `${siteUrl}/guides/` },
+    { label: "Boilies explained", url: `${siteUrl}/guides/boilies-explained/` },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+<BaseLayout
+  title={title}
+  description={description}
+  indexable={true}
+  crumbs={[
+    { label: "Guides" },
+    { label: "Boilies explained" },
+  ]}
+  jsonLd={jsonLd}
+>
+  <div class="wrap">
+    <article class="guide-content">
+      <div class="page-head">
+        <div class="kicker">Bait guide · UK · {new Date().getFullYear()}</div>
+        <h1>Boilies explained</h1>
+        <p class="lede">The categories every UK bait shelf uses, translated into plain English. What matters for your venue and what to ignore in the marketing.</p>
+        <p class="byline">By <strong>{siteConfig.authorName}</strong> · Updated {new Date().toLocaleDateString("en-GB", { month: "long", year: "numeric" })}</p>
+      </div>
+
+      <p>
+        Boilie choice is where UK carp fishing gets tribal fast. Some anglers swear by one brand for a decade; others chop and change every
+        session. The honest answer is that most premium boilies from the top UK brands out-perform each other by margins invisible on the
+        bank, and consistency of application matters far more than which brand you back. But there are real category differences worth
+        knowing.
+      </p>
+
+      <div class="aff-notice">
+        <strong>Affiliate disclosure:</strong> The Amazon UK links below earn us a commission at no extra cost to you. It does not affect
+        our picks. <a href="/affiliate-disclosure/">Details</a>.
+      </div>
+
+      <h2>Shelf-life vs freezer bait</h2>
+      <p>
+        <strong>Shelf-life boilies</strong> use preservatives and are boiled harder to extend storage life at room temperature. Practical
+        for casual anglers, less demanding logistically, and consistent in quality bag-to-bag. Top UK shelf-life examples: Mainline Cell,
+        CC Moore Live System, Nash Scopex Squid.
+      </p>
+      <p>
+        <strong>Freezer baits</strong> use higher protein levels, stronger attractors, and no preservatives - they must be frozen until use.
+        Generally out-fish shelf-life on pressured waters where fish are educated. Top UK freezer bait examples: Sticky Baits The Krill,
+        Nash Instant Action, Mainline Response Range.
+      </p>
+      <p>
+        <strong>Which to choose:</strong> if you fish more than 15 sessions a year on the same water, freezer bait pays back. If you fish
+        occasionally or across multiple venues, shelf-life is more practical and the performance gap is marginal.
+      </p>
+
+      <h2>Fishmeal vs birdfood vs milk protein</h2>
+      <p>
+        <strong>Fishmeal-based boilies</strong> are the UK all-year default. Salt profile that matches carp's natural diet, works cold water
+        and warm, forgiving of feeding mistakes. Cell, Krill, Live System are all fishmeal-heavy.
+      </p>
+      <p>
+        <strong>Birdfood/nut boilies</strong> (Nash Scopex, Fox Complex T, some CC Moore ranges) shine in warmer water - May through
+        September on most UK lakes. Higher sugar content, faster metabolism response from active fish. Under-performs in water below 10°C.
+      </p>
+      <p>
+        <strong>Milk-protein baits</strong> are still specialist. High casein content, distinctive attractor profile, favoured on some
+        specimen waters for big-fish selectivity. Rarely a first choice for newcomers.
+      </p>
+
+      <h2>Boilie size, and why it matters</h2>
+      <p>The size number on the bag matters more than most anglers think:</p>
+      <ul>
+        <li><strong>12 mm.</strong> Doubles as a hookbait size on stiff rigs; good for tench and bream mixed waters where you want to avoid smaller fish nuisance.</li>
+        <li><strong>15-16 mm.</strong> UK default. Suits most 3-lb TC rods with standard hair rigs. Buy this if unsure.</li>
+        <li><strong>18-20 mm.</strong> Sorts through smaller fish faster on waters with lots of low-double stock; also easier to spot on a rig against dark lake beds.</li>
+        <li><strong>24 mm+.</strong> Specimen bait sizes. Only makes sense on waters where the average fish is 25 lb+.</li>
+      </ul>
+
+      <h2>Pop-ups, wafters and hookbaits</h2>
+      <p>The hookbait is often the most important part of a rig, and matching it to your freebies is a real skill.</p>
+      <ul>
+        <li><strong>Bright pop-ups</strong> (yellow, pink, white) over a natural freebie bed are visually distinctive - carp home in on the odd-looking bait. Classic on new waters.</li>
+        <li><strong>Matched-colour balanced hookbaits</strong> disappear into the bed of freebies and work better on pressured venues where fish are wary of standing-out baits.</li>
+        <li><strong>Wafters</strong> (near-neutral buoyancy) sit slightly off the lake bed like a natural boilie that has just settled. Increasingly popular for spooky, pressured fish.</li>
+      </ul>
+
+      <h2>Two picks worth putting on the bank</h2>
+      {baitPicks.map((p, i) => (
+        <div class="product-card">
+          <div class="row g-3 align-items-start">
+            <div class="col">
+              <div class="rank">{i === 0 ? "All-year default" : "Freezer bait pick"}</div>
+              <h3><a href={`/reviews/${p.slug}/`}>{p.name}</a></h3>
+              <p class="verdict">{p.verdict}</p>
+              <div class="d-flex flex-wrap gap-2">
+                <a class="btn btn-amazon" rel="sponsored nofollow noopener" target="_blank" href={amazonProductLink({ asin: p.asin, brand: p.brand, product: p.name })}>See on Amazon UK</a>
+                <a class="btn btn-outline-secondary" href={`/reviews/${p.slug}/`}>Full review</a>
+              </div>
+            </div>
+            <div class="col-auto text-end">
+              <div class="price">{money(p.price)}</div>
+            </div>
+          </div>
+        </div>
+      ))}
+
+      <h2>How much bait per session</h2>
+      <p>Baiting strategy matters more than bait choice for most UK anglers. Rough guidelines:</p>
+      <ul>
+        <li><strong>Short session (12-24 hours):</strong> 500 g-1 kg per rod as a starting bed, top up small handfuls after every fish.</li>
+        <li><strong>48-hour session:</strong> 1-2 kg per rod as starting bed, 500 g refresh each morning.</li>
+        <li><strong>Pre-baiting between sessions:</strong> 1-2 kg per swim, 2-3 times per week, if the water and rules allow. Transforms results on syndicate waters.</li>
+      </ul>
+
+      <div class="callout">
+        <strong>The one-line summary.</strong> Pick one quality brand (Mainline, Sticky, CC Moore, Nash, Fox), stick with it for six
+        sessions minimum, feed consistently, and change your rig before you change your bait. That is how anglers actually catch on
+        pressured UK water.
+      </div>
+
+      <h2>Common questions</h2>
+      {faqs.map((f) => (
+        <details class="faq"><summary>{f.q}</summary><p>{f.a}</p></details>
+      ))}
+
+      <h2>Continue reading</h2>
+      <div class="cat-grid">
+        <a class="cat-card" href="/gear/boilies-bait/"><h3>All boilie reviews</h3><p>Every brand on our UK bait desk.</p><div class="meta"><span>Category</span><span>Read →</span></div></a>
+        <a class="cat-card" href="/guides/uk-carp-session-costs/"><h3>UK carp season costs</h3><p>Why bait is the biggest annual spend.</p><div class="meta"><span>Guide</span><span>Read →</span></div></a>
+        <a class="cat-card" href="/"><h3>The pillar gear guide</h3><p>Seven kit families and how they fit together.</p><div class="meta"><span>Pillar</span><span>Read →</span></div></a>
+      </div>
+    </article>
+  </div>
+</BaseLayout>

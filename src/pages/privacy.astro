@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import siteConfig from "../data/site.config.json";
+import { breadcrumbListJsonLd } from "../lib/schema";
+import { legalUpdated } from "../lib/legal";
+
+const siteUrl = `https://${siteConfig.domain}`;
+const pageUrl = `${siteUrl}/privacy/`;
+const title = `Privacy policy - ${siteConfig.siteName}`;
+const description = "What data we collect, why, and how to opt out.";
+
+const jsonLd = [breadcrumbListJsonLd([
+  { label: "Home", url: `${siteUrl}/` },
+  { label: "Privacy", url: pageUrl },
+])];
+---
+<BaseLayout title={title} description={description} indexable={true} crumbs={[{ label: "Privacy" }]} jsonLd={jsonLd}>
+  <div class="wrap">
+    <article class="guide-content">
+      <div class="page-head">
+        <h1>Privacy policy</h1>
+        <p class="byline">Last updated <time>{legalUpdated}</time></p>
+      </div>
+
+      <h2>What we collect</h2>
+      <p>This site does not require an account. We do not collect personal data through forms. Our web server records standard access logs (IP address, timestamp, page requested, browser type) which are retained for 30 days for security purposes and then deleted.</p>
+
+      <h2>Cookies</h2>
+      <p>We do not set any first-party tracking cookies. Amazon may set cookies when you click through to {siteConfig.amazonMarketplace} - those are governed by Amazon's own privacy policy.</p>
+
+      <h2>Analytics</h2>
+      <p>We use privacy-respecting analytics that do not use cookies and do not track individuals across sites. No data is shared with third parties for advertising purposes.</p>
+
+      <h2>Your rights</h2>
+      <p>Under UK/EU GDPR, you have the right to request access to any personal data we hold about you and to request its deletion. Send us a request via the <a href="/contact/">contact form</a>.</p>
+
+      <h2>Contact form data handling</h2>
+      <p>When you submit a message via our <a href="/contact/">contact form</a>, we process the name, email address, subject and message you enter for the sole purpose of replying to you. The submission is protected against automated abuse by <a href="https://www.cloudflare.com/products/turnstile/" rel="nofollow noopener" target="_blank">Cloudflare Turnstile</a> (no personal cookie set) and delivered to our editorial inbox via <a href="https://resend.com/legal/privacy-policy" rel="nofollow noopener" target="_blank">Resend</a>, a transactional email service. We retain the message for as long as the conversation is active and then delete it. We do not add form submitters to any mailing list.</p>
+    </article>
+  </div>
+</BaseLayout>

@@ -1,0 +1,214 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import products from "../../data/products.json";
+import siteConfig from "../../data/site.config.json";
+import { amazonProductLink, money, stars } from "../../lib/amazon";
+import { breadcrumbListJsonLd, faqJsonLd } from "../../lib/schema";
+
+const siteUrl = `https://${siteConfig.domain}`;
+const title = `When to buy UK carp gear ${new Date().getFullYear()} - Amazon promo calendar & seasonality`;
+const description = `The confirmed Amazon UK 2026 promotional calendar (Big Spring Sale, Prime Day 23-26 June, Prime Big Deal Days 6-7 October, Black Friday) plus seasonal buying patterns for bivvies, alarms, rods, bedchairs and bait.`;
+
+const flagshipPicks = [
+  products.find((p) => p.slug === "trakker-tempest-advanced-100"),
+  products.find((p) => p.slug === "delkim-txi-plus-set"),
+  products.find((p) => p.slug === "nash-scope-black-ops-12ft-3lb"),
+  products.find((p) => p.slug === "nash-indulgence-ss4-wide"),
+].filter((p): p is NonNullable<typeof p> => Boolean(p));
+
+const seasonalityByCategory = [
+  { category: "Bivvies", peak: "August (late summer)", secondary: "March (spring prep)", trough: "December-January", buyMonth: "Late October / Prime Big Deal Days", note: "Bivvies peak in search interest during late summer sessions, then in spring as anglers plan the coming year. Best price windows are pre-season (October-November clearance)." },
+  { category: "Bite alarms", peak: "April-June (pre-season kit refresh)", secondary: "September-October", trough: "December-January", buyMonth: "November Black Friday", note: "Alarms tend to be bought in matched sets when anglers commit to a new setup for the coming season. Black Friday reliably discounts full Fox and Sonik sets; Delkim rarely discounts but Amazon Warehouse listings appear post-Prime Day." },
+  { category: "Carp rods", peak: "April-June (spring setup)", secondary: "September (autumn refresh)", trough: "December-January", buyMonth: "March Big Spring Sale / 23-26 June Prime Day", note: "Nash, Fox and Sonik mid-range rods discount reliably during Prime Day and Big Spring Sale. Flagship rods rarely discount deeper than 15-20%." },
+  { category: "Bedchairs", peak: "May-August (session season)", secondary: "March", trough: "January", buyMonth: "6-7 October Prime Big Deal Days", note: "The most seasonal category. Autumn Prime Big Deal Days is the best moment for Nash Indulgence and Trakker RLX - vendors clear last-season stock ahead of new-year model releases." },
+  { category: "Boilies", peak: "May-September (active fishing season)", secondary: "None significant", trough: "January-February", buyMonth: "Ongoing", note: "Bait rarely 'discounts' meaningfully - the play is bulk buying (5 kg bags) which cuts per-kg cost 20-25%. Occasional 3-for-2 promotions on Sticky Baits and Mainline appear around Prime Day." }
+];
+
+const amazonCalendar = [
+  { date: "25-31 March 2026", event: "Big Spring Sale", audience: "All Amazon UK customers (no Prime required)", carpGearNote: "Reliably discounts entry-tier and mid-range rods, alarms and reels. Bivvies less consistent." },
+  { date: "23-26 June 2026", event: "Prime Day (moved from July)", audience: "Amazon Prime members only", carpGearNote: "Deepest discounts of the year across Fox, Sonik, JRC and Trakker mid-range. Flagship gear (Nash Indulgence SS4, Trakker Tempest) occasionally appears at 10-15% off. Prime Day 2026 was moved earlier for the first time - pre-summer season timing helps demand." },
+  { date: "6-7 October 2026", event: "Prime Big Deal Days (autumn Prime event)", audience: "Amazon Prime members only", carpGearNote: "Best window for bedchairs and bivvies - vendors clear pre-winter stock. Also frequent discounts on winter-specific kit (wraps, thermal cover kits)." },
+  { date: "Late November 2026", event: "Black Friday / Cyber Monday (dates TBC)", audience: "All customers, Prime members get early access", carpGearNote: "Biggest volume of angling deals of the year but not always the deepest. Full alarm sets (Fox Mini Micron X, Sonik SKS) reliably discount 20-25%. Nash-branded gear less consistent - Nash discounts more heavily on their own site." },
+  { date: "26 December 2026 onwards", event: "Boxing Day / January sales", audience: "All customers", carpGearNote: "Cleanup of unsold Black Friday stock. Occasional bargains on luggage and welfare kit but limited selection." },
+  { date: "September 2026 (throughout)", event: "End-of-summer clearance (not Amazon-branded)", audience: "All customers", carpGearNote: "Tackle retailers reduce last-season stock. Watch for named-brand luggage and cradles at 25-30% off." }
+];
+
+const faqs = [
+  { q: "When is the best single time of year to buy a new bivvy on Amazon UK?", a: "Prime Big Deal Days (6-7 October 2026) is historically the strongest window. Vendors clear pre-winter stock at the moment when buyer demand for winter shelters is highest. Second-best: Black Friday in late November." },
+  { q: "Do Amazon UK Prime Day deals really apply to premium carp brands like Nash and Delkim?", a: "Selectively. Mid-range Nash gear (Scope Black Ops, Pursuit) reliably discounts 10-15%. Flagship Nash (Indulgence Big Daddy, Titan bivvy) rarely discounts more than 5-10%. Delkim almost never discounts - Delkim's UK distribution keeps pricing tight. For Delkim, look for Amazon Warehouse (open-box) listings post-Prime Day rather than direct discounts." },
+  { q: "Is it worth waiting for a promo if I need kit for the coming season?", a: "Depends on the calendar. If you need kit in April/May and it's currently January, buy now - the March Big Spring Sale is your only pre-season window and it's small. If you need kit in October and it's July, wait for Prime Big Deal Days. The rule: never wait more than 4 months for a promo when you need the kit to fish." },
+  { q: "Does Amazon UK have any 'flash' or 'lightning' deals worth watching?", a: "Yes, Lightning Deals run continuously on Amazon UK and occasionally include mid-range angling kit at competitive discounts. Set up a wishlist watch for specific products; Amazon emails you when a Lightning Deal starts. Timeframes are typically 6-12 hours so decisions must be fast." }
+];
+
+const jsonLd = [
+  breadcrumbListJsonLd([
+    { label: "Home", url: `${siteUrl}/` },
+    { label: "Data", url: `${siteUrl}/data/` },
+    { label: "When to buy carp gear", url: `${siteUrl}/data/when-to-buy-carp-gear/` },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+<BaseLayout
+  title={title}
+  description={description}
+  indexable={true}
+  crumbs={[
+    { label: "Data" },
+    { label: "When to buy carp gear" },
+  ]}
+  jsonLd={jsonLd}
+>
+  <div class="wrap">
+    <article class="guide-content">
+      <div class="page-head">
+        <div class="kicker">Data · Buying · UK · {new Date().getFullYear()}</div>
+        <h1>When to buy UK carp gear</h1>
+        <p class="lede">Amazon UK's 2026 promotional calendar plus seasonality data for the five main carp gear categories - the months when kit gets cheapest, and when it doesn't.</p>
+        <p class="byline">By <strong>{siteConfig.authorName}</strong> · Updated {new Date().toLocaleDateString("en-GB", { month: "long", year: "numeric" })}</p>
+      </div>
+
+      <div class="callout">
+        <strong>The short version.</strong> Amazon UK's 2026 confirmed dates: Big Spring Sale 25-31 March, Prime Day 23-26 June (moved earlier this year), Prime Big Deal Days 6-7 October, Black Friday late November. Best bivvy/bedchair window: October Prime Big Deal Days. Best alarms window: Black Friday. Best rods window: March Big Spring Sale or June Prime Day.
+      </div>
+
+      <div class="aff-notice">
+        <strong>Affiliate disclosure:</strong> When you buy via the Amazon UK links on this page, we earn a small commission at no extra cost to you - including during Prime Day, Black Friday and other promotional windows. <a href="/affiliate-disclosure/">Details</a>.
+      </div>
+
+      <h2>Amazon UK 2026 promotional calendar</h2>
+      <p>The confirmed Amazon UK promotional events for 2026, with what each typically means for UK carp gear buyers.</p>
+
+      <div class="table-responsive">
+        <table class="table compare mb-0">
+          <thead>
+            <tr>
+              <th style="width: 20%;">Date</th>
+              <th style="width: 22%;">Event</th>
+              <th style="width: 20%;">Who can access</th>
+              <th>Carp gear implications</th>
+            </tr>
+          </thead>
+          <tbody>
+            {amazonCalendar.map((e) => (
+              <tr>
+                <td><strong>{e.date}</strong></td>
+                <td>{e.event}</td>
+                <td class="small">{e.audience}</td>
+                <td class="small">{e.carpGearNote}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <p class="small mt-2"><strong>Sources:</strong> <a href="https://www.aboutamazon.co.uk/news/retail/when-is-amazon-prime-day-2026-shop-deals-from-23-to-26-june" rel="nofollow noopener" target="_blank">About Amazon UK · Prime Day 2026</a> · <a href="https://www.aboutamazon.co.uk/news/retail/amazon-prime-big-deal-days-2026-date" rel="nofollow noopener" target="_blank">About Amazon UK · Big Deal Days 2026</a></p>
+
+      <h2>Seasonality by category</h2>
+      <p>Search interest peaks and troughs across the year for each of the five main UK carp gear categories - combined with the Amazon promo calendar above to identify the actual best buying month per category.</p>
+
+      <div class="table-responsive">
+        <table class="table compare mb-0">
+          <thead>
+            <tr>
+              <th style="width: 15%;">Category</th>
+              <th style="width: 20%;">Peak search interest</th>
+              <th style="width: 20%;">Trough</th>
+              <th style="width: 20%;">Best buying month</th>
+              <th>Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            {seasonalityByCategory.map((s) => (
+              <tr>
+                <td><strong>{s.category}</strong></td>
+                <td>{s.peak}</td>
+                <td>{s.trough}</td>
+                <td><strong>{s.buyMonth}</strong></td>
+                <td class="small">{s.note}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <h2>The buying strategy per category</h2>
+
+      <h3>Bivvies and bedchairs - buy at October Prime Big Deal Days</h3>
+      <p>
+        These two categories peak in seasonal demand (April-August) and clear in autumn as vendors make room for new-year stock. Prime Big Deal Days on 6-7 October 2026 is the deepest single window for bivvies and bedchairs on Amazon UK. If you can wait until October, wait. If you need one now and it's not near a promo, buy from an established brand where price stability is honest - you won't save 30% by holding on.
+      </p>
+
+      <h3>Bite alarms - buy full 3+1 sets at Black Friday</h3>
+      <p>
+        Alarm sets are the classic Black Friday angling deal. Full Fox Mini Micron X and Sonik SKS sets reliably discount 20-25% during late November. Delkim rarely discounts - for Delkim, watch Amazon Warehouse for open-box listings after Prime Day and Black Friday, where units returned within 30 days appear at 15-25% off new list.
+      </p>
+
+      <h3>Carp rods - March Big Spring Sale or June Prime Day</h3>
+      <p>
+        Rod deals concentrate around the two pre-season promo windows. Big Spring Sale (25-31 March) opens promotional pricing to all customers (not just Prime), which matters because rods are a category where non-Prime shoppers often abandon at the payment stage. Prime Day (23-26 June) hits the mid-season refresh moment when anglers replace failed kit from spring sessions.
+      </p>
+
+      <h3>Bait - buy bulk continuously, don't wait for promos</h3>
+      <p>
+        Bait rarely discounts meaningfully on Amazon UK. The play is bulk buying - 5 kg Mainline Cell bags cut per-kg cost by 20-25% vs 1 kg bags. Amazon UK Subscribe & Save saves an additional 5-15% on qualifying bait products for regular buyers.
+      </p>
+
+      <h2>Kit that reliably discounts - flagship picks to watch</h2>
+      <p>The four flagship items across our top-rated UK carp categories, with the promo windows where each historically discounts hardest:</p>
+
+      {flagshipPicks.map((p, i) => {
+        const window = ["Prime Big Deal Days (6-7 October)", "Black Friday (late November) or Amazon Warehouse", "Big Spring Sale (25-31 March) or Prime Day (23-26 June)", "Prime Big Deal Days (6-7 October)"][i];
+        return (
+          <div class="product-card">
+            <div class="row g-3 align-items-start">
+              <div class="col">
+                <div class="rank">Watch this: {window}</div>
+                <h3><a href={`/reviews/${p.slug}/`}>{p.name}</a></h3>
+                <div class="mb-1"><span class="stars">{stars(p.rating)}</span> <small class="text-muted ms-1">{p.rating.toFixed(1)}/5</small></div>
+                <p class="verdict">{p.verdict}</p>
+                <div class="d-flex flex-wrap gap-2">
+                  <a class="btn btn-amazon" rel="sponsored nofollow noopener" target="_blank" href={amazonProductLink({ asin: p.asin, brand: p.brand, product: p.name })}>See on Amazon UK</a>
+                  <a class="btn btn-outline-secondary" href={`/reviews/${p.slug}/`}>Full review</a>
+                </div>
+              </div>
+              <div class="col-auto text-end">
+                <div class="price">{money(p.price)}</div>
+                <div class="price-note">Current RRP</div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+
+      <div class="callout warning">
+        <strong>Watch for Lightning Deals.</strong> Amazon UK runs continuous Lightning Deals - short (6-12 hour) discounts on rotating inventory. Set up a wishlist watch on specific products; Amazon emails you when a Lightning Deal starts. Angling kit appears in Lightning Deals irregularly but the discount can be significant (25-40%). Decision windows are tight so knowing the RRP baseline in advance is essential.
+      </div>
+
+      <h2>Common questions</h2>
+      {faqs.map((f) => (
+        <details class="faq"><summary>{f.q}</summary><p>{f.a}</p></details>
+      ))}
+
+      <h2>Sources</h2>
+      <ul>
+        <li><a href="https://www.aboutamazon.co.uk/news/retail/when-is-amazon-prime-day-2026-shop-deals-from-23-to-26-june" rel="nofollow noopener" target="_blank">Amazon Prime Day 2026 - About Amazon UK</a> (23-26 June 2026 confirmed)</li>
+        <li><a href="https://www.aboutamazon.co.uk/news/retail/amazon-prime-big-deal-days-2026-date" rel="nofollow noopener" target="_blank">Amazon Big Deal Days 2026 - About Amazon UK</a> (6-7 October 2026 confirmed)</li>
+        <li><a href="https://swaydigital.co.uk/how-to-use-google-trends-to-identify-keyword-seasonality/" rel="nofollow noopener" target="_blank">Google Trends UK seasonality - Sway Digital</a> (bivvy search interest data)</li>
+      </ul>
+
+      <div class="cta-banner">
+        <h3>Kit picks ready for when the promo hits</h3>
+        <p>The seven kit families for a modern UK carp setup, with our top picks and Amazon UK links - wishlist them now, pull the trigger when the promo window opens.</p>
+        <a class="btn btn-amazon" href="/">See the pillar gear guide →</a>
+      </div>
+
+      <h2>Continue reading</h2>
+      <div class="cat-grid">
+        <a class="cat-card" href="/tools/session-cost-calculator/"><h3>Session cost calculator</h3><p>Your realistic annual UK carp fishing budget in 30 seconds.</p><div class="meta"><span>Tool</span><span>Try it →</span></div></a>
+        <a class="cat-card" href="/data/famous-uk-carp-waters/"><h3>Famous UK carp waters</h3><p>Twelve waters every UK carp angler should know - from Redmire to Waterside.</p><div class="meta"><span>Data</span><span>Read →</span></div></a>
+        <a class="cat-card" href="/tools/bait-quantity-calculator/"><h3>Bait quantity calculator</h3><p>Realistic bait kg per session and per year, plus cost by tier.</p><div class="meta"><span>Tool</span><span>Try it →</span></div></a>
+      </div>
+    </article>
+  </div>
+</BaseLayout>

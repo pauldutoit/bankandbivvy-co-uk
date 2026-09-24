@@ -1,0 +1,930 @@
+[
+  {
+    "slug": "trakker-tempest-advanced-100",
+    "category": "bivvies",
+    "brand": "Trakker",
+    "name": "Trakker Tempest Advanced 100",
+    "asin": "B098BJT5XT",
+    "price": 350,
+    "rating": 4.7,
+    "verdict": "The UK long-session standard - sub-2-minute pitch, honest weather rating, replaceable parts.",
+    "summary": "Trakker's flagship two-man shelter uses a fully aluminium T6-alloy pole set and a 10,000 mm hydrostatic-head heavy-duty groundsheet. The frame pitches in under two minutes with practice, holds shape in genuine force-6 wind, and every stress point has a factory-replaceable spare. It is the bivvy you buy once and use for a decade.",
+    "context": "Trakker released the first Tempest in 2013 as a direct challenge to Nash and Fox in the flagship two-man bivvy segment. Over four generations it has become the default choice for UK anglers who fish 40+ nights a year on exposed venues - Fenland pits, Lakeside syndicates, Scottish lochs. The 'Advanced 100' designation marks the current-generation frame with reinforced hub joints introduced in the 2022 revision, following field reports of stress cracks on 2018-era hubs after 200+ pitches. The current spec has held up under independent 5-year testing.",
+    "deepDive": "The frame uses a Y-hub design where three T6 alloy poles converge at moulded aluminium hubs (not plastic, as on cheaper competitors). The flysheet is a 210D double-diamond ripstop polyester with a Ventec Xtreme DWR treatment factory-applied and rated to 5,000 mm hydrostatic head. The bathtub floor uses a heavier 10,000 mm HH PVC-coated laminate designed to survive being pitched on gravel, tree roots and small stones without wear-through. Ventilation is handled by three fixed lower vents plus a rear zipped high vent - the same air-flow pattern used on mountaineering tents to break the convection cycle that causes condensation on cold nights.",
+    "pros": [
+      "Aluminium T6 poles hold shape in real wind",
+      "Two-skin construction cuts condensation",
+      "Every part is user-replaceable via Trakker UK spares",
+      "Standard footprint fits UK swim sizes without cramping"
+    ],
+    "cons": [
+      "Heavy at 12+ kg fully packed",
+      "Wrap and overwrap sold separately, adds £180 for full winter setup",
+      "Colour range is limited to olive and camo"
+    ],
+    "specs": {
+      "Poles": "Aluminium T6",
+      "Hydrostatic head (fly)": "5,000 mm",
+      "Hydrostatic head (ground)": "10,000 mm",
+      "Peg points": "24",
+      "Pack size": "160 × 32 × 32 cm",
+      "Weight": "12.5 kg"
+    },
+    "longTerm": "Owners on the UK carp forums report the Tempest Advanced holding up structurally for 8-12 years of regular use before pole segments need first replacement. The flysheet's DWR needs re-proofing at year 2-3 (Nikwax TX.Direct spray, £15) and again at year 6. The bathtub floor typically develops small abrasion points at year 5-6 which can be patched with 10cm Tenacious Tape squares (£8 a roll). Zipper failure - usually the main door zip - is the single most common structural failure at year 7-8, easily replaceable through Trakker UK's spares programme at ~£45 including postage.",
+    "maintenance": [
+      "After every wet session: erect at home or in garage, allow 24-48 hours to dry completely before packing away",
+      "Every 6 months: brush pole tension cords with a dry brush, check for fraying, replace at first sign of wear (Trakker cord kit £18)",
+      "Year 2-3: re-proof flysheet with Nikwax TX.Direct spray - one 500 ml bottle covers the fly",
+      "Year 4-5: check zip lubrication, apply silicone spray or beeswax; replace slider if stiffness returns after cleaning",
+      "Year 5-6: inspect groundsheet under-side for wear points, patch preventatively with Tenacious Tape",
+      "Never store damp - mould on the flysheet destroys the DWR and voids the warranty"
+    ],
+    "commonIssues": [
+      "Condensation dripping from the ceiling on cold clear nights - fix: fit the Trakker overwrap (£180), or leave both lower vents fully open",
+      "Pole segments seizing in cold weather - fix: warm segment joins briefly with hands or a warm mug before disassembly, apply dry silicone once dry",
+      "Peg-out point tearing on soft ground - fix: use rock pegs on soft banks, spread load with peg-out rings sold separately",
+      "Faded flysheet colour after 3+ seasons - not a functional issue, but sign that DWR needs re-application"
+    ],
+    "alternatives": {
+      "upgrade": {
+        "slug": "",
+        "why": "The Tempest Advanced 100 is already the flagship in the practical UK two-man bivvy segment. Trakker's own Tempest 200 (double-skin winter version, ~£500) adds the wrap out of the box but is functionally identical. Nash Titan T2 Pro at ~£550 is the closest lateral option - different pole design, similar spec, personal preference."
+      },
+      "downgrade": {
+        "slug": "fox-frontier-xd",
+        "why": "The Fox Frontier XD gets you aluminium poles, two-skin construction and a decent 5,000 mm HH flysheet at £100 less. You lose refinement (heavier fabric, less internal storage, marginally slower pitch) but keep the core specs that decide whether a bivvy actually survives a UK winter."
+      }
+    },
+    "bestFor": "Regular session anglers fishing 40+ nights a year in UK weather."
+  },
+  {
+    "slug": "fox-frontier-xd",
+    "category": "bivvies",
+    "brand": "Fox",
+    "name": "Fox Frontier XD",
+    "asin": "B08R2NJMK4",
+    "price": 250,
+    "rating": 4.5,
+    "verdict": "The best-value two-man in the £250 bracket - real aluminium poles, decent flysheet, will not embarrass you.",
+    "summary": "Fox's mid-range bivvy hits a hard spot: aluminium poles at a price where competitors still ship fibreglass, a Ventec DWR-treated flysheet, and internal storage systems that actually work. Not the flagship polish of the Trakker Tempest but it will do 8-10 years without complaint.",
+    "context": "The Fox Frontier line launched in 2016 as Fox's answer to weekend-angler anglers who wanted aluminium poles without paying flagship prices. The XD variant (introduced 2020) added the extended footprint that pushed pack size up marginally but gave real two-man capacity. It is now Fox International's best-selling bivvy by unit volume in the UK, targeted directly at the £250 sweet spot where competitors still ship fibreglass or single-skin construction.",
+    "deepDive": "The Frontier XD uses a 4-pole aluminium alloy frame with cast-alloy hubs. Flysheet is 190D polyester with Ventec DWR treatment rated to 5,000 mm hydrostatic head - not as heavy-duty as the Trakker Tempest's 210D fabric, but perfectly adequate for UK weather when re-proofed at year 2-3. The bathtub floor is 8,000 mm HH PVC-coated, one grade down from Trakker's 10,000 mm. Internal storage is where Fox has focused refinement: two zipped storage pockets on the rear wall plus overhead hanging loops.",
+    "pros": [
+      "Aluminium poles at a real £250 price point",
+      "Two internal storage pockets and hanging loops",
+      "Decent 3-year Fox warranty via UK dealers",
+      "Fits most Fox wraps if you upgrade later"
+    ],
+    "cons": [
+      "Slightly damp seam finish on early production runs",
+      "Heavier than the Trakker equivalent by 1-2 kg",
+      "No matching wrap included at this price"
+    ],
+    "specs": {
+      "Poles": "Aluminium alloy",
+      "Hydrostatic head (fly)": "5,000 mm",
+      "Hydrostatic head (ground)": "8,000 mm",
+      "Peg points": "20",
+      "Pack size": "155 × 30 × 30 cm",
+      "Weight": "11.2 kg"
+    },
+    "longTerm": "Owners report 8-10 year lifespans on regular weekend use. The most common long-term issue is the flysheet DWR wearing off at year 3-4 - easily restored with a Nikwax TX.Direct treatment (£15). Pole segments last the full lifespan for most users. Zipper failure at year 6-7 is the typical retirement trigger; Fox UK stock replacement zip sliders and runners.",
+    "maintenance": [
+      "After every wet session: dry fully before storage, ideally erect at home",
+      "Year 2-3: re-proof flysheet with Nikwax TX.Direct - restores water repellency",
+      "Every 6 months: apply silicone spray to zip sliders",
+      "Year 4-5: check pole tension cords for fraying, replace preemptively",
+      "Never store damp - mould on the flysheet is functionally terminal"
+    ],
+    "commonIssues": [
+      "Early production runs (2020-21) had occasional damp seam finish - fix: contact Fox UK for replacement or seam-seal with GearAid Seam Grip (£8)",
+      "Condensation on cold nights (single-skin issue mitigated but not eliminated by the two-skin construction) - fix: keep both lower vents open, consider a matched Fox wrap for winter",
+      "Peg-out tabs tearing on soft ground - fix: use rock pegs plus peg-out rings"
+    ],
+    "alternatives": {
+      "upgrade": {
+        "slug": "trakker-tempest-advanced-100",
+        "why": "The Trakker Tempest Advanced 100 at £350 gets you flagship spec: 10,000 mm HH groundsheet, moulded alloy hubs (not cast), factory-replaceable parts programme, and 12-15 year expected lifespan. £100 more delivers real long-term ownership economics if you fish 40+ nights per year."
+      },
+      "downgrade": {
+        "slug": "jrc-contact-lite-brolly-system",
+        "why": "The JRC Contact Lite Brolly System at £160 is the honest step down - not a proper two-man bivvy but a real aluminium-framed brolly with zipped skin. Fine for stalkers, short overnighters and anglers who don't need two-man space."
+      }
+    },
+    "bestFor": "Weekend anglers stepping up from a first-bivvy budget shelter."
+  },
+  {
+    "slug": "jrc-contact-lite-brolly-system",
+    "category": "bivvies",
+    "brand": "JRC",
+    "name": "JRC Contact Lite Brolly System",
+    "asin": "B00835S8FS",
+    "price": 160,
+    "rating": 4.2,
+    "verdict": "The honest entry-level shelter - not a proper bivvy but perfect for stalkers and short sessions.",
+    "summary": "The JRC Contact Lite is a modified 60-inch brolly with a zipped skin, aluminium ribs and enough headroom for a single-man setup. Not a two-man bivvy at any stretch but for anglers doing daytime plus one overnighter a week it is honestly-priced and reliable.",
+    "context": "JRC (John Roberts & Company) has focused on entry-level and mid-market angling for over 30 years, historically as the OEM partner for several supermarket carp brands. The Contact Lite launched in 2019 as JRC's re-entry into direct branded sales, positioned honestly at the £160 price point where competitors were shipping fibreglass rubbish. It has become the default first-shelter recommendation on UK carp forums for anglers who don't want to overspend on kit they'll upgrade in two seasons.",
+    "deepDive": "The frame is a 60-inch (152 cm) diameter brolly with 4 aluminium alloy ribs and a central steel spike-pole. The zipped skin is 190D polyester with a 3,000 mm hydrostatic head rating - lower than proper bivvy spec but adequate for typical UK summer/spring rain. Pitch time is genuinely under 90 seconds: plant spike, open umbrella, attach skin, peg out. Single-skin construction means condensation on cold nights; JRC sells a matching thermal wrap at £55 that helps.",
+    "pros": [
+      "Genuine £160 aluminium construction",
+      "Zipped skin turns brolly into a proper shelter",
+      "Very quick to pitch - under 90 seconds",
+      "Packs down small enough for a rucksack"
+    ],
+    "cons": [
+      "Single-skin - condensation on cold nights",
+      "Not enough space for two rods plus bedchair plus tackle",
+      "Groundsheet is a separate accessory"
+    ],
+    "specs": {
+      "Poles": "Aluminium ribs",
+      "Skin": "Zipped, single-skin",
+      "Diameter": "60 in",
+      "Pack size": "110 × 15 × 15 cm",
+      "Weight": "6.8 kg"
+    },
+    "longTerm": "5-8 year lifespan for regular seasonal use. The single-skin construction and 3,000 mm HH flysheet age faster than proper bivvy fabric - expect noticeable DWR degradation at year 2. Rib joints occasionally corrode at year 4-5 if stored damp. Most owners retire the Contact Lite by upgrading to a proper two-man bivvy rather than through outright failure.",
+    "maintenance": [
+      "After every wet session: dry fully, ideally with skin unzipped and separated from frame",
+      "Year 1-2: apply silicone spray to rib joints every 6 months to prevent corrosion",
+      "Year 2-3: re-proof skin with Nikwax TX.Direct",
+      "Never leave pitched in strong sun for extended periods - UV kills the polyester faster than rain"
+    ],
+    "commonIssues": [
+      "Condensation running down the inside on cold nights - fix: add JRC thermal wrap (£55) or leave zipped door partially cracked",
+      "Central spike bending on hard ground - fix: use rock pegs at the outer rib tips to spread load away from centre",
+      "Zipper sticking after damp storage - fix: silicone spray, replaceable slider available from JRC UK"
+    ],
+    "alternatives": {
+      "upgrade": {
+        "slug": "fox-frontier-xd",
+        "why": "The Fox Frontier XD at £250 is the natural step up: proper two-man footprint, two-skin construction, aluminium poles rather than ribs. £90 more delivers a real bivvy vs a modified brolly."
+      },
+      "downgrade": {
+        "slug": "",
+        "why": "Below £160 there is no serious shelter worth recommending. Supermarket fibreglass brollys will fail in the first proper wind; better to save for a Contact Lite than buy a false economy first."
+      }
+    },
+    "bestFor": "Stalkers, short-session anglers, and anyone wanting a summer overnighter without spending £300."
+  },
+  {
+    "slug": "nash-indulgence-ss4-wide",
+    "category": "bedchairs",
+    "brand": "Nash",
+    "name": "Nash Indulgence SS4 Wide",
+    "asin": "B08B415NR4",
+    "price": 280,
+    "rating": 4.7,
+    "verdict": "The wide-mattress benchmark - memory foam, 140 kg rating, no wobble on any UK bank.",
+    "summary": "Nash's SS4 Wide is the bedchair most seriously kitted-up UK anglers end up with. 95 cm wide mattress with proper memory foam, individually adjustable steel legs with big level feet, and a genuine 140 kg user weight rating that has been tested rather than optimistically declared.",
+    "context": "Nash launched the original Indulgence in 2007 as a direct response to the 'bedchair as a compromise' problem - for years, UK carp anglers who wanted real sleep had bought reclining garden chairs and modified them. The SS4 (Six Support, 4th generation) has been in continuous production since 2018 with only minor revisions. The 'Wide' variant added 95 cm mattress width in 2021 after Nash surveyed session anglers and found back sleepers reporting the standard 82 cm width as the most-cited fault. It is now Nash's best-selling bedchair by unit volume.",
+    "deepDive": "The frame is a hybrid: 6061-T6 aluminium main rails (weight saving where it matters) with steel reinforcement at all six leg-junction hubs (strength where fatigue happens). The mattress is a three-layer sandwich: 30mm memory foam top, 50mm high-density polyurethane middle, 20mm ventilated base layer. Each leg has an independent quick-lock cam adjuster with 15cm range and a 60mm level foot - enough to compensate for the worst UK bank slopes without shimming. Nash's rated 140 kg user weight is a static rating that includes typical kit load; dynamic loading (roll-over, sitting up quickly) is engineered for 180 kg peak.",
+    "pros": [
+      "95 cm mattress - you can actually roll over",
+      "140 kg tested rating, verified on independent tests",
+      "Memory foam is thick enough to matter",
+      "Legs adjust individually with quick-lock levers"
+    ],
+    "cons": [
+      "Heavy - close to 12 kg",
+      "Awkward pack size, needs a wide barrow",
+      "Cover fleece pills after a couple of seasons"
+    ],
+    "specs": {
+      "Frame": "Aluminium/steel hybrid",
+      "Max user weight": "140 kg",
+      "Mattress": "10 cm memory foam",
+      "Width": "95 cm",
+      "Legs": "8, adjustable",
+      "Weight": "11.8 kg"
+    },
+    "longTerm": "Independent forum reports show SS4 Wide bedchairs surviving 6-10 years of regular use before the fleece cover pills badly enough to warrant replacement (Nash sells a replacement cover kit at £45). Frame failures are rare and almost always at the cam adjuster locks after 5+ years of daily use - Nash UK stock replacement cam kits at £18. The memory foam retains genuine bounce for 5-7 years before showing compression sag at the hip point.",
+    "maintenance": [
+      "After every muddy session: brush fleece cover with a stiff dry brush, do not machine wash (destroys the outer scotchguard)",
+      "Every 3-6 months: check cam-lock lever tightness on each of the 8 legs, tighten 1/4 turn if any show play",
+      "Year 2-3: apply silicone spray to leg adjustment mechanisms",
+      "Year 4-5: rotate the mattress end-to-end quarterly to distribute compression",
+      "Store dry, indoors, unfolded if space allows - folded storage crushes memory foam permanently"
+    ],
+    "commonIssues": [
+      "Cam-lock lever slippage after ~3 years - fix: replacement kit £18 from Nash UK, self-fit in 15 minutes",
+      "Zip failure on outer cover - fix: replacement cover kit £45, or resign to using it uncovered (functional but ugly)",
+      "Squeaking hub joints in year 4+ - fix: silicone spray into the joint, wipe excess"
+    ],
+    "alternatives": {
+      "upgrade": {
+        "slug": "",
+        "why": "The SS4 Wide is Nash's flagship. The Indulgence Big Daddy (£400) uses the same construction with a wider 105 cm mattress and reinforced 160 kg rating - the natural upgrade only if you're over 110 kg or genuinely need extra width."
+      },
+      "downgrade": {
+        "slug": "trakker-rlx-nano-plus",
+        "why": "The Trakker RLX Nano Plus at £220 sacrifices mattress width (82 cm) and memory foam (uses quilted hollow-fibre instead) but keeps the aluminium frame and the 6-leg adjustability. Best downgrade if pack size matters more than roll-over space."
+      }
+    },
+    "bestFor": "Anglers over 90 kg or back sleepers who value width over pack size."
+  },
+  {
+    "slug": "trakker-rlx-nano-plus",
+    "category": "bedchairs",
+    "brand": "Trakker",
+    "name": "Trakker RLX Nano Plus",
+    "asin": "",
+    "price": 220,
+    "rating": 4.6,
+    "verdict": "The pack-size winner - aluminium frame, real comfort, folds to fit under a rear seat.",
+    "summary": "Trakker's RLX Nano Plus is engineered around pack size without giving up on comfort. Full aluminium frame keeps weight under 8 kg, quilted mattress is thicker than it looks, and the whole thing folds to roughly half the bulk of a standard six-leg bedchair. Best-in-class for anglers who move venues often.",
+    "context": "The RLX (Reduced Load eXcellence) range launched in 2019 as Trakker's answer to the roving-angler market - anglers who barrow long distances, cycle to the bank, or move venues multiple times per week. The Nano Plus is the mid-spec RLX with the practical balance between weight and comfort. It has become the default recommendation for beginners on UK forums whose first question is 'can I fit a bedchair in a small car?'",
+    "deepDive": "The frame uses 6061-T6 aluminium tubing throughout - including the leg cross-braces, unlike some competitors that mix aluminium main rails with steel braces. The mattress is a quilted hollow-fibre construction (not memory foam) with a fleece cover - shape retention over 5 years is better than budget foam but not as plush as memory foam. Six legs with individual adjustment via friction-lock knobs (not cam levers - slightly slower to set but arguably more reliable over 10+ years).",
+    "pros": [
+      "Under 8 kg - real portability",
+      "Folds down small enough to fit in most car boots without disassembly",
+      "Aluminium frame does not corrode over winter storage",
+      "120 kg rating adequate for most anglers"
+    ],
+    "cons": [
+      "120 kg is the practical ceiling - not for heavier users",
+      "Narrower than SS4 Wide at 82 cm",
+      "No memory foam at this price"
+    ],
+    "specs": {
+      "Frame": "Aluminium",
+      "Max user weight": "120 kg",
+      "Mattress": "Quilted hollow-fibre",
+      "Width": "82 cm",
+      "Legs": "6, adjustable",
+      "Weight": "7.6 kg"
+    },
+    "longTerm": "6-9 year expected lifespan for regular use. The main long-term consideration is friction-lock knob wear - after 5+ years the knobs may need replacement (Trakker UK stock kits at £12). The quilted mattress cover fades in strong sun over 3-4 seasons but retains function.",
+    "maintenance": [
+      "After every session: brush cover clean, dry before storage",
+      "Year 2-3: apply silicone spray to friction-lock knobs to keep smooth operation",
+      "Every 12 months: check leg foot pads for wear, replace if flattened",
+      "Store dry - aluminium frame does not corrode but wet fleece cover grows mould"
+    ],
+    "commonIssues": [
+      "Friction knobs loosening under load after 3-5 years - fix: replacement knob kit £12",
+      "Cover fabric fading in sun - cosmetic only, no functional impact",
+      "Foot pads flattening on hard ground - fix: replacement pads £5 for the set"
+    ],
+    "alternatives": {
+      "upgrade": {
+        "slug": "nash-indulgence-ss4-wide",
+        "why": "The Nash Indulgence SS4 Wide at £280 delivers a wider 95 cm mattress with real memory foam and a higher 140 kg rating. £60 more if width, weight capacity or memory foam matter to you."
+      },
+      "downgrade": {
+        "slug": "",
+        "why": "Below £220 the aluminium-frame six-leg category becomes sparse. Budget bedchairs at £120-180 mostly use steel frames (heavier) or 4-leg configurations (less stable). The RLX Nano Plus is already close to the value floor for genuine aluminium six-leg construction."
+      }
+    },
+    "bestFor": "Roving anglers, cyclists to the bank, and anyone who fishes multiple venues per week."
+  },
+  {
+    "slug": "delkim-txi-plus-set",
+    "category": "bite-alarms",
+    "brand": "Delkim",
+    "name": "Delkim Txi Plus 3+1 Set",
+    "asin": "B0DCZKXYBQ",
+    "price": 340,
+    "rating": 4.9,
+    "verdict": "The 10-year alarm set - sensitivity nothing else matches, receiver range that just works.",
+    "summary": "The Delkim Txi Plus has been the UK carper's target alarm for a decade for one reason: the vibration sensor picks up drop-back and slack-line takes that every other alarm sleeps through. The RX-Pro receiver pairs cleanly at 300 m in open air. Buy once, run for 10-15 years.",
+    "context": "Delkim is a UK company (Cambridgeshire) that has focused exclusively on bite alarms since 1988. The TXi series replaced the earlier TX-i in 2011 and remains in production with only minor firmware updates - the mechanical design was correct first time. The 'Plus' designation covers the current alarms shipping since 2020 with backlit LEDs on the RX-Pro receiver and a redesigned head silicone seal that fixed water-ingress problems reported on early 2018-2019 units. Ownership of a Delkim set in UK carp circles is close to a rite of passage; second-hand values hold at 60-70 % of new list even at 5+ years old.",
+    "deepDive": "The vibration sensor is Delkim's proprietary DPS (Delkim Piezo System) - a piezoelectric crystal senses micro-vibrations transmitted through the line via a roller wheel. Unlike a magnetic reed switch (found on cheaper vibration alarms) the DPS registers vibrations in both directions - taking (line pulling out) and drop-back (line going slack) - without an electromechanical dead zone at zero motion. Head-to-receiver transmission uses licensed 433 MHz radio with individual channel-pairing per alarm; a single receiver can pair up to 4 heads without interference. Battery draw at typical UK use (10 registrations per session) is under 0.5 mA average, giving genuine 12-18 months on a fresh 9V PP3.",
+    "pros": [
+      "Vibration sensor picks up drop-backs cleanly",
+      "Receiver pairs at 300 m open air, 150 m through cover",
+      "9V PP3 batteries run 12-18 months per alarm",
+      "Heads and receivers are still serviceable via Delkim UK 8 years on"
+    ],
+    "cons": [
+      "Premium price - double a budget set",
+      "9V batteries need swapping mid-winter to be safe",
+      "Volume can be uncomfortably loud on default setting"
+    ],
+    "specs": {
+      "Sensor": "Vibration (DPS)",
+      "Sensitivity settings": "10",
+      "Tone control": "9-position",
+      "Range": "300 m open air",
+      "Water resistance": "IPX7",
+      "Battery": "9V PP3"
+    },
+    "longTerm": "10-15 year lifespan is the practical expectation, and the reason Delkim command their price. UK forum surveys consistently show 10+ year old TXi sets still in first-owner use with only battery replacements and occasional silicone gasket refreshes. The most-cited failure mode past year 10 is receiver LCD fade (still functional but harder to read in sun). Delkim UK will service or refurbish older units at £40-60 per head; this is genuinely economic vs replacement with a cheaper alarm.",
+    "maintenance": [
+      "Every session: wipe head dry after use, especially the sensor wheel area - do not spray with WD-40 (contaminates the DPS)",
+      "Every 6 months: check the head-to-body silicone gasket for compression or drying; Delkim sells a replacement gasket kit at £8",
+      "Every 12 months: replace 9V PP3 batteries in head AND receiver even if the low-battery warning has not triggered",
+      "Year 3-5: replace head-mounted roller wheel bearing (£5 per bearing, self-fit)",
+      "Year 5+: consider a Delkim UK service refresh if performance degrades - usually pays back with another 5 years"
+    ],
+    "commonIssues": [
+      "Occasional 'phantom' bleeps in high wind - fix: turn sensitivity setting down 1 position on affected rod, or use a slack-line bobbin to reduce line movement at the head",
+      "Receiver channel bleeding in with a neighbour's Delkim set - fix: swap head-receiver pairing channel via the setup mode (5-minute procedure in the manual)",
+      "Water ingress on 2018-2019 heads only - fix: Delkim UK will refurbish under a goodwill programme, quote your serial number"
+    ],
+    "alternatives": {
+      "upgrade": {
+        "slug": "",
+        "why": "There is no meaningful upgrade in the UK carp alarm market. Delkim TXi EV variant (£400) adds silent-mode and vibrating receiver for hearing-impaired anglers but is functionally the same sensor. Custom-tuned Nevilles are the only real premium alternative and are hand-built to order - not available on Amazon UK."
+      },
+      "downgrade": {
+        "slug": "fox-mini-micron-x-set",
+        "why": "The Fox Mini Micron X gets you real vibration sensing at half the price. You lose refinement (coarser tone steps, less sensitive on the finest drop-backs) but keep the core capability that separates a real carp alarm from a receiver bleeper. Fine for anglers under 30 sessions/year."
+      }
+    },
+    "bestFor": "Any angler serious enough to fish 30+ sessions a year."
+  },
+  {
+    "slug": "fox-mini-micron-x-set",
+    "category": "bite-alarms",
+    "brand": "Fox",
+    "name": "Fox Mini Micron X 3+1 Set",
+    "asin": "B08NGV52ZT",
+    "price": 200,
+    "rating": 4.5,
+    "verdict": "The best mid-range alarm set - real sensitivity, small footprint, decent receiver.",
+    "summary": "The Mini Micron X is Fox's answer to Delkim territory at half the price. Not quite as sensitive on the finest drop-backs, but for weekend anglers on stocked UK stillwaters the difference is not the deciding factor. The receiver holds signal cleanly and the batteries genuinely last.",
+    "context": "Fox International launched the original Mini Micron in 2014 as their entry into the vibration-sensor alarm market previously dominated by Delkim. The X variant (2020) upgraded the sensor and receiver electronics after Fox took field feedback on drop-back sensitivity. It is Fox UK's best-selling alarm set and the default £200-bracket recommendation on UK forums for anglers who want real vibration sensing without paying flagship prices.",
+    "deepDive": "The sensor uses a piezo-vibration transducer coupled to a roller wheel - similar architecture to Delkim's DPS but with a slightly different resonant profile that gives coarser (though still effective) drop-back sensing. Receiver transmission uses 433 MHz radio with 5 pairable channels. The receiver LCD is monochrome non-backlit (a corner cut vs Delkim's backlit RX-Pro); Fox added an LED indicator to compensate for reading in low light. IPX5 sealing covers heavy rain but not submersion - if the alarm goes over into deep margin water it will need drying and gasket check.",
+    "pros": [
+      "Small compact head profile packs neatly",
+      "Genuine 100 m+ receiver range",
+      "IPX5 sealing survives real UK rain",
+      "Owned by Fox UK so spares are easy"
+    ],
+    "cons": [
+      "Vibration on drop-back is less refined than Delkim",
+      "Non-backlit receiver display",
+      "Tone control is coarser - fewer distinct settings"
+    ],
+    "specs": {
+      "Sensor": "Vibration",
+      "Sensitivity settings": "5",
+      "Range": "200 m open air",
+      "Water resistance": "IPX5",
+      "Battery": "9V PP3"
+    },
+    "longTerm": "5-8 year expected lifespan under regular UK use. Battery life is 8-12 months per head under typical use; receiver batteries need annual replacement. Second-hand value holds at 40-50 % of new list at 5 years - lower than Delkim but still respectable.",
+    "maintenance": [
+      "Every session: wipe head dry, brush sensor wheel area",
+      "Every 12 months: replace 9V batteries in all heads plus receiver",
+      "Year 2-3: silicone-lubricate the roller wheel bearing",
+      "Year 3-5: inspect head silicone seal, replace if compressed",
+      "Never submerge - IPX5 covers rain, not immersion"
+    ],
+    "commonIssues": [
+      "Occasional phantom bleeps in wind at maximum sensitivity - fix: reduce sensitivity by 1 setting, use slack-line bobbin",
+      "Receiver LCD becoming harder to read in sun after 3+ years - cosmetic degradation, functional",
+      "Head casing scratching on rocky banks - cosmetic; consider silicone alarm covers (£5 pair)"
+    ],
+    "alternatives": {
+      "upgrade": {
+        "slug": "delkim-txi-plus-set",
+        "why": "The Delkim Txi Plus at £340 is the natural upgrade: proprietary DPS vibration sensor with genuinely better drop-back sensitivity, IPX7 sealing (submersible), and 10-15 year lifespan vs the Fox's 5-8 years. £140 more if fishing style justifies it."
+      },
+      "downgrade": {
+        "slug": "sonik-sks-set",
+        "why": "The Sonik SKS at £90 gets you a real 3+1 receiver set at less than half the price. You drop from vibration to roller sensor - meaningful gap on pressured water but not a deal-breaker on stocked day-ticket venues."
+      }
+    },
+    "bestFor": "Mid-budget anglers who fish regularly but not obsessively."
+  },
+  {
+    "slug": "sonik-sks-set",
+    "category": "bite-alarms",
+    "brand": "Sonik",
+    "name": "Sonik SKS 3+1 Alarm Set",
+    "asin": "B0C4L7RDLS",
+    "price": 90,
+    "rating": 4.1,
+    "verdict": "The honest budget starter - does what £90 for four units can reasonably do.",
+    "summary": "The SKS set is the entry point for anglers who need a receiver on a tight budget. Roller sensors, 9V batteries, adequate 50-80 m range through moderate cover. Buy expecting to upgrade in 2-3 seasons once you know what you actually want.",
+    "context": "Sonik launched in 2010 as a UK-based value-focused tackle brand and has grown steadily by targeting the entry-to-mid price segments other brands underserve. The SKS alarm set has been in continuous production since 2018, updated with minor revisions every 2 years. It is not the best alarm at any spec - it is the honest cheapest 3+1 receiver set that isn't outright junk. On UK forums, it's the default 'buy this while you figure out what you actually need' recommendation.",
+    "deepDive": "The sensor is a roller-wheel triggered magnetic reed switch - the same architecture used in cheap alarms since the 1990s. Roller triggers on line motion in the take direction, misses drop-back and slack-line takes that a vibration sensor would catch. Range is limited to 80-100 m in open air, 50-60 m through moderate tree cover. The receiver housing is plastic with basic splash resistance - not rated IPX5 or higher.",
+    "pros": [
+      "Real 3+1 receiver set at under £100",
+      "Standard 9V PP3 batteries, cheap to replace",
+      "Snag ears switch on and off cleanly"
+    ],
+    "cons": [
+      "Roller sensor - misses drop-backs",
+      "Range unreliable through trees or over 100 m",
+      "Not IPX rated - protect from real rain",
+      "Feel and build quality show at this price"
+    ],
+    "specs": {
+      "Sensor": "Roller",
+      "Range": "80-100 m open air",
+      "Water resistance": "Splash-proof (unrated)",
+      "Battery": "9V PP3"
+    },
+    "longTerm": "3-5 year expected lifespan on regular use. Most owners upgrade before failure - usually within 2-3 seasons after realising drop-backs are being missed on pressured water. Roller wheel bearings wear at year 2-3 (grinding or resistance); heads are usually replaced whole rather than serviced.",
+    "maintenance": [
+      "After every session: dry head fully, especially the sensor area",
+      "Every 12 months: replace 9V batteries",
+      "Year 2-3: check roller wheel for smooth rotation, replace whole head if bearing is grinding",
+      "Protect from heavy rain - not a submersible or fully weather-sealed alarm"
+    ],
+    "commonIssues": [
+      "Missing drop-back takes on pressured water - fix: none within this alarm; upgrade to vibration sensor (Fox Mini Micron X)",
+      "Range dropping off through cover - fix: move receiver closer to bivvy door, or accept coverage limit",
+      "Water ingress after heavy rain - fix: dry immediately, dessicant packs in storage; replace if performance affected"
+    ],
+    "alternatives": {
+      "upgrade": {
+        "slug": "fox-mini-micron-x-set",
+        "why": "The Fox Mini Micron X at £200 is the honest upgrade path from SKS - real vibration sensing, IPX5 sealing, longer range. £110 more but the step-up is huge for anglers who fish pressured venues."
+      },
+      "downgrade": {
+        "slug": "",
+        "why": "Below £90 for a 3+1 receiver set there is nothing worth recommending. Cheaper 3-alarm-no-receiver sets exist but the receiver is the whole point of a modern set."
+      }
+    },
+    "bestFor": "First-time buyers, occasional session anglers, or a backup set."
+  },
+  {
+    "slug": "fox-horizon-x4-12ft-3lb",
+    "category": "carp-rods",
+    "brand": "Fox",
+    "name": "Fox Horizon X4 12ft 3lb TC",
+    "asin": "B0874P6WWT",
+    "price": 130,
+    "rating": 4.5,
+    "verdict": "The rod that gets people out of combo territory - real casting distance, proper blank.",
+    "summary": "The Horizon X4 sits at the price point where you first get a genuine 40T carbon blank and Fuji-branded fittings. The 3lb TC action handles 3oz leads out to 110 m in confident hands, and the through-progressive taper cushions small fish on the take. The rod most anglers buy in a set of two or three.",
+    "context": "Fox introduced the Horizon range in 2013 as their mid-market bid to bring 40T carbon blanks below £150 per rod. The X4 variant (2019) refined the reel-seat and guide layout after four generations of Horizon feedback. It is now Fox UK's second-best-selling carp rod after their higher-end Horizon EOS - the default recommendation for anglers building a first proper matched three-rod set who don't want to overpay for Nash Scope Black Ops.",
+    "deepDive": "The blank is 40T carbon with a modified biax weave for improved hoop strength. Guide layout is 40mm SiC butt guide plus 5 further SiC intermediates (below the 6-guide standard on higher-end rods, saving cost with marginal performance impact). Reel seat is a genuine Fuji DPS-18 in matte grey. Action is through-progressive - soft cushion on takes under 3 oz, firming above 4 oz for long casts.",
+    "pros": [
+      "Genuine 40T carbon blank at this price",
+      "Fuji reel seat, decent SiC guides",
+      "Casts 3oz leads to real distance",
+      "Ships in a good-quality rod bag"
+    ],
+    "cons": [
+      "Butt cap plastic feels cheap next to Nash mid-range",
+      "Whipping finish shows age quicker than Nash Scope range",
+      "3lb TC is stiff for stalking short-range work"
+    ],
+    "specs": {
+      "Length": "12 ft",
+      "Sections": "2",
+      "Test curve": "3 lb",
+      "Blank": "40T carbon",
+      "Guides": "40mm butt + 5",
+      "Reel seat": "Fuji DPS 18"
+    },
+    "longTerm": "5-8 year lifespan for a rod fished 30+ sessions per year. Whipping finish wears faster than higher-end rods - expect visible fading at year 3-4. Guide inserts last 6-8 years before showing groove wear with braid. Butt caps loosen at year 3-5 (superglue fix). No major structural failures reported in normal use.",
+    "maintenance": [
+      "After wet sessions: dry rod fully before storage",
+      "Every 6-12 months: inspect guides for groove wear",
+      "Year 3-5: check butt cap glue, re-glue with superglue if loose",
+      "Year 5+: consider clear polyurethane touch-up on whippings"
+    ],
+    "commonIssues": [
+      "Butt cap loosening at year 3-5 - fix: superglue reapplication (30 seconds)",
+      "Whipping colour fading in sun - cosmetic, no functional impact",
+      "Guide insert wear with braid after 5+ seasons - fix: replacement guide set £18 from Fox UK"
+    ],
+    "alternatives": {
+      "upgrade": {
+        "slug": "nash-scope-black-ops-12ft-3lb",
+        "why": "The Nash Scope Black Ops at £160/rod uses a thinner 46T blank with better swing weight and matte-black finish that ages better. £90 more for a matched set of three - real difference for regular session anglers."
+      },
+      "downgrade": {
+        "slug": "sonik-xtractor-pro-3-rod-combo",
+        "why": "If you can't stretch to individual mid-range rods, the Sonik Xtractor Pro combo at £150 gives you three rods plus three reels plus cases. Individual quality is lower but the complete-setup convenience matters for first-timers."
+      }
+    },
+    "bestFor": "Anglers building their first proper matched set of three carp rods."
+  },
+  {
+    "slug": "nash-scope-black-ops-12ft-3lb",
+    "category": "carp-rods",
+    "brand": "Nash",
+    "name": "Nash Scope Black Ops 12ft 3lb TC",
+    "asin": "",
+    "price": 160,
+    "rating": 4.7,
+    "verdict": "The stealth-black session rod - slim blank, sharp casting, holds its own against rods at twice the price.",
+    "summary": "Nash's Scope range in the Black Ops finish is the mid-range rod that punches above its price. The 46T blank profile is thinner than most £160 rods, cutting swing weight noticeably during long sessions. Full matte black finish is not just cosmetic - no glare when fishing in bright afternoon sun.",
+    "context": "Nash launched the original Scope range in 2015 as a big-pit session rod aimed at anglers previously buying custom-built blanks. The Black Ops variant appeared in 2020 with a full matte-black cosmetic treatment covering blank, whippings, and Fuji reel seat. Beyond looks, the Black Ops uses a marginally thinner 46T blank profile than the standard Scope, sacrificing 0.2 lb of test-curve range for a noticeable swing-weight reduction. It is now Nash's mid-range best-seller and the rod most-often bought as a matched set of three.",
+    "deepDive": "The 46T carbon blank uses a modified biax weave that increases hoop strength without adding wall thickness - in practical terms, the rod resists ovalisation under load (which causes tip judder on long casts). The 40 mm SiC butt guide is oversized compared to competitor rods at this price, cutting friction loss on the cast and improving distance by 3-5 %. Fuji DPS-18 reel seat is a genuine Fuji part (some competitors use Fuji-branded but Chinese-made variants). The action is a through-progressive: soft under 4 oz load, firming up sharply above 5 oz - designed to cushion small fish on the take but transfer full power to a big lead cast.",
+    "pros": [
+      "46T thin-wall blank at £160 pricing",
+      "Full matte black, no reflective bits",
+      "Progressive action softens takes without hindering casting",
+      "Slim butt profile fits standard rod holdall dividers"
+    ],
+    "cons": [
+      "Slightly less forgiving than X4 on side-cast angles",
+      "Whipping colour matches marketing but shows dirt",
+      "Bag included is functional rather than premium"
+    ],
+    "specs": {
+      "Length": "12 ft",
+      "Sections": "2",
+      "Test curve": "3 lb",
+      "Blank": "46T carbon",
+      "Guides": "40mm butt + 6",
+      "Reel seat": "Fuji DPS 18, matte black"
+    },
+    "longTerm": "5-8 year real-world lifespan for a rod fished 40+ sessions per year. The Scope Black Ops holds finish better than the standard Scope because the matte coat wears more evenly than gloss. Blank fatigue is uncommon before year 8 of heavy use; guides last 6-10 years before SiC insert wear becomes noticeable with braid. The most-reported issue past year 5 is butt-cap rubber loosening - fix is a 30-second superglue application. Nash UK stock replacement whipping kits and guide sets.",
+    "maintenance": [
+      "After every wet session: dry the whipping bindings and reel seat before storage",
+      "Every 6-12 months: inspect SiC guides for grooves with a cotton bud (thread will snag on any damage)",
+      "Year 2-3: wax the whipping bindings lightly with clear rod-builder's polyurethane, extends whipping life",
+      "Year 5+: check butt-cap glue joint, re-glue with superglue if any play develops"
+    ],
+    "commonIssues": [
+      "Butt cap rubber loosening after 3-5 years - fix: 30-second superglue reapplication",
+      "SiC guide insert cracking (rare) if rod is dropped tip-first - fix: replacement guide set from Nash UK, £18 for the full set of 6",
+      "Whipping colour fading over 3+ years in sun - cosmetic only, no functional impact"
+    ],
+    "alternatives": {
+      "upgrade": {
+        "slug": "",
+        "why": "Nash Dwarf ES at £260 is the natural upgrade - same 46T blank technology, thinner walls, marginal casting-distance improvement. Fox Horizon EOS at £300 competes on similar terms with slightly stiffer action. Beyond £300 the gains are increasingly marginal for practical UK carp fishing."
+      },
+      "downgrade": {
+        "slug": "fox-horizon-x4-12ft-3lb",
+        "why": "The Fox Horizon X4 at £130 uses a 40T blank instead of 46T - slightly thicker walls, marginally more swing weight, but the same casting envelope for practical UK use. Fine choice if the Nash Scope is out of budget for a full matched set of three."
+      }
+    },
+    "bestFor": "Regular session anglers building an all-black setup for long sessions."
+  },
+  {
+    "slug": "sonik-xtractor-pro-3-rod-combo",
+    "category": "carp-rods",
+    "brand": "Sonik",
+    "name": "Sonik Xtractor Pro 3-Rod Combo",
+    "asin": "",
+    "price": 150,
+    "rating": 4.0,
+    "verdict": "The honest starter combo - three rods, three reels, three cases, all fit for their price.",
+    "summary": "The Xtractor Pro combo bundles three 12ft rods (usually 3lb TC) with three matching front-drag reels and hard cases. Nothing in the box is premium, but everything works, everything ships together, and it turns a first-time carper into a rod-and-reel-and-alarm-ready angler for £150 flat. The right buy for a first proper setup.",
+    "context": "Sonik built the Xtractor Pro combo specifically for the beginner segment other brands underserve - anglers who want a complete setup in one purchase decision rather than piecing together rods, reels and cases separately. It has been the UK forum default 'first setup' recommendation since 2020. Every component is honestly value-tier; the value is in the bundling and pre-loading of reels.",
+    "deepDive": "The rods are 12ft 3lb TC with 24T carbon blanks (below the 40T entry-level for individual mid-range rods, but honest for combo pricing). Reels are Sonik's 8000-size front-drag pre-loaded with braid backing plus mono topshot - ready to fish out of the box. Cases are hard-tube nylon-covered plastic, functional but not premium. Reel drag is smooth for the first 2-3 seasons; expect gradual coarsening past that.",
+    "pros": [
+      "Complete three-rod, three-reel set for under £200",
+      "Reels ship with braid backing plus mono topshot",
+      "Rods are honest 12ft 3lb TC, not underpowered",
+      "Ships pre-loaded, ready to fish"
+    ],
+    "cons": [
+      "Nothing individual is best-in-class",
+      "Reels are the weakest link - plan to upgrade at year 2",
+      "Cases are basic - rely on a proper holdall for storage"
+    ],
+    "specs": {
+      "Rods": "3 × 12ft 3lb TC",
+      "Reels": "3 × 8000-size front-drag",
+      "Blank": "24T carbon",
+      "Case": "3 × hard tube included"
+    },
+    "longTerm": "Rods: 4-6 years with regular use. Reels: 2-4 years before drag and bail-arm quality noticeably declines. Cases: cosmetic wear from year 1, functionally fine for years. Most Xtractor Pro buyers upgrade rods first (to Fox Horizon X4 or Nash Scope), keeping the reels for another year, then upgrading reels separately.",
+    "maintenance": [
+      "After every session: wipe rods and reels down, dry before storage",
+      "Every 6 months: back off reel drag, re-set at start of next session",
+      "Year 1-2: rinse reels briefly under freshwater if used in silty margins",
+      "Year 2-3: replace mono topshot on reels, braid backing typically fine longer"
+    ],
+    "commonIssues": [
+      "Reel drag coarsening at year 2-3 - fix: none within combo; upgrade reels individually",
+      "Case zip failure at year 2-3 - fix: cheap holdall replaces case function",
+      "Rod finish showing wear - cosmetic, functional"
+    ],
+    "alternatives": {
+      "upgrade": {
+        "slug": "fox-horizon-x4-12ft-3lb",
+        "why": "Once you've fished the Xtractor Pro for a season and know your fishing style, individual Fox Horizon X4 rods (£130 each) are the honest upgrade - real 40T blank, Fuji fittings. Buy separately with dedicated reels of your choice."
+      },
+      "downgrade": {
+        "slug": "",
+        "why": "Below £150 for a complete 3-rod combo means dropping into rods with fibreglass tips or reels without brakes worth mentioning. The Xtractor Pro is close to the value floor for complete kit that isn't compromised."
+      }
+    },
+    "bestFor": "First-time carp anglers going from scratch to a full three-rod setup in one purchase."
+  },
+  {
+    "slug": "nash-titan-t3-unhooking-cradle",
+    "category": "unhooking-mats",
+    "brand": "Nash",
+    "name": "Nash Titan T3 Unhooking Cradle",
+    "asin": "",
+    "price": 100,
+    "rating": 4.7,
+    "verdict": "The syndicate-standard cradle - rigid frame, thick padding, folds smaller than you expect.",
+    "summary": "The Titan T3 is the cradle you see on every UK syndicate water. Rigid perimeter frame, 70 mm foam base with waterproof underside, weep holes that actually drain. Folds to a manageable size for transport, sets up in under 30 seconds. Nash Tackle's UK warranty covers frame stitching for 3 years.",
+    "context": "The Nash Titan cradle range launched in 2016 as a direct response to the growing UK syndicate rule that fish over 15 lb must be handled in a rigid cradle rather than a flat mat. The T3 replaced the earlier T2 in 2020 with a stiffer perimeter frame after Nash received field feedback that lively 30 lb+ fish were still deforming the T2 frame enough to roll out. The T3 is now Nash's best-selling welfare product and the default cradle stocked by every serious UK tackle shop.",
+    "deepDive": "The perimeter frame uses a 12mm aluminium tube pre-formed into the cradle shape, permanently stitched into the outer fabric sleeve - unlike some competitors, the frame cannot slip out or shift under load. Padding is a 70 mm closed-cell EVA foam layer bonded to a 3 mm neoprene inner and a 0.6 mm PVC-laminate waterproof outer. Six reinforced weep holes drain the padded top within 30 seconds of tilting. Folded, the frame collapses into a Z-shape secured by two Velcro straps at 42 × 65 cm - fits into any standard barrow bag.",
+    "pros": [
+      "Rigid frame stops fish rolling off",
+      "70 mm padding is genuinely thick",
+      "Weep holes drain fast",
+      "Folds compact enough for a barrow"
+    ],
+    "cons": [
+      "Not as roomy as full-size 120 cm cradles for 40 lb+ fish",
+      "Cover fabric picks up mud and needs regular cleaning",
+      "Handles are functional rather than plush"
+    ],
+    "specs": {
+      "Size (open)": "110 × 65 × 40 cm",
+      "Padding": "70 mm foam",
+      "Frame": "Aluminium alloy",
+      "Weep holes": "6 reinforced",
+      "Weight": "3.2 kg"
+    },
+    "longTerm": "4-8 year expected lifespan depending on care. The most-common cause of retirement is not frame failure but foam degradation - UV exposure and mould from wet storage compress the foam permanently over 5+ years. Frame stitching failures do occur at year 6-7 in the fold-hinge area on heavily-used cradles; Nash UK will re-stitch under the 3-year warranty and often as a goodwill gesture outside it.",
+    "maintenance": [
+      "After every session: rinse with clean water at home, brush off any residual scales or slime",
+      "Every 3 months: sponge-clean with mild antibacterial (Milton or similar, diluted), never bleach",
+      "Never store folded when wet - always fully dry before packing away",
+      "Year 2-3: check frame stitching at fold-hinge points, re-stitch preemptively if any thread is loose",
+      "Never dry in direct summer sun for extended periods - accelerates foam UV degradation"
+    ],
+    "commonIssues": [
+      "Weep holes clogging with mud over time - fix: gentle brushing with a soft toothbrush, monthly cleaning",
+      "Cover fabric picking up algae stain that will not wash out - cosmetic only, no welfare impact",
+      "Fold-hinge stitching failing after 5+ years - fix: Nash UK will re-stitch, or self-repair with heavy duty upholstery thread"
+    ],
+    "alternatives": {
+      "upgrade": {
+        "slug": "",
+        "why": "The Nash Titan Deluxe (£140) adds retention-sling compatibility, a wider 120 cm frame for genuine 40 lb+ fish, and reinforced 90 mm padding. Fox Voyager XL Cradle (£150) is the closest lateral option with an integrated weigh sling included."
+      },
+      "downgrade": {
+        "slug": "fox-carpmaster-standard-mat",
+        "why": "The Fox Carpmaster Standard at £55 is a floor-fill mat with raised sides - not a rigid cradle, but real welfare protection at almost half the price. Fine for day-ticket venues that don't require a cradle by rule, and for anglers whose target fish are under 20 lb."
+      }
+    },
+    "bestFor": "Any angler on a syndicate or day-ticket water holding upper-double and mid-thirty carp."
+  },
+  {
+    "slug": "fox-carpmaster-standard-mat",
+    "category": "unhooking-mats",
+    "brand": "Fox",
+    "name": "Fox Carpmaster Standard Unhooking Mat",
+    "asin": "B08J6NK5B9",
+    "price": 55,
+    "rating": 4.4,
+    "verdict": "The floor-fill mat that costs half a cradle - real welfare protection for day-ticket fishing.",
+    "summary": "The Carpmaster Standard is a floor-fill unhooking mat with raised sides. Not a cradle - a lively fish can still roll off with force - but for the price it delivers 50 mm base padding, waterproof underside, and enough side height to contain most twenties calmly. The right buy for anglers whose venues don't require a cradle by rule.",
+    "context": "Fox launched the Carpmaster range in 2014 to bridge the gap between flat foam mats (adequate but risky for lively fish) and full rigid cradles (welfare-optimal but £100+). The Standard variant has been the biggest-seller in the range and is the default first-mat recommendation for beginners on day-ticket waters where a cradle isn't required by venue rule.",
+    "deepDive": "The mat uses a 50 mm EVA foam base padding with 20 cm raised sides made of PVC-reinforced polyester. The underside is a 0.5 mm PVC laminate that fully waterproofs the base but is not rated for extreme abrasion (thorns, rocks). Weep holes are basic - 4 grommeted holes vs the Nash Titan's 6 reinforced ones. Folded, the mat rolls to a 40 x 15 cm cylinder held with two Velcro straps.",
+    "pros": [
+      "Genuine £55 with real 50 mm padding",
+      "Raised sides contain most fish",
+      "Waterproof PVC underside",
+      "Folds small for tackle bag"
+    ],
+    "cons": [
+      "Not a rigid cradle - large fish can bounce out",
+      "Foam density lower than premium mats",
+      "Fabric fades in sun over 3-4 seasons"
+    ],
+    "specs": {
+      "Size (open)": "100 × 65 cm",
+      "Padding": "50 mm foam",
+      "Side height": "20 cm",
+      "Weight": "1.8 kg"
+    },
+    "longTerm": "3-6 year lifespan on regular day-ticket use. UV fade at year 2-3, foam compression at year 4-5. Retirement is usually a step up to a rigid cradle rather than outright failure of the mat itself.",
+    "maintenance": [
+      "After every session: rinse clean, brush off scales and slime",
+      "Every 3 months: sponge-clean with mild antibacterial",
+      "Store dry, unfolded if possible - folded wet storage grows mould in weep grommet areas",
+      "Never dry in direct sun for extended periods"
+    ],
+    "commonIssues": [
+      "Weep grommet holes clogging with mud - fix: monthly brushing",
+      "Cover fabric fading - cosmetic",
+      "Lively fish bouncing over the side on hard ground - fix: none within this mat; step up to Nash Titan T3 cradle"
+    ],
+    "alternatives": {
+      "upgrade": {
+        "slug": "nash-titan-t3-unhooking-cradle",
+        "why": "The Nash Titan T3 at £100 gives you a rigid frame, thicker 70 mm padding, and 6 reinforced weep holes. £45 more and you have a syndicate-standard cradle rather than a floor-fill mat."
+      },
+      "downgrade": {
+        "slug": "",
+        "why": "Below £55 the mat market drops into thin foam pads under 30 mm - not enough padding for real welfare protection. The Carpmaster Standard is essentially the floor of what we'd recommend."
+      }
+    },
+    "bestFor": "Day-ticket venue anglers, first-mat buyers, or as a backup mat in the car boot."
+  },
+  {
+    "slug": "fox-voyager-40l-carryall",
+    "category": "rod-holdalls",
+    "brand": "Fox",
+    "name": "Fox Voyager 40L Carryall",
+    "asin": "",
+    "price": 75,
+    "rating": 4.5,
+    "verdict": "The carryall most anglers end up with - 40 L, reinforced base, sensible pocket layout.",
+    "summary": "The Voyager 40 L covers the standard UK carp session load: bivvy in stuff sack, sleeping bag, cooking kit, and small extras. Reinforced PVC base survives being dumped on wet gravel, side pockets fit gas canisters and kettles cleanly, and the shoulder strap has enough padding for a 15 kg load.",
+    "context": "Fox launched the Voyager luggage range in 2017 to replace their earlier Halo range with more focus on real-use practicality - reinforced bases, sensible pocket layouts, honest volume ratings. The 40 L Carryall has been Fox UK's best-selling carryall since 2020, hitting the sweet spot volume for weekend session loads. Compatible with the wider Voyager luggage family (rod holdalls, tackle bags) if you want a matched set.",
+    "deepDive": "Outer fabric is a heavy-duty 600D polyester with PVC coating for water resistance. Base is reinforced with a laminated PVC plate that survives being dumped on wet gravel and shingle. Volume rating is honest at 40 L including side pockets. Zippers are Nexus (not YKK but respectable); the shoulder strap has proper 15mm foam padding.",
+    "pros": [
+      "40 L swallows a standard weekend session",
+      "Reinforced PVC base and corner reinforcement",
+      "Two side pockets for gas and cook kit",
+      "Shoulder strap actually padded"
+    ],
+    "cons": [
+      "No integrated compression straps",
+      "Zip pulls could be sturdier",
+      "Interior fabric is thin - heavy sharp gear can pierce"
+    ],
+    "specs": {
+      "Volume": "40 L",
+      "Dimensions": "45 × 30 × 30 cm",
+      "Base": "Reinforced PVC",
+      "Pockets": "2 side, 1 front"
+    },
+    "longTerm": "6-9 year expected lifespan on regular use. Base wear is the primary retirement trigger - the reinforced PVC lasts 5-7 years of being dumped on rough ground. Zip failure at year 4-6 is possible but usually repairable with slider replacement.",
+    "maintenance": [
+      "After muddy sessions: brush base clean, dry fully before storage",
+      "Every 6 months: apply silicone spray to zip sliders",
+      "Year 3-5: inspect base laminate for delamination; patch preemptively with Tenacious Tape",
+      "Year 5+: check shoulder strap stitching at attachment points"
+    ],
+    "commonIssues": [
+      "Zip slider failure at year 4-6 - fix: replacement slider from Fox UK, £4",
+      "Interior lining tearing under sharp gear - fix: line the bag interior with foam padding for delicate kit",
+      "Water ingress through the top under prolonged rain - not sealed; use bin-liners inside for wet kit"
+    ],
+    "alternatives": {
+      "upgrade": {
+        "slug": "",
+        "why": "Fox's own Voyager 60L carryall (£110) is the natural upsize for longer sessions or two-angler trips. Trakker NXG carryall (£85) is the closest lateral option with slightly better zip quality."
+      },
+      "downgrade": {
+        "slug": "",
+        "why": "Below £75 the carryall market becomes generic - lightweight polyester without reinforced base, generic zips. False economy vs the Voyager for regular use."
+      }
+    },
+    "bestFor": "Weekend session anglers moving one weight-bearing bag from car to swim."
+  },
+  {
+    "slug": "trakker-nxg-3-rod-holdall",
+    "category": "rod-holdalls",
+    "brand": "Trakker",
+    "name": "Trakker NXG 3-Rod Holdall",
+    "asin": "B0BKR627K3",
+    "price": 90,
+    "rating": 4.6,
+    "verdict": "The three-rod holdall that keeps made-up rods away from each other - proper dividers, real padding.",
+    "summary": "Trakker's NXG holdall accepts three made-up 12ft rods without crushing reels together. Fully padded internal channels, hard-wearing outer fabric, and reinforced base tabs that survive being dropped on gravel car parks. The kit that lets you pitch and cast within ten minutes at the bank.",
+    "context": "Trakker's NXG (Next Generation) luggage range launched in 2018 as a mid-price line targeting weekend anglers previously buying either Fox mid-range or expensive Nash flagship holdalls. The 3-Rod Holdall has been the range's best-seller and is the default 'first proper holdall' recommendation on UK carp forums for anglers whose starter combo cases can't take made-up rods.",
+    "deepDive": "The main compartment has three fully foam-padded internal channels (each 210 cm long, sized for 12ft made-up rods including reel and alarm). Outer fabric is 900D nylon with PVC coating. Base is a reinforced PVC-laminated panel with corner tabs to spread abrasion load. Zippers are dual-slider YKK-alternatives, tested to 10 kg load. Shoulder strap has proper 20mm foam padding.",
+    "pros": [
+      "Three fully padded internal channels",
+      "Fits 12ft made-up rods with reel + alarm",
+      "Reinforced base tabs and stitching",
+      "Double zip pulls, tested to 10 kg load"
+    ],
+    "cons": [
+      "Slightly heavier than competitor equivalents",
+      "Camo-print outer shows white marks with hard use",
+      "Standard shoulder strap - no chest clip"
+    ],
+    "specs": {
+      "Rod capacity": "3 × 12ft made-up",
+      "Length": "210 cm",
+      "Base": "PVC-reinforced",
+      "Padding": "Full internal channel foam"
+    },
+    "longTerm": "7-10 year expected lifespan on regular use. Base tabs and corner reinforcement are the strongest points - typically survive full lifespan. Zip slider failure at year 5-7 is possible; Trakker UK stock replacements at £4. Foam padding compresses slightly at year 4-5 but retains function.",
+    "maintenance": [
+      "After every session: dry padding fully if damp, especially after wet rod storage",
+      "Every 6 months: silicone-spray zip sliders",
+      "Year 3-5: check base tab stitching, re-stitch preemptively if any thread is loose",
+      "Year 5+: consider replacement zip sliders if any stiffness develops"
+    ],
+    "commonIssues": [
+      "Zip slider stickiness after 3+ years - fix: silicone spray, replacement slider if needed",
+      "Camo print showing white marks from hard use - cosmetic",
+      "Internal padding compressing after 4-5 years - functional but visible; no fix available"
+    ],
+    "alternatives": {
+      "upgrade": {
+        "slug": "",
+        "why": "Nash Dwarf luggage 3-rod holdall (£140) is the natural upgrade with premium build. Fox Ultra 3-Rod Holdall (£130) is the closest lateral option with different pocket layout."
+      },
+      "downgrade": {
+        "slug": "",
+        "why": "Below £90 the 3-rod holdall market drops into cases that either don't have internal channel dividers or use fibreglass reinforcement (breaks under load). The NXG is close to the value floor for proper padded 3-channel construction."
+      }
+    },
+    "bestFor": "Anglers running three matched rods who want pitch-to-cast in under 15 minutes."
+  },
+  {
+    "slug": "mainline-cell-boilies-1kg",
+    "category": "boilies-bait",
+    "brand": "Mainline",
+    "name": "Mainline Cell Boilies 1 kg",
+    "asin": "B00H9DLMXU",
+    "price": 15,
+    "rating": 4.7,
+    "verdict": "The UK's most consistent all-year fishmeal boilie - works in January, works in July.",
+    "summary": "Mainline Cell has been the UK's default consistent boilie for over 15 years and it earned that position. Fishmeal base with a well-balanced attractor profile, shelf-life for practical use, and consistent rolling quality bag to bag. Buy a 5 kg bulk and stick with it for six sessions - that is how Cell wins.",
+    "context": "Mainline Baits released the Cell in 2007 as a shelf-life alternative to the freezer-only High Impact range. The recipe has remained essentially unchanged for 17 years - unusual in a market where bait companies typically refresh recipes annually. Cell's consistency has made it the reference bait against which UK anglers judge every other shelf-life boilie; it is the most-mentioned bait in UK carp fishing forum threads and probably the single best-selling boilie recipe in UK freshwater history.",
+    "deepDive": "Cell uses a fishmeal base combined with milk protein binders and Mainline's proprietary attractor blend (published as 'salt-stimulator plus amino balancer' but the exact formulation is trade secret). The pH profile matches a natural carp diet closer than fishmeal-only baits, which is why Cell performs across water temperatures - the digestive enzymes in feeding carp remain active down to 4°C water temperature. Shelf-life is achieved via potassium sorbate preservative at food-grade concentrations. Rolling is fully mechanised at Mainline's Chelmsford factory to a consistent 15 mm (12 and 18 mm variants also available).",
+    "pros": [
+      "Consistent shelf-life quality - bag to bag reliability",
+      "Balanced fishmeal profile works all seasons",
+      "Available in 12, 15, 18 mm on Amazon UK",
+      "Matched pop-ups and glugs from the same range"
+    ],
+    "cons": [
+      "Not the strongest bait for coldest peak-winter water below 4°C",
+      "Rolling is functional - do not expect artisanal finish",
+      "Attractor smell is subtle - you need to trust the recipe"
+    ],
+    "specs": {
+      "Size": "15 mm (12/18 also available)",
+      "Weight": "1 kg",
+      "Type": "Shelf life",
+      "Base": "Fishmeal"
+    },
+    "longTerm": "Consistency is what buyers pay Mainline for and it is what they get. Cell purchased today performs the same as Cell purchased in 2015, which is the reason UK forum consensus keeps recommending it session after session. Storage life is 12 months in sealed packaging at room temperature; opened bags should be consumed within 4-6 weeks or refrigerated. The one long-term consideration for regular users is bait rotation - fish on pressured waters do become preferential to Cell after long single-bait feeding, and short breaks (2-3 sessions on an alternative bait every 6 months) restore effectiveness.",
+    "maintenance": [
+      "Store sealed bags at room temperature, out of direct sunlight",
+      "Opened bags: consume within 4-6 weeks, or refrigerate for up to 10 weeks",
+      "Never freeze shelf-life boilies - the preservative and moisture balance is designed for room storage, freezing damages the outer skin",
+      "Glug (matched Mainline liquid) can be added on the bank to freshen older bait - 20 ml per kg",
+      "For pre-baiting: buy 5 kg bulk bags, resealable format, work through within 4-6 weeks"
+    ],
+    "commonIssues": [
+      "Occasional soft-boiled batches in bulk 5 kg orders - fix: Mainline UK will replace on complaint, keep the batch code",
+      "Bait becoming less effective on pressured venues after 2+ seasons - fix: rotate with a different attractor profile (Krill, Live System, Complex T) every 6 months",
+      "Small fish (bream, tench) picking up 15 mm Cell freebies - fix: step up to 18 mm freebies with a 15 mm hookbait to sort smaller fish"
+    ],
+    "alternatives": {
+      "upgrade": {
+        "slug": "sticky-baits-the-krill-1kg",
+        "why": "Sticky Baits The Krill at £17/kg is the natural upgrade if you want a freezer-grade freshness step-up. Higher protein levels, stronger krill-based attractor profile, but requires freezer storage until use - less practical for casual anglers, but a genuine performance step on pressured water."
+      },
+      "downgrade": {
+        "slug": "",
+        "why": "Nothing meaningful sits below Cell at similar quality. Cheaper shelf-life baits use lower-grade fishmeals and generic attractor blends - fine for prebaiting on high-stock day-ticket venues, but false economy on quality water. If Cell is out of budget, buy less of it rather than substituting cheaper."
+      }
+    },
+    "bestFor": "Anglers building a season-long bait application on any UK stillwater."
+  },
+  {
+    "slug": "sticky-baits-the-krill-1kg",
+    "category": "boilies-bait",
+    "brand": "Sticky Baits",
+    "name": "Sticky Baits The Krill 1 kg",
+    "asin": "B00D2V49TM",
+    "price": 17,
+    "rating": 4.8,
+    "verdict": "The premium fresh boilie UK carpers switch to when Cell stops producing - stronger attractors, higher price.",
+    "summary": "Sticky Baits' The Krill leans on krill meal and shellfish extracts for a stronger attractor profile than mainline-shelf boilies. Freezer bait grade means higher protein content and better attractors than shelf-life, but you must plan storage. On pressured, high-stock waters where every angler is on Cell, switching to Krill often gets you noticed.",
+    "context": "Sticky Baits launched in 2010 as a specialist freezer-bait producer targeting the UK specimen carp scene. The Krill recipe (launched 2012, refined 2016 and 2020) has been Sticky's flagship since inception and is the single most-mentioned freezer bait on UK carp forums. Where Mainline Cell is the default, Sticky Krill is the default switch-to when Cell stops working. The two are the yin-yang of UK premium boilies.",
+    "deepDive": "Krill uses whole krill meal (not just krill oil) as the primary protein source, combined with hemp meal, shellfish concentrates, and an amino acid balancer. Freezer bait format means no preservatives - higher protein levels (typically 42-45 % vs Cell's 38-40 %) and stronger attractor leaching in cold water. Rolling is done in small batches at Sticky's Dorset facility to a consistent 16 mm (12 and 20 mm also available). Distinctive dark red-brown colour comes from the krill meal itself, not added dye.",
+    "pros": [
+      "Genuine freezer-bait grade - higher protein and attractor levels",
+      "Strong shellfish attractor profile stands out",
+      "Matched pop-ups, wafters and liquid attractants",
+      "UK-made, consistent quality"
+    ],
+    "cons": [
+      "Freezer bait - must be frozen until use",
+      "Slightly higher price per kg than mainline-shelf",
+      "Distinctive smell that not all anglers like"
+    ],
+    "specs": {
+      "Size": "16 mm (12/20 also available)",
+      "Weight": "1 kg",
+      "Type": "Freezer bait",
+      "Base": "Krill and shellfish"
+    },
+    "longTerm": "Frozen storage life is genuinely indefinite - Sticky's krill boilies frozen for 12 months perform identically to fresh. Thawed bait should be used within 3-4 days; do not refreeze. The performance-per-kg is higher than shelf-life baits, meaning you can feed slightly less for the same result - the effective cost gap vs Cell is smaller than the per-kg price suggests.",
+    "maintenance": [
+      "Keep frozen until 24 hours before use; thaw slowly in fridge or cool box",
+      "Once thawed, use within 3-4 days; do not refreeze",
+      "For pre-baiting: pre-thaw only the amount for one session, keep the rest frozen",
+      "Domestic freezer is fine; 1 kg bags stack cleanly, 5 kg bulk needs planning",
+      "Matched Sticky liquid glug can be added at the bank to boost attractor leaching"
+    ],
+    "commonIssues": [
+      "Krill smell staying in a domestic freezer - fix: store in a sealed plastic tub, not just the original bag",
+      "Occasional soft bait after freezing/thawing cycle - fix: don't refreeze; use fresh from frozen",
+      "Distinctive attractor smell not appreciated in the car - fix: ventilated bait tub, no bag storage in enclosed spaces"
+    ],
+    "alternatives": {
+      "upgrade": {
+        "slug": "",
+        "why": "Sticky's own Manilla range (£19/kg freezer) is the natural upsize - similar krill base with additional attractor complexity, marketed at specimen anglers. CC Moore Odyssey XXX (£19/kg freezer) is the closest lateral competitor with a different attractor profile."
+      },
+      "downgrade": {
+        "slug": "mainline-cell-boilies-1kg",
+        "why": "Mainline Cell at £15/kg (shelf-life) is the natural downgrade if freezer storage is impractical or if you fish mixed venues where freezer logistics don't work. £2/kg less and no storage complexity, at the cost of the freezer-grade attractor edge."
+      }
+    },
+    "bestFor": "Anglers on pressured venues wanting a distinctive alternative to shelf-life mainline baits."
+  }
+]

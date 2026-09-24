@@ -1,0 +1,196 @@
+[
+  {
+    "slug": "bivvies",
+    "name": "Bivvies & shelters",
+    "short": "Bivvies",
+    "tagline": "Two-man and single-man overnight shelters built for UK weather.",
+    "intro": "A bivvy is the single most expensive piece of static kit most UK carpers own, and the one that decides whether a 48-hour session ends in sleep or misery. The gap between a £120 supermarket-branded shelter and a £400 flagship is not comfort - it is condensation, wind rating, and whether the poles bend on the first sideways gust off a Lincolnshire pit.",
+    "bestFor": "Anglers doing sessions of 24 hours or more, year-round, in exposed UK venues.",
+    "watchOut": "Cheap fibreglass poles snap; single-skin bivvies drip on you every night from November to March.",
+    "priceFrom": 120,
+    "priceTo": 500,
+    "cupCost": "£120-500 (10-15 year lifespan on decent kit)",
+    "whatMatters": [
+      { "title": "Hydrostatic head", "body": "Look for 5,000 mm minimum on the flysheet and 10,000 mm on the groundsheet. Below that, prolonged UK rain will find its way through eventually." },
+      { "title": "Pole material", "body": "Aluminium alloy (7001-T6) is the standard for anything above £180. Fibreglass poles are only acceptable on true budget shelters used for occasional summer sessions." },
+      { "title": "Two-skin construction", "body": "A separate outer fly with an air gap manages condensation properly. Single-skin bivvies rain on you from the inside on cold nights, no matter how expensive." },
+      { "title": "Peg pattern", "body": "20+ peg points on the ground line and storm-strap loops on the ribs. Kit that only pegs at the four corners will lift in any real wind." }
+    ],
+    "priceTiers": [
+      { "budget": "Under £150", "what": "Occasional overnight kit. Expect fibreglass poles, single skin, and a 5-year outdoor lifespan at best." },
+      { "budget": "£150-250", "what": "The sweet spot for weekend anglers. Aluminium poles, two-skin construction, reasonable warranties from JRC, Sonik, Cyprinus." },
+      { "budget": "£250-400", "what": "Serious kit for regular session anglers. Fox, Nash mid-range, Trakker mid-range. 10-15 year lifespan with basic care." },
+      { "budget": "Over £400", "what": "Flagship Trakker Tempest, Nash Titan, Fox R Series. Sub-2-minute pitch times, storm-tested to force 8, replaceable parts." }
+    ],
+    "whatToAvoid": [
+      "Any bivvy sold with the word \"quick pitch\" but no pole diameter listed - usually 8 mm fibreglass that will not last two seasons",
+      "Camo-print supermarket brands that use PU-coated polyester rated at 2,000 mm HH - you will get wet on the first heavy night",
+      "\"3-4 man\" bivvies at carp fishing pricing - pitching footprint is often too big for UK swim sizes"
+    ],
+    "faq": [
+      { "q": "Do I need a wrap or overwrap for winter?", "a": "Yes, from October onwards. A wrap adds a second insulating air gap that cuts condensation dramatically and adds 3-5 degrees of felt warmth inside. Most flagship bivvies have a matched wrap sold separately for £120-180." },
+      { "q": "One-man or two-man?", "a": "Buy a two-man even if you fish alone. The extra internal space swallows tackle, wet clothing and a bedchair without cramping you. The weight and pack size difference is small on modern bivvies." },
+      { "q": "How long should a bivvy last?", "a": "A mid-range aluminium-pole bivvy used 40-60 nights a year should last 8-12 years if you dry it after every session and re-proof the flysheet every 2-3 years. Fabric UV degradation is the usual death, not tears." }
+    ]
+  },
+  {
+    "slug": "bedchairs",
+    "name": "Bedchairs",
+    "short": "Bedchairs",
+    "tagline": "Wide, weight-rated bedchairs that will not sag by session two.",
+    "intro": "The bedchair is the piece of kit you spend the most hours actually touching, and the one where cheap kit fails fastest. A folding leg mechanism that costs £200 in the shop is a £15 casting from an Alibaba supplier; the frame either holds up or it does not, and there is no way to tell before it fails.",
+    "bestFor": "Regular overnighters, back sleepers, and anyone over 90 kg who has broken a bedchair before.",
+    "watchOut": "\"Six-leg\" marketing sometimes hides thin tubing; check declared max user weight, not leg count.",
+    "priceFrom": 90,
+    "priceTo": 400,
+    "cupCost": "£90-400 (frame lifespan 5-12 years depending on grade)",
+    "whatMatters": [
+      { "title": "Declared max user weight", "body": "The only spec that actually matters. Aim for at least 30 kg above your body weight to account for kit stored on the bed, dynamic loads, and long-term frame fatigue." },
+      { "title": "Frame material", "body": "6061-T6 aluminium is the entry standard for anything above £180. Steel is heavier but tougher; magnesium alloys on Nash Indulgence and Trakker RLX save weight at premium price." },
+      { "title": "Mattress thickness", "body": "10-15 cm quilted padding with hollow-fibre or memory foam. Below 8 cm and the frame bars will telegraph through by 3am." },
+      { "title": "Adjustable legs and level feet", "body": "Individually adjustable legs are essential on UK swims - bank slopes, tree roots and grass tussocks are the norm, not the exception." }
+    ],
+    "priceTiers": [
+      { "budget": "Under £120", "what": "Occasional summer overnighter. Steel frame, 4-leg, thin mattress. Fine for a warm night at a day-ticket venue." },
+      { "budget": "£120-200", "what": "Weekend regular. Six-leg aluminium frame, 100 kg+ rating, quilted mattress with fleece cover." },
+      { "budget": "£200-300", "what": "Serious session angler. Wide (85-95 cm) mattress, 130 kg+ rating, memory foam, decent 3-year warranty." },
+      { "budget": "Over £300", "what": "Nash Indulgence, Trakker RLX, Fox Duralite - magnesium or premium aluminium frames, memory foam, 150 kg+ rating, 10+ year real-world lifespan." }
+    ],
+    "faq": [
+      { "q": "Six-leg or eight-leg?", "a": "Eight legs distribute load better but add weight and pack size. If you're over 100 kg or fish soft ground, go eight. Under 90 kg on firm banks, six is fine." },
+      { "q": "Do I really need memory foam?", "a": "Not essential, but the price gap has narrowed. On sessions longer than 48 hours or if you have back issues, it is a genuine comfort upgrade rather than a marketing tick." }
+    ]
+  },
+  {
+    "slug": "bite-alarms",
+    "name": "Bite alarms & receivers",
+    "short": "Alarms",
+    "tagline": "3+1 alarm sets from budget starters to Delkim-grade night runners.",
+    "intro": "Bite alarms are the one bit of tackle where paying more genuinely changes what fish you land. Cheap alarms miss drop-back bites, fail in heavy rain, and give false readings from surface debris. A £340 Delkim set will still be running in ten years and register bites a cheaper alarm would sleep through.",
+    "bestFor": "Any angler fishing more than 20 sessions a year who wants to know what is happening 90 metres out at 3am.",
+    "watchOut": "Battery type (9V vs AA) and water ingress rating decide long-term running cost more than head sensitivity.",
+    "priceFrom": 60,
+    "priceTo": 400,
+    "cupCost": "£60-400 for 3+1 set; £25-80 replacement heads if needed",
+    "whatMatters": [
+      { "title": "Vibration vs roller sensor", "body": "Roller wheels are the traditional standard - direct, tactile, silent under still line. Vibration alarms (Delkim, Fox Micron X) register drop-backs and slack-line takes a roller misses entirely." },
+      { "title": "Water resistance", "body": "IPX5 minimum for anything used in UK weather. Delkim and premium Fox alarms are IPX7 (submersible), which matters more than you think when they go over in a night storm." },
+      { "title": "Battery format", "body": "9V PP3 is universal, replaceable anywhere, runs 12-18 months. Lithium AA (Nash S5R, some Delkims) run longer but cost more per battery. Rechargeable options exist but add complexity." },
+      { "title": "Range and receiver stability", "body": "A receiver that pairs cleanly at 300 m in open air (150 m through trees) is the practical minimum for UK big pits. Cheap sets drop out unpredictably." }
+    ],
+    "priceTiers": [
+      { "budget": "Under £100", "what": "Sonik SKS, Cyprinus, NGT starter sets. Fine for stalking or occasional overnighters. Expect false bleeps in wind, limited range." },
+      { "budget": "£100-200", "what": "Fox Mini Micron X, Nash R3, budget Neville set. Real range, weather-sealed, replaceable heads." },
+      { "budget": "£200-300", "what": "Fox Micron X, Nash Siren, Neville standard. Class-leading sensitivity on drop-backs, high-quality receivers with backlit displays." },
+      { "budget": "Over £300", "what": "Delkim Txi Plus and EV, top-end Neville, custom-tuned. Sub-mm sensitivity, 10+ year expected life, still the pro standard in UK carping." }
+    ],
+    "faq": [
+      { "q": "Do I need a receiver if I use snag ears?", "a": "Yes - the receiver is what lets you leave the bivvy zip closed on a cold night and still hear takes reliably. Snag ears alone force you to keep listening for the head speaker." },
+      { "q": "Are second-hand Delkims a good buy?", "a": "Excellent, provided you check the head housing for cracks and the receiver still pairs. Delkim alarms hold value because they last - a 10-year-old TXi with a fresh 9V will out-perform most new budget sets." }
+    ]
+  },
+  {
+    "slug": "carp-rods",
+    "name": "Carp rods (12ft & 13ft)",
+    "short": "Rods",
+    "tagline": "12ft and 13ft rods across the 2.75-3.5 lb TC range for UK big-pit work.",
+    "intro": "Rod choice on a carp setup is less about brand loyalty and more about matching test curve to distance and lead weight. A 3lb TC 12ft rod handles a 3oz lead comfortably to 100 metres; step down to 2.75lb for silty margin work, up to 3.5lb TC for extreme range or big-water snag fishing. Almost every serious UK angler owns two or three sets in different actions.",
+    "bestFor": "Anglers who need to cover 60-130 m with 3-5 oz leads on venues with weed, silt or snags.",
+    "watchOut": "Test curve is a rough guide, not a spec - same TC number can hide very different actions between brands.",
+    "priceFrom": 60,
+    "priceTo": 400,
+    "cupCost": "£60-400 per rod; buy 2 or 3 matched",
+    "whatMatters": [
+      { "title": "Blank material", "body": "40T carbon is the modern baseline; 46T and above gets you thinner walls at the same test curve, meaning less swing weight for the same casting punch. Below 30T is entry-level territory only." },
+      { "title": "Guide count and material", "body": "40mm butt guide + 6 further guides is standard on 12ft. SiC or Alconite ring inserts wear well with braid; cheap chrome inserts groove within a season." },
+      { "budget": "Reel seat and grip", "title": "Reel seat and grip", "body": "Fuji DPS reel seats and shrink-tube grips are standard. Full cork butts are heavier but classical; EVA foam is grippy in the wet." },
+      { "title": "Action profile", "body": "Progressive (through-action) rods cushion small carp on light lines; stiff (fast-taper) rods cast further with heavy leads. Match to your venue, not the marketing." }
+    ],
+    "priceTiers": [
+      { "budget": "Under £80 per rod", "what": "Sonik Xtractor Pro combo territory, JRC Contact. Fine to start with, adequate for lakes under 60 m casts." },
+      { "budget": "£80-150", "what": "Fox Horizon X4, Nash Pursuit, Wychwood Extremis. Real casting performance, decent 40T blanks, proper Fuji fittings." },
+      { "budget": "£150-250", "what": "Fox Horizon X5/X6, Nash Scope Black Ops, Sonik Vader. Class-leading performance for the price, thinner blanks, matched actions across the TC range." },
+      { "budget": "Over £250", "what": "Nash Dwarf ES/Scope Cork, Fox Horizon EOS/HX, custom builders. Marginal gains, mostly weight reduction and finish quality. Buy for feel, not casting distance." }
+    ],
+    "whatToAvoid": [
+      "Any \"combo\" package that pairs a decent rod with a reel worth £20 - you're paying rod price for a throwaway reel",
+      "10ft or 11ft \"stalker\" rods sold as your first carp rod - they cannot cast the ranges you'll want after month three"
+    ],
+    "faq": [
+      { "q": "12ft or 13ft?", "a": "12ft is the default UK carp length and handles 95% of venues fine. Move to 13ft only if you regularly need to cast over 110 m or fish very open water where the extra rod length helps with playing fish out from far margins." },
+      { "q": "How many rods do I really need?", "a": "Most UK stillwaters allow three rods per angler. Two-rod sessions cost less and force better decisions on where you fish; three rods spread your chances but multiply your setup and pack-down time." }
+    ]
+  },
+  {
+    "slug": "unhooking-mats",
+    "name": "Unhooking mats & cradles",
+    "short": "Mats",
+    "tagline": "Fish-welfare kit - flat mats, cradles and floor-fill mats.",
+    "intro": "Mat choice matters more than most anglers realise, both for fish welfare and for reducing hook holds damage. A flat foam mat is the entry point; a floor-fill (raised-sides) mat protects a lively fish; a proper cradle removes the risk of a carp bouncing off onto hard ground entirely. In 2026 most syndicate rules require a cradle for fish over 20 lb.",
+    "bestFor": "Any angler fishing waters holding double-figure carp - which is most UK stillwaters.",
+    "watchOut": "Thin foam mats delaminate; cradle rims that flex let fish escape sideways.",
+    "priceFrom": 25,
+    "priceTo": 200,
+    "cupCost": "£25-200 (typical lifespan 4-8 years depending on cleaning routine)",
+    "whatMatters": [
+      { "title": "Padding thickness", "body": "50 mm minimum on a flat mat, 70 mm+ on a cradle. Below that, a fish bouncing off a hard mat can damage scales and slime coat." },
+      { "title": "Waterproof underside", "body": "Absolute must - a mat that soaks through will lift dirt and grit into the fish's flanks every time it lands on the ground beneath." },
+      { "title": "Weep holes", "body": "Look for reinforced weep holes that let water drain from the padded top. Without them, a wet cradle stays wet and grows mould inside a month." },
+      { "title": "Size", "body": "Match to the venue's biggest realistic fish plus 20 cm. A 100 cm mat is too small for anything over mid-thirties." }
+    ],
+    "priceTiers": [
+      { "budget": "Under £40", "what": "Flat foam mat, day-ticket venues, fish to mid-twenties." },
+      { "budget": "£40-80", "what": "Floor-fill mat with raised sides, Fox Carpmaster, decent Wychwood models. Real fish-welfare kit for regular carp fishing." },
+      { "budget": "£80-150", "what": "Proper cradle with rigid frame. Nash Tackle Titan, Fox Voyager, Trakker Sanctuary. Syndicate-standard." },
+      { "budget": "Over £150", "what": "Premium cradles with retention slings, integrated weigh systems, oversized frames for waters holding 40lb+ fish." }
+    ],
+    "faq": [
+      { "q": "Flat mat or cradle?", "a": "Cradle for anything over 15 lb. The rigid frame stops a lively fish rolling off onto the bank, and modern cradles fold to roughly the same pack size as a folded flat mat." },
+      { "q": "How do I clean it?", "a": "Rinse with lake water at end of session, dry fully at home before storage, occasional wipe with mild antibacterial (no bleach). Never dry in direct sun for extended periods - the foam UV-degrades." }
+    ]
+  },
+  {
+    "slug": "rod-holdalls",
+    "name": "Rod holdalls & luggage",
+    "short": "Luggage",
+    "tagline": "Made-up rod holdalls, carryalls, and bivvy bags for 24-hour sessions and beyond.",
+    "intro": "Luggage is the boring bit of a carp setup that decides whether you fish or spend an hour setting up. A three-rod made-up holdall stores each rod complete with reel, alarm, rod pod position and butt grip - pull up, unzip, cast. The cheap kit crushes reels; the good kit lasts a decade.",
+    "bestFor": "Any angler running three rods who wants to pitch, cast and be fishing within 15 minutes.",
+    "watchOut": "\"3+3 rod\" holdalls that don't have real internal dividers crush reels together in transit.",
+    "priceFrom": 40,
+    "priceTo": 250,
+    "cupCost": "£40-250 (10+ year lifespan on decent PVC-backed luggage)",
+    "whatMatters": [
+      { "title": "Padding and dividers", "body": "Fully separated internal channels are the difference between a rod holdall and an expensive tube. Look for foam-padded neoprene sleeves on every rod slot." },
+      { "title": "Base material", "body": "Reinforced PVC base is the standard - rod holdalls get dumped on wet grass, gravel and mud constantly. Any cordura-only base wears through in 2-3 seasons of heavy use." },
+      { "title": "Buckle and strap quality", "body": "Nexus or ITW buckles, not generic plastic. Straps rated for 25 kg minimum on a fully loaded holdall." },
+      { "title": "Length", "body": "12ft rods need a 210 cm holdall minimum for made-up storage; 13ft needs 220 cm. Sub-200 cm holdalls only fit broken-down rods." }
+    ],
+    "faq": [
+      { "q": "Do I need a matched luggage set?", "a": "No. Match by capacity to your session length: rod holdall + carryall + tackle bag covers most 24-hour sessions. Full brand-matched luggage looks tidy but rarely fits your kit better than mixed brands." },
+      { "q": "How much can a carryall hold?", "a": "A 40 L carryall fits a bivvy in stuff sack, sleeping bag, cooking kit and one change of clothes for a two-night session. Bigger goes into the barrow, not on your back." }
+    ]
+  },
+  {
+    "slug": "boilies-bait",
+    "name": "Boilies & bait",
+    "short": "Bait",
+    "tagline": "1kg boilies, pop-ups, and hookbaits from UK-established brands.",
+    "intro": "Boilie choice is the closest thing carp fishing has to a religion, but the honest truth is that most premium UK-made baits from the top five brands out-perform each other by margins invisible on the bank. Pick a boilie that matches your venue's known preference, feed it consistently for 6-8 sessions, then judge results - not by a single blank Tuesday.",
+    "bestFor": "Anglers building a bait application over a full season rather than chopping baits weekly.",
+    "watchOut": "\"Rolled fresh\" claims from bulk shops - supermarket-grade ingredients don't stop being cheap because they were rolled yesterday.",
+    "priceFrom": 12,
+    "priceTo": 60,
+    "cupCost": "£12-20 per kg (standard); £25-60 per kg (premium fresh)",
+    "whatMatters": [
+      { "title": "Boilie type", "body": "Fishmeal-based (Mainline Cell, Sticky Krill, CC Moore Live System) run all-year and are the UK default. Birdfood/nut baits (Nash Scopex Squid, Fox Complex T) fish stronger in warm water. Milk-protein baits are still specialist." },
+      { "title": "Rolling grade", "body": "Shelf-life boilies (BOSS, Mainline factory) use preservatives and boil hard. Freezer-bait rolls use higher protein levels and better attractors but must be frozen until use." },
+      { "title": "Size", "body": "15-16 mm is the UK default; 18-20 mm sorts smaller fish faster; 12 mm doubles as a hookbait size on a stiff rig." },
+      { "title": "Pop-up matching", "body": "Buy pop-ups that visually match your bed of freebies. Bright yellow pop-ups over a fishmeal bed still work but a matched-colour balanced hookbait outfishes them on pressured waters." }
+    ],
+    "faq": [
+      { "q": "How much bait per session?", "a": "For a 48-hour session on a rich UK stillwater: 1-2 kg per rod as a starting bed, then top-up small handfuls after each fish. Pre-baiting with 2 kg per session across a week before a trip transforms results." },
+      { "q": "Are shop-brand boilies worth it?", "a": "Not for serious sessions. The £5-per-kg tubs sold at fishing chains use cheaper fishmeals and lower-grade attractor blends. Fine for prebaiting on high-stock day-ticket venues; pointless on quality water." }
+    ]
+  }
+]

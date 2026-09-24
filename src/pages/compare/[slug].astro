@@ -1,0 +1,194 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import compares from "../../data/compare.json";
+import products from "../../data/products.json";
+import categories from "../../data/categories.json";
+import siteConfig from "../../data/site.config.json";
+import { amazonProductLink, money, stars } from "../../lib/amazon";
+import { breadcrumbListJsonLd, faqJsonLd } from "../../lib/schema";
+
+export function getStaticPaths() {
+  return compares.map((c) => ({ params: { slug: c.slug }, props: { cmp: c } }));
+}
+
+const { cmp } = Astro.props;
+const left = products.find((p) => p.slug === cmp.leftSlug)!;
+const right = products.find((p) => p.slug === cmp.rightSlug)!;
+const category = categories.find((c) => c.slug === cmp.category)!;
+
+const leftUrl = amazonProductLink({ asin: left.asin, brand: left.brand, product: left.name });
+const rightUrl = amazonProductLink({ asin: right.asin, brand: right.brand, product: right.name });
+
+const siteUrl = `https://${siteConfig.domain}`;
+const pageUrl = `${siteUrl}/compare/${cmp.slug}/`;
+const title = `${left.name} vs ${right.name} - which UK ${category.short.toLowerCase()} wins in ${new Date().getFullYear()}?`;
+const description = `${left.name} at ${money(left.price)} vs ${right.name} at ${money(right.price)}. Head-to-head comparison across 6 criteria with verdict, personas and honest recommendation.`;
+
+const winsLeft = cmp.dimensions.filter((d: any) => d.winner === "left").length;
+const winsRight = cmp.dimensions.filter((d: any) => d.winner === "right").length;
+const winsTie = cmp.dimensions.filter((d: any) => d.winner === "tie").length;
+
+const jsonLd = [
+  breadcrumbListJsonLd([
+    { label: "Home", url: `${siteUrl}/` },
+    { label: "Compare", url: `${siteUrl}/compare/` },
+    { label: `${left.name} vs ${right.name}`, url: pageUrl },
+  ]),
+  faqJsonLd(cmp.faqs),
+];
+---
+<BaseLayout
+  title={title}
+  description={description}
+  indexable={true}
+  crumbs={[
+    { label: "Compare" },
+    { label: `${left.name} vs ${right.name}` },
+  ]}
+  jsonLd={jsonLd}
+>
+  <div class="wrap">
+    <article class="guide-content">
+      <div class="page-head">
+        <div class="kicker">Head-to-head · {category.short} · UK · {new Date().getFullYear()}</div>
+        <h1>{left.name} vs {right.name}</h1>
+        <p class="lede">{cmp.tagline}</p>
+        <p class="byline">By <strong>{siteConfig.authorName}</strong> · Updated {new Date().toLocaleDateString("en-GB", { month: "long", year: "numeric" })}</p>
+      </div>
+
+      <p>{cmp.intro}</p>
+
+      <div class="aff-notice">
+        <strong>Affiliate disclosure:</strong> Both product links go to Amazon UK and pay us a commission at no extra cost to you. We recommend based on fit, not on commission - both are legitimate buys for the right angler. <a href="/affiliate-disclosure/">Details</a>.
+      </div>
+
+      <h2>The verdict up front</h2>
+      <div class="callout">
+        <strong>Our verdict.</strong> {cmp.verdict}
+      </div>
+
+      <h2>Side-by-side at a glance</h2>
+      <div class="table-responsive">
+        <table class="table compare mb-0">
+          <thead>
+            <tr>
+              <th style="width: 25%;">&nbsp;</th>
+              <th style="width: 37.5%;">{left.name}</th>
+              <th style="width: 37.5%;">{right.name}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th>Price (RRP guide)</th><td><strong>{money(left.price)}</strong></td><td><strong>{money(right.price)}</strong></td></tr>
+            <tr><th>Editorial rating</th><td><span class="stars">{stars(left.rating)}</span> {left.rating.toFixed(1)}/5</td><td><span class="stars">{stars(right.rating)}</span> {right.rating.toFixed(1)}/5</td></tr>
+            <tr><th>One-line verdict</th><td class="small">{left.verdict}</td><td class="small">{right.verdict}</td></tr>
+            <tr><th>Best for</th><td class="small">{left.bestFor}</td><td class="small">{right.bestFor}</td></tr>
+            {Object.keys(left.specs).map((k) => {
+              const rk = (right.specs as any)[k];
+              if (!rk) return null;
+              return (
+                <tr>
+                  <th>{k}</th>
+                  <td>{(left.specs as any)[k]}</td>
+                  <td>{rk}</td>
+                </tr>
+              );
+            }).filter(Boolean)}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="row g-3 mt-3">
+        <div class="col-md-6">
+          <div class="product-card h-100">
+            <div class="rank">Option A</div>
+            <h3><a href={`/reviews/${left.slug}/`}>{left.name}</a></h3>
+            <div class="mb-1"><span class="stars">{stars(left.rating)}</span> <small class="text-muted ms-1">{left.rating.toFixed(1)}/5</small></div>
+            <p class="verdict">{left.verdict}</p>
+            <div class="price mb-2">{money(left.price)}</div>
+            <div class="d-flex flex-wrap gap-2">
+              <a class="btn btn-amazon" rel="sponsored nofollow noopener" target="_blank" href={leftUrl}>See on Amazon UK</a>
+              <a class="btn btn-outline-secondary" href={`/reviews/${left.slug}/`}>Full review</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="product-card h-100">
+            <div class="rank">Option B</div>
+            <h3><a href={`/reviews/${right.slug}/`}>{right.name}</a></h3>
+            <div class="mb-1"><span class="stars">{stars(right.rating)}</span> <small class="text-muted ms-1">{right.rating.toFixed(1)}/5</small></div>
+            <p class="verdict">{right.verdict}</p>
+            <div class="price mb-2">{money(right.price)}</div>
+            <div class="d-flex flex-wrap gap-2">
+              <a class="btn btn-amazon" rel="sponsored nofollow noopener" target="_blank" href={rightUrl}>See on Amazon UK</a>
+              <a class="btn btn-outline-secondary" href={`/reviews/${right.slug}/`}>Full review</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2>Head-to-head on six criteria</h2>
+      <p>{left.name} takes {winsLeft} categories, {right.name} takes {winsRight}{winsTie > 0 && `, with ${winsTie} tied`}. What actually matters is which criteria weigh most for your fishing style.</p>
+
+      <div class="table-responsive">
+        <table class="table compare mb-0">
+          <thead>
+            <tr>
+              <th style="width: 25%;">Criterion</th>
+              <th style="width: 15%;">Winner</th>
+              <th>Why</th>
+            </tr>
+          </thead>
+          <tbody>
+            {cmp.dimensions.map((d: any) => (
+              <tr>
+                <td><strong>{d.criterion}</strong></td>
+                <td>
+                  {d.winner === "left" && <span style="color: var(--brand); font-weight: 600;">{left.brand}</span>}
+                  {d.winner === "right" && <span style="color: var(--accent); font-weight: 600;">{right.brand}</span>}
+                  {d.winner === "tie" && <span class="text-muted">Tie</span>}
+                </td>
+                <td class="small">{d.note}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Which one for which angler?</h2>
+      {cmp.personas.map((p: any) => {
+        const rec = p.recommend === "left" ? left : right;
+        const recUrl = p.recommend === "left" ? leftUrl : rightUrl;
+        return (
+          <div class="callout">
+            <strong>{p.who}</strong> - {p.why}
+            <div class="mt-2">
+              <strong>Recommended:</strong> <a href={`/reviews/${rec.slug}/`}>{rec.name}</a> ({money(rec.price)}) &nbsp;
+              <a class="btn btn-amazon btn-sm" rel="sponsored nofollow noopener" target="_blank" href={recUrl}>See on Amazon UK</a>
+            </div>
+          </div>
+        );
+      })}
+
+      <div class="cta-banner">
+        <h3>Ready to buy?</h3>
+        <p>Both options are honest kit for the right angler. Pick the one that fits your fishing style and click through to Amazon UK.</p>
+        <div class="d-flex flex-wrap gap-2 justify-content-center">
+          <a class="btn btn-amazon" rel="sponsored nofollow noopener" target="_blank" href={leftUrl}>{left.name} on Amazon UK</a>
+          <a class="btn btn-amazon" rel="sponsored nofollow noopener" target="_blank" href={rightUrl}>{right.name} on Amazon UK</a>
+        </div>
+      </div>
+
+      <h2>Common questions</h2>
+      {cmp.faqs.map((f: any) => (
+        <details class="faq"><summary>{f.q}</summary><p>{f.a}</p></details>
+      ))}
+
+      <h2>Continue reading</h2>
+      <div class="cat-grid">
+        <a class="cat-card" href={`/gear/${category.slug}/`}><h3>All {category.short.toLowerCase()} reviewed</h3><p>Every {category.short.toLowerCase()} on our UK review desk.</p><div class="meta"><span>Category</span><span>Read →</span></div></a>
+        <a class="cat-card" href={`/reviews/${left.slug}/`}><h3>{left.name} full review</h3><p>Long-form review with maintenance, common issues and alternatives.</p><div class="meta"><span>Review</span><span>Read →</span></div></a>
+        <a class="cat-card" href={`/reviews/${right.slug}/`}><h3>{right.name} full review</h3><p>Long-form review with maintenance, common issues and alternatives.</p><div class="meta"><span>Review</span><span>Read →</span></div></a>
+      </div>
+    </article>
+  </div>
+</BaseLayout>

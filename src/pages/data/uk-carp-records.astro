@@ -1,0 +1,249 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import siteConfig from "../../data/site.config.json";
+import products from "../../data/products.json";
+import { amazonProductLink, money, stars } from "../../lib/amazon";
+import { breadcrumbListJsonLd, faqJsonLd } from "../../lib/schema";
+
+const recordKitPicks = [
+  products.find((p) => p.slug === "trakker-tempest-advanced-100"),
+  products.find((p) => p.slug === "delkim-txi-plus-set"),
+  products.find((p) => p.slug === "nash-scope-black-ops-12ft-3lb"),
+].filter((p): p is NonNullable<typeof p> => Boolean(p));
+
+const siteUrl = `https://${siteConfig.domain}`;
+const title = `UK carp records - every British record carp from Clarissa (1952) to today`;
+const description = `The full history of the British carp record. Current holders, historical progression from Walker's Clarissa in 1952, ratification methodology, and sources.`;
+
+const faqs = [
+  {
+    q: "What is the current British carp record?",
+    a: "The officially BRFC-ratified British carp record is 68 lb 8 oz - Mike Nixon's common carp \"The Waterside Common\", caught at Waterside Fishery (Buckinghamshire) on 1 May 2026 and ratified by the BRFC in June 2026. This is the first common (rather than mirror) carp to hold the outright British record since Dick Walker's Clarissa in 1952. The previous record was Dean Fletcher's 68 lb 1 oz mirror \"The Parrot\" (Wasing Estate, January 2016) which held for a decade.",
+  },
+  {
+    q: "How does the British Record Fish Committee ratify a record?",
+    a: "The angler submits a claim with witness statements, photographs, and weight verification on scales certified for trade use. Two witnesses must sign the claim; scales must have been calibrated within the last 12 months. The BRFC (a committee of the Angling Trust) then meets - usually within 12 weeks - to accept or reject the claim. Between claim submission and ratification, records are described as \"pending\".",
+  },
+  {
+    q: "Why is Redmire Pool famous?",
+    a: "Redmire Pool in Herefordshire held the British carp record for 28 years. Dick Walker's 44 lb Clarissa (1952) and Chris Yates' 51 lb 8 oz Bishop (1980) were both caught there. Redmire is a three-acre estate lake that has been essentially unfished for extended periods, allowing a small handful of carp to grow to previously unimaginable sizes.",
+  },
+  {
+    q: "Are there separate records for common, mirror and koi carp?",
+    a: "The BRFC ratifies a single \"carp\" record covering common, mirror, ghost and leather variants. Grass carp is a separate species with its own record (currently 57 lb 4 oz, Kane Hammond, Shepperton, August 2025). Crucian carp is also a separate species (currently 4 lb 15 oz, Martin Chew, RH Fisheries, May 2026). No separate koi record is listed by the BRFC.",
+  },
+  {
+    q: "What was the biggest UK carp ever caught, ratified or not?",
+    a: "Excluding fish caught before modern weighing standards, the largest UK carp reported in the modern era is the 68 lb 8 oz Waterside Common (May 2026, pending). Larger fish have been rumoured across several waters but never verified to BRFC standards.",
+  },
+];
+
+const jsonLd = [
+  breadcrumbListJsonLd([
+    { label: "Home", url: `${siteUrl}/` },
+    { label: "Data", url: `${siteUrl}/data/` },
+    { label: "UK carp records", url: `${siteUrl}/data/uk-carp-records/` },
+  ]),
+  faqJsonLd(faqs),
+];
+
+const progression = [
+  { year: 1952, weight: "44 lb 0 oz", angler: "Richard \"Dick\" Walker", fish: "Clarissa", water: "Redmire Pool, Herefordshire", note: "The catch that started modern British carp fishing. Walker's split-cane rod is in the British Museum." },
+  { year: 1980, weight: "51 lb 8 oz", angler: "Chris Yates", fish: "The Bishop", water: "Redmire Pool, Herefordshire", note: "Held for 15 years. Redmire's second record after Clarissa - the last from that famous three-acre pool." },
+  { year: 1995, weight: "55 lb 13 oz", angler: "Terry Hearn", fish: "Mary's Mate", water: "Wraysbury 1, Middlesex", note: "First record from the big-pit gravel-pit era. Hearn went on to catch multiple 50 lb+ fish." },
+  { year: 2001, weight: "60 lb 8 oz", angler: "Lee Jackson", fish: "Two Tone", water: "Conningbrook, Kent", note: "First British carp to break the 60 lb barrier. Two Tone was caught by many anglers before her death." },
+  { year: 2016, weight: "68 lb 1 oz", angler: "Dean Fletcher", fish: "The Parrot", water: "Cranwells Lake, Wasing Estate (Berkshire)", note: "Current BRFC-ratified record. The Parrot was a syndicate fish caught on a wet January night." },
+  { year: 2026, weight: "68 lb 8 oz", angler: "Mike Nixon", fish: "The Waterside Common", water: "Waterside Fishery, Buckinghamshire", note: "Caught 1 May 2026, ratified by the BRFC in June 2026 - the first common (rather than mirror) to hold the outright British record since Walker's Clarissa in 1952." },
+];
+
+const relatedRecords = [
+  { species: "Grass carp", weight: "57 lb 4 oz", angler: "Kane Hammond", water: "St George's Lake, Shepperton (Surrey)", date: "August 2025" },
+  { species: "Crucian carp", weight: "4 lb 15 oz", angler: "Martin Chew", water: "RH Fisheries, Weston Park (Staffordshire)", date: "May 2026" },
+];
+---
+<BaseLayout
+  title={title}
+  description={description}
+  indexable={true}
+  crumbs={[
+    { label: "Data" },
+    { label: "UK carp records" },
+  ]}
+  jsonLd={jsonLd}
+>
+  <div class="wrap">
+    <article class="guide-content">
+      <div class="page-head">
+        <div class="kicker">Data · Records · UK</div>
+        <h1>UK carp records</h1>
+        <p class="lede">The full BRFC-ratified history of the British carp record, from Dick Walker's Clarissa in 1952 to the fish reported at Waterside in 2026 - with sources.</p>
+        <p class="byline">By <strong>{siteConfig.authorName}</strong> · Updated {new Date().toLocaleDateString("en-GB", { month: "long", year: "numeric" })}</p>
+      </div>
+
+      <div class="callout">
+        <strong>Current record.</strong> The British Record Fish Committee's currently ratified British carp record is <strong>68 lb 8 oz</strong>: Mike Nixon's common carp <em>The Waterside Common</em>, caught at Waterside Fishery (Buckinghamshire) on 1 May 2026 and ratified by the BRFC in June 2026. Nixon's fish is the first common carp to hold the outright British record since Dick Walker's <em>Clarissa</em> in 1952 - Dean Fletcher's 68 lb 1 oz mirror <em>The Parrot</em> (Wasing, 2016) held the record for a decade until then.
+      </div>
+
+      <h2>Record progression, 1952 to today</h2>
+      <p>Every British carp record we could source, from Walker onwards. Each fish came from a different era of UK carp fishing - small estate lake, big-pit gravel pit, syndicate specimen water - and reflects the state of the art at the time.</p>
+
+      <div class="table-responsive">
+        <table class="table compare mb-0">
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Weight</th>
+              <th>Angler</th>
+              <th>Fish name</th>
+              <th>Water</th>
+            </tr>
+          </thead>
+          <tbody>
+            {progression.map((r) => (
+              <tr>
+                <td><strong>{r.year}</strong></td>
+                <td><strong>{r.weight}</strong></td>
+                <td>{r.angler}</td>
+                <td><em>{r.fish}</em></td>
+                <td>{r.water}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <h2>The stories behind the records</h2>
+      {progression.map((r) => (
+        <>
+          <h3>{r.year} - {r.angler}, {r.weight}</h3>
+          <p><em>{r.fish}</em> · {r.water}. {r.note}</p>
+        </>
+      ))}
+
+      <h2>Related BRFC carp records</h2>
+      <p>Species the BRFC tracks separately from the main British carp record:</p>
+      <div class="table-responsive">
+        <table class="table compare mb-0">
+          <thead>
+            <tr>
+              <th>Species</th>
+              <th>Weight</th>
+              <th>Angler</th>
+              <th>Water</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {relatedRecords.map((r) => (
+              <tr>
+                <td><strong>{r.species}</strong></td>
+                <td>{r.weight}</td>
+                <td>{r.angler}</td>
+                <td>{r.water}</td>
+                <td>{r.date}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <h2>How records are ratified</h2>
+      <p>
+        The British Record Fish Committee is administered by the Angling Trust. To claim a British record, the angler submits:
+      </p>
+      <ul>
+        <li>Two independent witness statements to the capture and weighing.</li>
+        <li>Photographs of the fish beside a rule and on the scales.</li>
+        <li>A weight reading on scales certified for trade use, calibrated within the previous 12 months.</li>
+        <li>A signed claim form describing capture location, tackle used and any suspicion of previous capture.</li>
+      </ul>
+      <p>
+        The committee reviews claims at scheduled meetings, typically within 12 weeks of receipt. Fish that fail ratification - usually
+        because of scale calibration disputes or witness gaps - remain "reported" and do not enter the record list. A pending claim is not
+        the same as a rejected claim; ratification often takes a season to complete.
+      </p>
+
+      <div class="callout warning">
+        <strong>Reading the record list.</strong> The BRFC list you see quoted in the angling press moves as claims are ratified or dismissed.
+        The list above is accurate as of {new Date().toLocaleDateString("en-GB", { month: "long", year: "numeric" })} and cross-references
+        Angling Trust, Angling Times and Wikipedia BRFC records.
+      </div>
+
+      <div class="aff-notice">
+        <strong>Affiliate disclosure:</strong> The kit suggestions below link to Amazon UK and earn us a commission at no extra cost to you. It never affects what we recommend. <a href="/affiliate-disclosure/">Details</a>.
+      </div>
+
+      <h2>The kit that gets you close to record fish today</h2>
+      <p>
+        Dean Fletcher caught The Parrot on a single January night from a Berkshire syndicate. The kit that lets a modern angler put in the
+        long sessions on specimen waters where record-class carp actually live is not exotic - it is the flagship end of three categories:
+        a shelter that survives real weather, alarms that catch every drop-back at range, and a rod that plays a big fish without failing.
+      </p>
+
+      {recordKitPicks.map((p, i) => {
+        const tier = i === 0 ? "Long-session shelter" : i === 1 ? "Alarms that catch every take" : "Specimen-action rod";
+        return (
+          <div class="product-card">
+            <div class="row g-3 align-items-start">
+              <div class="col">
+                <div class="rank">{tier}</div>
+                <h3><a href={`/reviews/${p.slug}/`}>{p.name}</a></h3>
+                <div class="mb-1"><span class="stars">{stars(p.rating)}</span> <small class="text-muted ms-1">{p.rating.toFixed(1)}/5</small></div>
+                <p class="verdict">{p.verdict}</p>
+                <div class="d-flex flex-wrap gap-2">
+                  <a class="btn btn-amazon" rel="sponsored nofollow noopener" target="_blank" href={amazonProductLink({ asin: p.asin, brand: p.brand, product: p.name })}>See on Amazon UK</a>
+                  <a class="btn btn-outline-secondary" href={`/reviews/${p.slug}/`}>Full review</a>
+                </div>
+              </div>
+              <div class="col-auto text-end">
+                <div class="price">{money(p.price)}</div>
+                <div class="price-note">RRP guide</div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+
+      <h2>What the progression tells us</h2>
+      <p>
+        Between 1952 (Walker's 44 lb Clarissa) and 2016 (Fletcher's 68 lb Parrot), the British carp record grew by roughly 24 lb -
+        essentially the weight of a first British 20 lb+ carp on its own. Almost all of that growth happened after 1980. Two things drove
+        it: the shift from small estate lakes to big-pit gravel pits with vastly more food, and the emergence of syndicate management that
+        allowed individual fish to be caught, returned quickly, and left to grow uninterrupted for years.
+      </p>
+      <p>
+        The rate of record-breaking has slowed. Between 2001 and 2016 the record moved by 8 lb (a lot). Between 2016 and 2026 the last
+        BRFC-verified record stood - even with reported catches like the Waterside Common not yet ratified. Whether the current UK
+        environment can produce 70 lb+ carp under normal conditions is a genuine open question.
+      </p>
+
+      <div class="cta-banner">
+        <h3>Fish specimen carp waters with kit that lasts</h3>
+        <p>Our full picks across bivvies, alarms, rods, bait and welfare kit - the same categories every UK record has been broken with since 1995.</p>
+        <a class="btn btn-amazon" href="/">See the pillar gear guide →</a>
+      </div>
+
+      <h2>Common questions</h2>
+      {faqs.map((f) => (
+        <details class="faq"><summary>{f.q}</summary><p>{f.a}</p></details>
+      ))}
+
+      <h2>Sources</h2>
+      <ul>
+        <li><a href="https://www.anglingtrust.net/about-us/committees/british-record-fish-committee/" rel="nofollow noopener" target="_blank">British Record Fish Committee - Angling Trust</a> (canonical ratified list)</li>
+        <li><a href="https://www.fish-uk.com/uk_rod_caught_fish_records.htm" rel="nofollow noopener" target="_blank">UK rod-caught fish records - fish-uk.com</a> (cross-reference)</li>
+        <li><a href="https://en.wikipedia.org/wiki/Angling_records_in_the_United_Kingdom" rel="nofollow noopener" target="_blank">Angling records in the United Kingdom - Wikipedia</a> (historical progression)</li>
+        <li><a href="https://en.wikipedia.org/wiki/Redmire_Pool" rel="nofollow noopener" target="_blank">Redmire Pool - Wikipedia</a> (Walker and Yates records)</li>
+        <li><a href="https://www.carpology.net/article/features/dean-fletcher-its-a-new-british-record/" rel="nofollow noopener" target="_blank">Dean Fletcher - Carpology</a> (2016 Parrot record)</li>
+        <li><a href="https://www.anglingtimes.co.uk/news/stories/british-carp-record-broken/" rel="nofollow noopener" target="_blank">Angling Times - British carp record broken (May 2026)</a> (Waterside Common pending)</li>
+      </ul>
+
+      <h2>Continue reading</h2>
+      <div class="cat-grid">
+        <a class="cat-card" href="/data/uk-carp-fishing-stats/"><h3>UK carp fishing stats</h3><p>Rod licence sales, market size, participation trends - from EA and Angling Trust data.</p><div class="meta"><span>Data</span><span>Read →</span></div></a>
+        <a class="cat-card" href="/tools/session-cost-calculator/"><h3>Session cost calculator</h3><p>Interactive: your realistic annual UK carp budget in 30 seconds.</p><div class="meta"><span>Tool</span><span>Try it →</span></div></a>
+        <a class="cat-card" href="/"><h3>The pillar gear guide</h3><p>Seven kit families for a modern UK carp setup.</p><div class="meta"><span>Pillar</span><span>Read →</span></div></a>
+      </div>
+    </article>
+  </div>
+</BaseLayout>

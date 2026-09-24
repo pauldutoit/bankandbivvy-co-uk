@@ -1,0 +1,164 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import products from "../../data/products.json";
+import siteConfig from "../../data/site.config.json";
+import { amazonProductLink, money } from "../../lib/amazon";
+import { breadcrumbListJsonLd, faqJsonLd } from "../../lib/schema";
+
+const siteUrl = `https://${siteConfig.domain}`;
+const title = `How to choose your first bivvy UK ${new Date().getFullYear()} - the four specs that matter`;
+const description = `The honest first-bivvy guide for UK carp anglers. Hydrostatic head, pole material, two-skin construction, peg pattern - what actually decides whether a bivvy survives its second wet weekend.`;
+
+const bivvyPicks = [
+  products.find((p) => p.slug === "trakker-tempest-advanced-100"),
+  products.find((p) => p.slug === "fox-frontier-xd"),
+  products.find((p) => p.slug === "jrc-contact-lite-brolly-system"),
+].filter((p): p is NonNullable<typeof p> => Boolean(p));
+
+const faqs = [
+  { q: "One-man or two-man bivvy for a first purchase?", a: "Two-man, even if you fish alone. The extra internal space swallows a bedchair, wet clothing and tackle without cramping. Pack size and weight difference is marginal on modern bivvies, and you will not regret the extra room. A dedicated one-man bivvy only makes sense for stalkers who move swims frequently." },
+  { q: "Do I need a groundsheet if the bivvy comes with a bathtub floor?", a: "A separate heavy-duty groundsheet under the bivvy adds a wear layer between your bathtub floor and sharp gravel or thorns. It costs £25 and doubles the lifespan of the built-in floor. Worth it on any bivvy above £150." },
+  { q: "How long does a decent bivvy actually last?", a: "A mid-range aluminium-pole bivvy used 40-60 nights a year lasts 8-12 years with basic care: drying it after every session, re-proofing the flysheet every 2-3 years, storing dry. UV degradation of the flysheet is the usual cause of death, not tears or pole failures." },
+  { q: "Are second-hand bivvies worth it?", a: "Yes, if you inspect carefully. Check for: pole tension (does it hold shape?), flysheet UV fade (look at colour consistency), zip runners (biggest failure point), pole joint corrosion. A three-year-old Trakker Tempest at 60% of new price is usually a better buy than a new £180 bivvy." },
+];
+
+const jsonLd = [
+  breadcrumbListJsonLd([
+    { label: "Home", url: `${siteUrl}/` },
+    { label: "Guides", url: `${siteUrl}/guides/` },
+    { label: "How to choose your first bivvy", url: `${siteUrl}/guides/how-to-choose-first-bivvy/` },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+<BaseLayout
+  title={title}
+  description={description}
+  indexable={true}
+  crumbs={[
+    { label: "Guides" },
+    { label: "How to choose your first bivvy" },
+  ]}
+  jsonLd={jsonLd}
+>
+  <div class="wrap">
+    <article class="guide-content">
+      <div class="page-head">
+        <div class="kicker">Buying guide · Bivvies</div>
+        <h1>How to choose your first bivvy</h1>
+        <p class="lede">The four specs that decide whether a bivvy lasts a decade or lets you down on the second wet weekend.</p>
+        <p class="byline">By <strong>{siteConfig.authorName}</strong> · Updated {new Date().toLocaleDateString("en-GB", { month: "long", year: "numeric" })}</p>
+      </div>
+
+      <p>
+        A bivvy is the single most expensive piece of static kit most UK carpers own and the one they get wrong most often. The £120-£450
+        price band contains genuinely brilliant kit alongside overpriced supermarket-branded shelters that will not survive a proper autumn.
+        The difference between them is not price alone - it is four specific specifications, all of which the manufacturer will tell you if
+        you know what to ask.
+      </p>
+
+      <div class="aff-notice">
+        <strong>Affiliate disclosure:</strong> Product links below go to Amazon UK and pay us a commission at no extra cost to you. It does
+        not affect what we recommend. <a href="/affiliate-disclosure/">Details</a>.
+      </div>
+
+      <h2>1. Hydrostatic head (HH)</h2>
+      <p>
+        HH measures how much water pressure a fabric can hold back before it starts leaking. It is expressed in millimetres. A bivvy with
+        5,000 mm HH on the flysheet will keep genuine UK rain out; a bivvy at 2,000 mm HH will start weeping through in prolonged heavy
+        rain. The groundsheet needs 8,000-10,000 mm minimum because it has your body weight compressing it against wet ground.
+      </p>
+      <p>
+        <strong>What to look for:</strong> flysheet ≥ 5,000 mm, groundsheet ≥ 8,000 mm. Both numbers should be printed on the manufacturer's
+        spec sheet. If they are not listed, walk away.
+      </p>
+
+      <h2>2. Pole material</h2>
+      <p>
+        Fibreglass poles snap. Not always, not immediately, but on the first sideways gust off a bank while you are pitching in cold hands
+        with numb fingers. Aluminium alloy poles (specifically 7001-T6 grade or equivalent) bend rather than snap and can be replaced piece
+        by piece if damage does occur. Every serious bivvy above £180 uses alloy poles.
+      </p>
+      <p>
+        <strong>What to look for:</strong> the words "aluminium alloy" or "T6". Beware "aluminium" alone - cheap grades exist. Fibreglass is
+        only acceptable on brolly-style shelters used occasionally in summer.
+      </p>
+
+      <h2>3. Two-skin construction</h2>
+      <p>
+        A two-skin bivvy has a separate outer flysheet and inner shell with an air gap between them. This manages condensation - warm moist
+        air from your breathing hits the inner, cools, drips down the outer, and never gets you wet. A single-skin bivvy rains on you from
+        the inside on cold nights, regardless of how expensive it is.
+      </p>
+      <p>
+        <strong>What to look for:</strong> "two-skin", "double-skin", or an "inner" listed separately from a "flysheet". On flagship bivvies
+        the inner is included; on some mid-range kit it is a paid accessory (£40-80). Budget for it if so.
+      </p>
+
+      <h2>4. Peg pattern and wind resistance</h2>
+      <p>
+        A bivvy pegged only at the four corners will lift in any real wind, no matter how expensive the poles are. A well-designed bivvy
+        has 18-24 peg points distributed around the ground line and dedicated storm-strap loops on the rib crossings. This spreads the load
+        and stops the fabric flogging in gusts.
+      </p>
+      <p>
+        <strong>What to look for:</strong> 20+ peg points visible in the manufacturer's photo, storm straps included in the bag, and - if
+        possible - a wind rating like "force 6" or a peg-out speed in mph. Ratings that just say "storm-tested" without numbers mean
+        nothing.
+      </p>
+
+      <h2>Our picks across three price bands</h2>
+      <p>
+        Applying the four specs above to what is available on Amazon UK in {new Date().getFullYear()}, these are the bivvies we would
+        actually buy across the honest price bands.
+      </p>
+
+      {bivvyPicks.map((p, i) => {
+        const tier = i === 0 ? "Flagship" : i === 1 ? "Mid-range value" : "Entry / summer";
+        return (
+          <div class="product-card">
+            <div class="row g-3 align-items-start">
+              <div class="col">
+                <div class="rank">{tier}</div>
+                <h3><a href={`/reviews/${p.slug}/`}>{p.name}</a></h3>
+                <p class="verdict">{p.verdict}</p>
+                <div class="d-flex flex-wrap gap-2">
+                  <a class="btn btn-amazon" rel="sponsored nofollow noopener" target="_blank" href={amazonProductLink({ asin: p.asin, brand: p.brand, product: p.name })}>See on Amazon UK</a>
+                  <a class="btn btn-outline-secondary" href={`/reviews/${p.slug}/`}>Full review</a>
+                </div>
+              </div>
+              <div class="col-auto text-end">
+                <div class="price">{money(p.price)}</div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+
+      <h2>Traps to avoid on a first bivvy</h2>
+      <ul>
+        <li><strong>Anything under £150 marketed as a "two-man bivvy".</strong> Physics says no.</li>
+        <li><strong>Camo-print supermarket brands.</strong> The camo pattern is usually the most expensive part of the manufacturing budget.</li>
+        <li><strong>Bivvies that only list "6000 mm fabric" without specifying what it applies to.</strong> Usually the groundsheet, meaning the flysheet is lower.</li>
+        <li><strong>"3-4 man" bivvies at the same price as decent 2-man kit.</strong> Bigger footprint is not more capability; often it means thinner fabric to keep the weight down.</li>
+      </ul>
+
+      <div class="callout">
+        <strong>The one-line summary.</strong> Aluminium poles, 5,000 mm+ flysheet HH, two-skin construction, 20+ peg points. If a bivvy has
+        all four, it is a candidate. If it is missing any of them, keep looking.
+      </div>
+
+      <h2>Common questions</h2>
+      {faqs.map((f) => (
+        <details class="faq"><summary>{f.q}</summary><p>{f.a}</p></details>
+      ))}
+
+      <h2>Continue reading</h2>
+      <div class="cat-grid">
+        <a class="cat-card" href="/gear/bivvies/"><h3>All bivvies reviewed</h3><p>Every bivvy on our UK review desk.</p><div class="meta"><span>Category</span><span>Read →</span></div></a>
+        <a class="cat-card" href="/gear/bedchairs/"><h3>Bedchair buying guide</h3><p>Frame ratings, mattress depth, and pack-size trade-offs.</p><div class="meta"><span>Category</span><span>Read →</span></div></a>
+        <a class="cat-card" href="/guides/uk-carp-session-costs/"><h3>What a UK carp season costs</h3><p>Kit, tickets, bait and terminals broken down honestly.</p><div class="meta"><span>Guide</span><span>Read →</span></div></a>
+      </div>
+    </article>
+  </div>
+</BaseLayout>

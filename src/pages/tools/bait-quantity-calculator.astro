@@ -1,0 +1,361 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import siteConfig from "../../data/site.config.json";
+import products from "../../data/products.json";
+import { amazonProductLink, money, stars } from "../../lib/amazon";
+import { breadcrumbListJsonLd, faqJsonLd } from "../../lib/schema";
+
+const siteUrl = `https://${siteConfig.domain}`;
+const title = `UK carp bait quantity calculator ${new Date().getFullYear()} - kg per session and per year`;
+const description = `Free interactive calculator: enter your session length, rods, water stock density and bait tier. Get realistic bait quantities per session and annual totals - no over-buying, no under-baiting.`;
+
+const baitPicks = products.filter((p) => p.category === "boilies-bait");
+
+const faqs = [
+  { q: "Why do the numbers vary so much by water stock density?", a: "On low-stock specimen waters (Redmire-style syndicates), 500g of boilies per rod as a starting bed can last 48 hours - there simply aren't enough fish to consume more. On pressured commercial-stocked day-ticket waters, the same 500g gets eaten by roach, bream and small carp within an hour, so you need 2-3 kg per rod just to hold a spot." },
+  { q: "Does the calculator account for pre-baiting between sessions?", a: "No - the annual total is the bait fed on the bank during actual sessions. If you pre-bait a syndicate water twice per week outside your fishing days, add roughly the same kg per week again to your annual bait budget. Pre-baiting typically doubles bait spend but multiplies session success rates." },
+  { q: "How much does the season really change bait use?", a: "Meaningfully. Cold water carp (below 10°C) metabolise bait 40-60% slower than warm-water fish, so winter sessions need less bait to hold the spot. Autumn peak feeding is the opposite - fish are laying down reserves for winter and will eat everything you give them. Summer sits in the middle." },
+  { q: "What if I'm feeding particle (hemp, corn, tigers) as well as boilies?", a: "The calculator covers boilies only - the primary bait spend for most UK carpers. If you're mixing 50/50 with particle, roughly halve the boilie kg the calculator suggests and add matching particle volume. Particle costs are typically 40-50% of equivalent boilie cost." },
+];
+
+const jsonLd = [
+  breadcrumbListJsonLd([
+    { label: "Home", url: `${siteUrl}/` },
+    { label: "Tools", url: `${siteUrl}/tools/` },
+    { label: "Bait quantity calculator", url: `${siteUrl}/tools/bait-quantity-calculator/` },
+  ]),
+  faqJsonLd(faqs),
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "UK carp bait quantity calculator",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Web browser",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
+    "description": "Interactive calculator for UK carp bait quantities per session and annual boilie totals.",
+    "url": `${siteUrl}/tools/bait-quantity-calculator/`,
+  },
+];
+---
+<BaseLayout
+  title={title}
+  description={description}
+  indexable={true}
+  crumbs={[
+    { label: "Tools" },
+    { label: "Bait quantity calculator" },
+  ]}
+  jsonLd={jsonLd}
+>
+  <div class="wrap">
+    <article class="guide-content">
+      <div class="page-head">
+        <div class="kicker">Interactive tool · UK · {new Date().getFullYear()}</div>
+        <h1>UK carp bait quantity calculator</h1>
+        <p class="lede">How much bait do you actually need? Enter your fishing habits and get realistic boilie quantities per session, per year, and per pound spent - no over-buying, no under-baiting.</p>
+        <p class="byline">By <strong>{siteConfig.authorName}</strong> · Data current for {new Date().toLocaleDateString("en-GB", { month: "long", year: "numeric" })}</p>
+      </div>
+
+      <div class="callout">
+        <strong>What this covers.</strong> Boilie quantities only - the primary bait spend for UK carp fishing. If you feed particle (hemp, corn, tigers) alongside boilies, halve the boilie kg and add matching particle volume. For total annual cost including tickets, kit and fuel, use the <a href="/tools/session-cost-calculator/">session cost calculator</a>.
+      </div>
+
+      <div class="calc-shell">
+        <form id="baitcalc-form" class="calc-form" onsubmit="return false;">
+          <div class="calc-field">
+            <label for="b-sessions">Sessions per year</label>
+            <input type="range" id="b-sessions" min="5" max="80" value="25" step="1" />
+            <div class="calc-value"><output id="b-sessions-val">25</output> sessions/year</div>
+          </div>
+
+          <div class="calc-field">
+            <label for="b-length">Average session length</label>
+            <select id="b-length">
+              <option value="0.5">Day only (12h)</option>
+              <option value="1" selected>24-hour overnighter</option>
+              <option value="2">48-hour weekend</option>
+              <option value="3">72-hour campaign</option>
+            </select>
+          </div>
+
+          <div class="calc-field">
+            <label for="b-rods">Number of rods</label>
+            <select id="b-rods">
+              <option value="1">1 rod</option>
+              <option value="2">2 rods</option>
+              <option value="3" selected>3 rods</option>
+            </select>
+          </div>
+
+          <div class="calc-field">
+            <label for="b-density">Water stock density</label>
+            <select id="b-density">
+              <option value="1.0">Low stock (specimen syndicate)</option>
+              <option value="1.5" selected>Medium stock (typical UK syndicate)</option>
+              <option value="2.0">High stock (day-ticket, mixed sizes)</option>
+              <option value="2.5">Pressured commercial (heavy nuisance fish)</option>
+            </select>
+          </div>
+
+          <div class="calc-field">
+            <label for="b-season">Season mix</label>
+            <select id="b-season">
+              <option value="0.6">Winter-heavy fishing (Dec-Feb)</option>
+              <option value="0.85">Spring dominant (Mar-May)</option>
+              <option value="1.0" selected>All-year balanced</option>
+              <option value="1.1">Autumn peak fishing (Sep-Nov)</option>
+            </select>
+          </div>
+
+          <div class="calc-field">
+            <label for="b-tier">Bait tier</label>
+            <select id="b-tier">
+              <option value="12">Budget shelf-life (£12/kg)</option>
+              <option value="15" selected>Quality shelf-life (£15/kg)</option>
+              <option value="20">Premium freezer (£20/kg)</option>
+              <option value="25">Specimen premium (£25/kg)</option>
+            </select>
+          </div>
+
+          <div class="calc-field">
+            <label for="b-prebait">Pre-baiting between sessions?</label>
+            <select id="b-prebait">
+              <option value="1.0" selected>None (session-only feeding)</option>
+              <option value="1.5">Light pre-bait (once per week off-session)</option>
+              <option value="2.0">Heavy pre-bait (twice per week off-session)</option>
+            </select>
+          </div>
+        </form>
+
+        <div class="calc-result" aria-live="polite">
+          <div class="calc-total">
+            <div class="calc-total-label">Annual bait quantity</div>
+            <div class="calc-total-value"><output id="b-kg">0</output> kg</div>
+            <div class="calc-per">≈ £<output id="b-cost">0</output> per year · <output id="b-per-session">0</output> kg per session</div>
+          </div>
+
+          <table class="table calc-breakdown mb-0">
+            <thead><tr><th>Line</th><th class="text-end">Value</th></tr></thead>
+            <tbody id="b-breakdown"></tbody>
+          </table>
+
+          <p class="small text-muted mt-2">Numbers are indicative baselines for {new Date().getFullYear()} UK conditions. Adjust up or down 20-30% based on venue-specific behaviour. <a href="#methodology">See methodology</a>.</p>
+        </div>
+      </div>
+
+      <div class="aff-notice">
+        <strong>Affiliate disclosure:</strong> Bait picks below link to Amazon UK and earn us a commission at no extra cost to you. It does not affect our tier recommendations. <a href="/affiliate-disclosure/">Details</a>.
+      </div>
+
+      <h2>Bait picks for the tier you selected</h2>
+      <p>Two picks that cover the honest bait spectrum for UK carp fishing - shelf-life default and premium freezer step-up. Buy in bulk (5 kg bags on Amazon UK) to match the calculator's per-year total at real per-kg pricing.</p>
+
+      {baitPicks.map((p, i) => (
+        <div class="product-card">
+          <div class="row g-3 align-items-start">
+            <div class="col">
+              <div class="rank">{i === 0 ? "Shelf-life all-year default" : "Freezer bait premium pick"}</div>
+              <h3><a href={`/reviews/${p.slug}/`}>{p.name}</a></h3>
+              <div class="mb-1"><span class="stars">{stars(p.rating)}</span> <small class="text-muted ms-1">{p.rating.toFixed(1)}/5</small></div>
+              <p class="verdict">{p.verdict}</p>
+              <div class="d-flex flex-wrap gap-2">
+                <a class="btn btn-amazon" rel="sponsored nofollow noopener" target="_blank" href={amazonProductLink({ asin: p.asin, brand: p.brand, product: p.name })}>See on Amazon UK</a>
+                <a class="btn btn-outline-secondary" href={`/reviews/${p.slug}/`}>Full review</a>
+              </div>
+            </div>
+            <div class="col-auto text-end">
+              <div class="price">{money(p.price)}</div>
+              <div class="price-note">Per kg</div>
+            </div>
+          </div>
+        </div>
+      ))}
+
+      <h2 id="methodology">Methodology</h2>
+      <p>The calculator uses realistic UK carp fishing baselines derived from published feeding advice by Mainline Baits, Sticky Baits, Nash Tackle and Angling Times editorial. Formula:</p>
+      <ul>
+        <li><strong>Starting bed:</strong> 0.5 kg per rod × density factor. Low-stock 1.0x, medium 1.5x, high 2.0x, pressured 2.5x.</li>
+        <li><strong>Top-up feeding:</strong> 0.3 kg per rod per 24 hours × density factor.</li>
+        <li><strong>Season adjustment:</strong> winter 0.6x, spring 0.85x, all-year balanced 1.0x, autumn peak 1.1x.</li>
+        <li><strong>Pre-bait multiplier:</strong> off-session feeding adds 50-100% to your annual total, depending on frequency.</li>
+        <li><strong>Cost:</strong> kg × per-kg price by tier (12, 15, 20, or 25 £/kg).</li>
+      </ul>
+
+      <div class="callout warning">
+        <strong>What the calculator can't know.</strong> Venue-specific baiting rules (some syndicates cap bait per session), your own fishing style (are you a nailed-to-one-spot angler or a mover?), and the effect of prevailing weather. Use the number as a budgeting baseline, not gospel. Anglers on the same water can spend 2x different amounts and both catch.
+      </div>
+
+      <h2>How to use the result</h2>
+      <ol>
+        <li><strong>Compare to your actual spend.</strong> If you fish 25 sessions and the calc says 40 kg/year but you actually buy 60 kg, you're feeding heavy - either intentionally or from wastage. Check whether the wastage is worth the extra spend.</li>
+        <li><strong>Model a bait tier change.</strong> Toggle from "quality shelf-life" to "premium freezer" and see the annual cost gap. Most anglers overestimate the cost step from Cell to Krill.</li>
+        <li><strong>Plan bulk buying.</strong> Divide the annual kg by 5 to know how many 5 kg bulk bags to order per year. Buying bulk cuts per-kg cost 20-25% vs 1 kg bags.</li>
+      </ol>
+
+      <h2>Common questions</h2>
+      {faqs.map((f) => (
+        <details class="faq"><summary>{f.q}</summary><p>{f.a}</p></details>
+      ))}
+
+      <div class="cta-banner">
+        <h3>Match the calculator to real bait picks</h3>
+        <p>The seven kit families for a modern UK carp setup, with our top picks at each tier and Amazon UK links.</p>
+        <a class="btn btn-amazon" href="/gear/boilies-bait/">See all bait reviews →</a>
+      </div>
+
+      <h2>Continue reading</h2>
+      <div class="cat-grid">
+        <a class="cat-card" href="/tools/session-cost-calculator/"><h3>Session cost calculator</h3><p>Total annual UK carp fishing budget: kit, tickets, bait, terminals, fuel.</p><div class="meta"><span>Tool</span><span>Try it →</span></div></a>
+        <a class="cat-card" href="/guides/boilies-explained/"><h3>Boilies explained</h3><p>Shelf-life vs freezer, fishmeal vs birdfood, and when to switch bait.</p><div class="meta"><span>Guide</span><span>Read →</span></div></a>
+        <a class="cat-card" href="/gear/boilies-bait/"><h3>All bait reviews</h3><p>Every UK boilie brand on our review desk with Amazon UK links.</p><div class="meta"><span>Category</span><span>Read →</span></div></a>
+      </div>
+    </article>
+  </div>
+
+  <style>
+    .calc-shell {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      background: #fffcf3;
+      border: 1px solid #e2dbc4;
+      border-radius: 0.6rem;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    @media (max-width: 768px) { .calc-shell { grid-template-columns: 1fr; } }
+    .calc-form { display: flex; flex-direction: column; gap: 1.1rem; }
+    .calc-field label {
+      display: block;
+      font-family: "Fraunces", serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.35rem;
+      color: var(--brand-ink);
+    }
+    .calc-field select, .calc-field input[type="range"] {
+      width: 100%;
+      font-family: "Inter", sans-serif;
+    }
+    .calc-field select {
+      padding: 0.4rem 0.55rem;
+      border: 1px solid #d0c8ac;
+      border-radius: 0.35rem;
+      background: #fff;
+    }
+    .calc-field input[type="range"] { accent-color: var(--brand); }
+    .calc-value {
+      font-size: 0.85rem;
+      color: #5c5d54;
+      margin-top: 0.25rem;
+    }
+    .calc-result {
+      background: var(--brand-ink);
+      color: #f6f4ea;
+      border-radius: 0.5rem;
+      padding: 1.25rem 1.35rem;
+    }
+    .calc-total-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(246,244,234,0.7);
+    }
+    .calc-total-value {
+      font-family: "Fraunces", serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      line-height: 1.05;
+      color: #f6f4ea;
+      margin: 0.15rem 0;
+    }
+    .calc-per {
+      font-size: 0.9rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .calc-breakdown {
+      color: #f6f4ea;
+      background: transparent;
+      font-size: 0.9rem;
+    }
+    .calc-breakdown th, .calc-breakdown td {
+      border-color: rgba(246,244,234,0.15);
+      color: #f6f4ea;
+    }
+    .calc-breakdown thead th {
+      background: rgba(255,255,255,0.06);
+      color: rgba(246,244,234,0.85);
+      font-family: "Fraunces", serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+  </style>
+
+  <script is:inline>
+    (function () {
+      const $ = (id) => document.getElementById(id);
+      const fmt1 = (n) => (Math.round(n * 10) / 10).toLocaleString("en-GB", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+      const fmtInt = (n) => Math.round(n).toLocaleString("en-GB");
+
+      const el = {
+        sessions: $("b-sessions"),
+        sessionsVal: $("b-sessions-val"),
+        length: $("b-length"),
+        rods: $("b-rods"),
+        density: $("b-density"),
+        season: $("b-season"),
+        tier: $("b-tier"),
+        prebait: $("b-prebait"),
+        kg: $("b-kg"),
+        cost: $("b-cost"),
+        perSession: $("b-per-session"),
+        breakdown: $("b-breakdown"),
+      };
+
+      function compute() {
+        const sessions = +el.sessions.value;
+        const length = +el.length.value;
+        const rods = +el.rods.value;
+        const density = +el.density.value;
+        const season = +el.season.value;
+        const tier = +el.tier.value;
+        const prebait = +el.prebait.value;
+
+        el.sessionsVal.textContent = sessions;
+
+        const bedKg = rods * 0.5 * density;
+        const topupKg = rods * 0.3 * length * density;
+        const perSession = (bedKg + topupKg) * season;
+        const annualSession = perSession * sessions;
+        const annualPrebait = annualSession * (prebait - 1);
+        const annualTotal = annualSession + annualPrebait;
+        const annualCost = annualTotal * tier;
+
+        el.kg.textContent = fmtInt(annualTotal);
+        el.cost.textContent = fmtInt(annualCost);
+        el.perSession.textContent = fmt1(perSession);
+
+        const rows = [
+          ["Starting bed / rod", (bedKg / rods).toFixed(2) + " kg"],
+          ["Top-up feed / rod / 24h", (0.3 * density * season).toFixed(2) + " kg"],
+          ["Per-session total", fmt1(perSession) + " kg"],
+          ["Sessions per year", sessions + " sessions"],
+          ["Session-only annual", fmtInt(annualSession) + " kg"],
+          ["Pre-bait annual add-on", fmtInt(annualPrebait) + " kg"],
+          ["Annual bait total", "<strong>" + fmtInt(annualTotal) + " kg</strong>"],
+          ["Annual cost at £" + tier + "/kg", "<strong>£" + fmtInt(annualCost) + "</strong>"],
+        ];
+        el.breakdown.innerHTML = rows
+          .map((r) => "<tr><td>" + r[0] + "</td><td class=\"text-end\">" + r[1] + "</td></tr>")
+          .join("");
+      }
+
+      ["sessions", "length", "rods", "density", "season", "tier", "prebait"].forEach((k) => {
+        el[k].addEventListener("input", compute);
+        el[k].addEventListener("change", compute);
+      });
+      compute();
+    })();
+  </script>
+</BaseLayout>

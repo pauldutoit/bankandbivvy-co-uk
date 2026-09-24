@@ -1,0 +1,197 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import products from "../../data/products.json";
+import siteConfig from "../../data/site.config.json";
+import { amazonProductLink, money, stars } from "../../lib/amazon";
+import { breadcrumbListJsonLd, faqJsonLd } from "../../lib/schema";
+
+const siteUrl = `https://${siteConfig.domain}`;
+const title = `UK carp welfare & legal basics ${new Date().getFullYear()} - what the law and syndicates require`;
+const description = `The UK legal and syndicate rules every carp angler should know. Rod licences, close season, size limits, unhooking mats, safe rigs, retention rules, and best-practice fish care that goes beyond the minimum.`;
+
+const welfarePicks = [
+  products.find((p) => p.slug === "nash-titan-t3-unhooking-cradle"),
+  products.find((p) => p.slug === "fox-carpmaster-standard-mat"),
+].filter((p): p is NonNullable<typeof p> => Boolean(p));
+
+const faqs = [
+  { q: "What are the legal requirements to fish for carp in the UK?", a: "You need a valid Environment Agency rod licence (£36 senior 12-month, £25.80 8-day, £13 24-hour; junior 13-16 is free but must still register). You need permission from the water owner or a day-ticket. You must comply with the venue's own rules and any national close-season restrictions (rivers: 15 March-15 June; most stillwaters exempt but check the venue)." },
+  { q: "Is a rigid cradle legally required?", a: "Not legally, but syndicate rules increasingly require one for fish over 15 lb. Best-practice guidance from the Angling Trust and RSPCA supports rigid cradles for any handled fish over 20 lb. Buy a cradle for any water where 20 lb+ fish are realistic - which is most modern UK carp waters." },
+  { q: "How long can I keep a fish in a retention sling before returning it?", a: "The RSPCA and Angling Trust guidance is: as short as possible, ideally under 5 minutes for weighing and photography combined. Retention slings should never be used for extended trophy displays. Some syndicates ban retention slings entirely; check venue rules." },
+  { q: "What is a safe rig and is it legally required?", a: "A safe rig is one where the lead detaches from the mainline if the fish becomes snagged, preventing tethering. Not legally required nationally but required by rule on most UK syndicates and increasingly on day-ticket waters. Practical spec: lead clip + tail rubber + tested release." },
+  { q: "Are there minimum size limits for carp?", a: "No national size limit for carp in England and Wales - unlike some coarse species where the EA sets a national size. Some venues set local minimum weights below which fish must not be lifted or photographed (typically 4-5 lb) to protect small fish welfare." },
+];
+
+const jsonLd = [
+  breadcrumbListJsonLd([
+    { label: "Home", url: `${siteUrl}/` },
+    { label: "Guides", url: `${siteUrl}/guides/` },
+    { label: "UK carp welfare & legal basics", url: `${siteUrl}/guides/uk-carp-welfare-and-legal-basics/` },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+<BaseLayout
+  title={title}
+  description={description}
+  indexable={true}
+  crumbs={[
+    { label: "Guides" },
+    { label: "UK carp welfare & legal basics" },
+  ]}
+  jsonLd={jsonLd}
+>
+  <div class="wrap">
+    <article class="guide-content">
+      <div class="page-head">
+        <div class="kicker">Guide · Welfare · UK · {new Date().getFullYear()}</div>
+        <h1>UK carp welfare & legal basics</h1>
+        <p class="lede">The legal minimums every UK carp angler must know - rod licence, close season, safe rigs, retention rules - and the best-practice fish welfare that goes beyond the minimum.</p>
+        <p class="byline">By <strong>{siteConfig.authorName}</strong> · Updated {new Date().toLocaleDateString("en-GB", { month: "long", year: "numeric" })}</p>
+      </div>
+
+      <p>
+        Carp welfare in UK fishing has come a long way in 20 years. Where 1990s carp anglers routinely kept fish in weigh slings for extended photo sessions, modern UK best practice - codified by the Angling Trust, syndicate rules, and RSPCA guidance - focuses on minimising handling time, protecting scales and slime coat, and using kit that reduces welfare risk. This guide covers the legal minimums and where honest best practice goes further.
+      </p>
+
+      <div class="aff-notice">
+        <strong>Affiliate disclosure:</strong> The welfare kit suggestions link to Amazon UK and earn us a commission at no extra cost to you. It does not affect our recommendations - welfare kit is the one area where paying more than the absolute minimum genuinely matters for the fish. <a href="/affiliate-disclosure/">Details</a>.
+      </div>
+
+      <h2>The four legal requirements</h2>
+
+      <h3>1. Environment Agency rod licence</h3>
+      <p>
+        Every angler aged 13 or over must hold a valid EA rod licence to fish freshwater in England and Wales. 2026 pricing: £36 for a senior 12-month, £25.80 for an 8-day, £13 for a 24-hour. Juniors aged 13-16 must register for a free licence. Fishing without a licence carries a penalty of up to £2,500 and forfeiture of tackle. Buy online at <a href="https://www.gov.uk/fishing-licences" rel="nofollow noopener" target="_blank">gov.uk/fishing-licences</a>.
+      </p>
+
+      <h3>2. Water access permission</h3>
+      <p>
+        A rod licence lets you fish; it does not give you access. You must have a day-ticket, syndicate membership, or explicit owner permission for the water you fish. Fishing without permission is trespass and can be a criminal offence under the Theft Act 1968 if enforcement escalates.
+      </p>
+
+      <h3>3. Close season</h3>
+      <p>
+        The national close season for coarse fishing on <em>rivers, streams, drains and canals</em> runs from 15 March to 15 June inclusive. Most stillwaters (including nearly all UK carp lakes and pits) are exempt from the national close season, but individual venues may impose their own. Always check the venue rules - syndicate closures for spawning are common on Fenland and Kent waters.
+      </p>
+
+      <h3>4. Venue-specific rules</h3>
+      <p>
+        Every UK carp water has its own rulebook. Common rules that carry disciplinary weight (loss of ticket, permanent ban) include:
+      </p>
+      <ul>
+        <li>Compulsory unhooking mat or cradle for fish over a stated weight</li>
+        <li>Safe rigs (lead-drop mechanism) mandatory on snag-heavy waters</li>
+        <li>Barbless hooks only, or micro-barb only</li>
+        <li>No retention slings, or retention time capped at 5-10 minutes</li>
+        <li>Fish returned in the swim they were caught, no walking to a "better" photo spot</li>
+        <li>No cameras/phones on the bank during weighing (Instagram-culture pushback)</li>
+      </ul>
+
+      <h2>Fish welfare kit - the welfare non-negotiables</h2>
+
+      <h3>Unhooking mat or cradle</h3>
+      <p>
+        The single most important welfare item. A flat foam mat protects scales and slime coat from ground abrasion; a rigid cradle prevents lively fish from rolling off onto hard banks. For any UK water holding fish over 15 lb, a cradle is the responsible baseline. Under 15 lb, a floor-fill mat is adequate.
+      </p>
+
+      {welfarePicks.map((p, i) => {
+        const tier = i === 0 ? "Cradle for 20 lb+ waters" : "Mat for smaller fish / day-ticket";
+        return (
+          <div class="product-card">
+            <div class="row g-3 align-items-start">
+              <div class="col">
+                <div class="rank">{tier}</div>
+                <h3><a href={`/reviews/${p.slug}/`}>{p.name}</a></h3>
+                <div class="mb-1"><span class="stars">{stars(p.rating)}</span> <small class="text-muted ms-1">{p.rating.toFixed(1)}/5</small></div>
+                <p class="verdict">{p.verdict}</p>
+                <div class="d-flex flex-wrap gap-2">
+                  <a class="btn btn-amazon" rel="sponsored nofollow noopener" target="_blank" href={amazonProductLink({ asin: p.asin, brand: p.brand, product: p.name })}>See on Amazon UK</a>
+                  <a class="btn btn-outline-secondary" href={`/reviews/${p.slug}/`}>Full review</a>
+                </div>
+              </div>
+              <div class="col-auto text-end">
+                <div class="price">{money(p.price)}</div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+
+      <h3>Landing net</h3>
+      <p>
+        Carp-specific landing net (42 inch minimum spread), soft mesh (2 mm hex mesh or similar), coated frame to avoid scale damage. Never scoop a carp with a coarse net or a match net - the mesh is too coarse and causes scale loss. Rinse and dry the mesh after every session.
+      </p>
+
+      <h3>Retention sling and weigh gear</h3>
+      <p>
+        A weigh sling with drainage panels for holding a fish briefly while weighing. Retention slings for longer-term holding are banned on many UK syndicates - check venue rules. When used, retention time should never exceed 5-10 minutes.
+      </p>
+
+      <h3>Antiseptic treatment</h3>
+      <p>
+        A bottle of Klin-ik or Kryston Klinik antiseptic, £8, applied to hook holds after unhooking. Reduces infection risk on damaged mouth tissue and is standard best practice on syndicate waters where fish are caught multiple times per season.
+      </p>
+
+      <h2>Best-practice unhooking sequence</h2>
+      <ol>
+        <li><strong>Land the fish carefully.</strong> Draw over a well-positioned landing net, don't stab or scoop.</li>
+        <li><strong>Leave the fish in the net in the margin.</strong> Set up your mat/cradle, weigh sling, camera, unhooking tools before moving the fish.</li>
+        <li><strong>Wet the mat.</strong> Use lake water via a wet cloth or dedicated water bucket - never dry mat contact with fish.</li>
+        <li><strong>Lift the fish onto the mat.</strong> Support belly with one hand under, pectoral area with the other. Never lift by the jaw or gill plate.</li>
+        <li><strong>Unhook quickly.</strong> Forceps or disgorger, working towards the hook point, never against.</li>
+        <li><strong>Apply antiseptic to the hook hold.</strong> Small dab, cotton bud or dropper.</li>
+        <li><strong>Weigh and photo if desired.</strong> Ideally under 3 minutes total on the bank. Longer causes stress and slime coat damage.</li>
+        <li><strong>Return the fish upright in the margin.</strong> Support until it swims away under its own power. Never throw a carp back.</li>
+      </ol>
+
+      <h2>What the ATa and RSPCA guidance says beyond legal minimum</h2>
+      <ul>
+        <li>No holding fish out of water for photography beyond 30 seconds.</li>
+        <li>Wet hands before handling every time.</li>
+        <li>No walking with a carp to a different photo spot on the bank.</li>
+        <li>Fish under 4 lb should not be lifted at all - unhook in the net if possible.</li>
+        <li>Return fish in a supported swimming position, never just tipped from a sling.</li>
+        <li>On hot days (water above 20°C), handle fish for the minimum possible time - heat stress is the biggest hidden welfare risk.</li>
+      </ul>
+
+      <div class="callout warning">
+        <strong>The hidden killer: hot-weather handling.</strong> Carp can die from post-capture stress hours or days after release when water temperature is above 20°C. Warm-water welfare protocol: reduce handling to under 60 seconds total, keep the fish in the net in cool margin water while setting up, no retention slings.
+      </div>
+
+      <h2>What happens if you get it wrong</h2>
+      <p>
+        Consequences of welfare failures range from informal (a stern word from a bailiff) through venue-level (loss of ticket, permanent syndicate ban) to legal. The Wildlife and Countryside Act 1981 protects certain fish species; the Animal Welfare Act 2006 makes causing unnecessary suffering to any protected animal an offence. Most enforcement is via venue rules and syndicate committees rather than formal law, but the legal backstop exists.
+      </p>
+
+      <div class="callout">
+        <strong>The one-line summary.</strong> Rod licence, permission to fish, mat or cradle, safe rig, unhooking in under 3 minutes, fish supported until swimming. Get those six right and you are ahead of 80 % of UK carpers on welfare.
+      </div>
+
+      <h2>Common questions</h2>
+      {faqs.map((f) => (
+        <details class="faq"><summary>{f.q}</summary><p>{f.a}</p></details>
+      ))}
+
+      <div class="cta-banner">
+        <h3>Full welfare kit picks in one place</h3>
+        <p>Mats, cradles, landing nets, weigh slings, antiseptic - the complete UK welfare setup, all with Amazon UK links.</p>
+        <a class="btn btn-amazon" href="/gear/unhooking-mats/">See all unhooking mats & cradles →</a>
+      </div>
+
+      <h2>Sources & further reading</h2>
+      <ul>
+        <li><a href="https://www.gov.uk/fishing-licences" rel="nofollow noopener" target="_blank">Rod licences - gov.uk</a> (official EA licensing)</li>
+        <li><a href="https://anglingtrust.net/" rel="nofollow noopener" target="_blank">Angling Trust</a> (welfare guidance and PLI membership)</li>
+        <li><a href="https://www.gov.uk/freshwater-rod-fishing-rules" rel="nofollow noopener" target="_blank">Freshwater rod fishing rules - gov.uk</a> (close season, national rules)</li>
+      </ul>
+
+      <h2>Continue reading</h2>
+      <div class="cat-grid">
+        <a class="cat-card" href="/guides/carp-rig-fundamentals/"><h3>Carp rig fundamentals</h3><p>Hair, chod, zig, safe leadcore - the four rigs every UK angler should know.</p><div class="meta"><span>Guide</span><span>Read →</span></div></a>
+        <a class="cat-card" href="/gear/unhooking-mats/"><h3>Unhooking mats & cradles</h3><p>Every mat and cradle on our UK review desk.</p><div class="meta"><span>Category</span><span>Read →</span></div></a>
+        <a class="cat-card" href="/data/uk-carp-fishing-stats/"><h3>UK carp fishing stats</h3><p>Rod licence sales, market size, participation trends - sourced from EA data.</p><div class="meta"><span>Data</span><span>Read →</span></div></a>
+      </div>
+    </article>
+  </div>
+</BaseLayout>

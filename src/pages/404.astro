@@ -1,0 +1,29 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import siteConfig from "../data/site.config.json";
+import categories from "../data/categories.json";
+import { money } from "../lib/amazon";
+
+const title = `Page not found - ${siteConfig.siteName}`;
+const description = "The page you were looking for is not here. Try the homepage or one of the guides below.";
+---
+<BaseLayout title={title} description={description} indexable={false}>
+  <div class="wrap">
+    <article class="guide-content">
+      <div class="page-head">
+        <h1>Page not found</h1>
+        <p class="lede">The page you were looking for is not here. Try the <a href="/">homepage</a> or one of the guides below.</p>
+      </div>
+
+      <div class="cat-grid">
+        {categories.map((c: any) => (
+          <a class="cat-card" href={`/machines/${c.slug}/`}>
+            <h3>{c.name}</h3>
+            <p>{c.tagline}</p>
+            <div class="meta"><span>From {money(c.priceFrom)}</span><span>Read guide →</span></div>
+          </a>
+        ))}
+      </div>
+    </article>
+  </div>
+</BaseLayout>

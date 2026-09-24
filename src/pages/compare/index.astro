@@ -1,0 +1,82 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import compares from "../../data/compare.json";
+import products from "../../data/products.json";
+import categories from "../../data/categories.json";
+import siteConfig from "../../data/site.config.json";
+import { money } from "../../lib/amazon";
+import { breadcrumbListJsonLd } from "../../lib/schema";
+
+const siteUrl = `https://${siteConfig.domain}`;
+const title = `UK carp gear head-to-head comparisons ${new Date().getFullYear()} - bivvies, alarms, rods, bait`;
+const description = `Head-to-head UK carp gear comparisons: Trakker vs Fox bivvies, Delkim vs Fox alarms, Nash vs Fox rods, Mainline vs Sticky bait. Verdict, 6-criteria breakdown, personas, Amazon UK links.`;
+
+const jsonLd = breadcrumbListJsonLd([
+  { label: "Home", url: `${siteUrl}/` },
+  { label: "Compare", url: `${siteUrl}/compare/` },
+]);
+---
+<BaseLayout
+  title={title}
+  description={description}
+  indexable={true}
+  crumbs={[{ label: "Compare" }]}
+  jsonLd={jsonLd}
+>
+  <div class="wrap">
+    <article class="guide-content">
+      <div class="page-head">
+        <div class="kicker">Compare · UK · {new Date().getFullYear()}</div>
+        <h1>UK carp gear head-to-head comparisons</h1>
+        <p class="lede">The two-way comparisons UK carpers actually search for. Side-by-side specs, 6-criteria breakdown, personas and honest recommendations - no "everything is great, buy both" fence-sitting.</p>
+        <p class="byline">By <strong>{siteConfig.authorName}</strong> · Updated {new Date().toLocaleDateString("en-GB", { month: "long", year: "numeric" })}</p>
+      </div>
+
+      <p>These pages exist because head-to-head comparisons are the queries UK anglers type when they've narrowed to a shortlist and just need to decide. Each comparison gives you the verdict up front, then the reasoning across 6 criteria, then personas so you can identify which recommendation fits your fishing style. All prices are RRP guides - check Amazon UK for current promotions.</p>
+
+      <div class="aff-notice">
+        <strong>Affiliate disclosure:</strong> Every product link on these pages goes to Amazon UK and pays us a commission at no extra cost to you. We recommend based on which fits which angler, not on which pays more. <a href="/affiliate-disclosure/">Details</a>.
+      </div>
+
+      <div class="cat-grid">
+        {compares.map((cmp: any) => {
+          const left = products.find((p: any) => p.slug === cmp.leftSlug);
+          const right = products.find((p: any) => p.slug === cmp.rightSlug);
+          const category = categories.find((c: any) => c.slug === cmp.category);
+          if (!left || !right || !category) return null;
+          return (
+            <a class="cat-card" href={`/compare/${cmp.slug}/`}>
+              <h3>{left.name} vs {right.name}</h3>
+              <p>{cmp.tagline}</p>
+              <div class="meta"><span>{category.short} · {money(left.price)} vs {money(right.price)}</span><span>Read →</span></div>
+            </a>
+          );
+        })}
+      </div>
+
+      <h2>How we structure each comparison</h2>
+      <p>Every head-to-head on this site follows the same structure so you know exactly where to find what:</p>
+      <ol>
+        <li><strong>Verdict up front.</strong> Which one to buy for which use case, no waffling.</li>
+        <li><strong>Side-by-side spec table.</strong> Every published spec both products share, aligned for scanning.</li>
+        <li><strong>Six-criteria breakdown.</strong> Blank / sensor / build / value / long-term / cosmetic - with a winner per criterion.</li>
+        <li><strong>Personas.</strong> Four typical UK carp anglers matched to the right choice for their fishing style.</li>
+        <li><strong>Dual CTA banner.</strong> Both products linked to Amazon UK so you can go directly.</li>
+        <li><strong>Common questions.</strong> The FAQs that regularly come up on UK carp forums.</li>
+      </ol>
+
+      <div class="cta-banner">
+        <h3>Or skip the comparison and see our full pillar guide</h3>
+        <p>Every gear category, three price tiers each, our flagship picks with Amazon UK links. Written for UK carpers who want an honest starting point.</p>
+        <a class="btn btn-amazon" href="/">See the pillar gear guide →</a>
+      </div>
+
+      <h2>Continue reading</h2>
+      <div class="cat-grid">
+        <a class="cat-card" href="/"><h3>The pillar gear guide</h3><p>Seven kit families for a modern UK carp setup.</p><div class="meta"><span>Pillar</span><span>Read →</span></div></a>
+        <a class="cat-card" href="/tools/session-cost-calculator/"><h3>Session cost calculator</h3><p>Interactive: your realistic annual UK carp budget in 30 seconds.</p><div class="meta"><span>Tool</span><span>Try it →</span></div></a>
+        <a class="cat-card" href="/data/uk-carp-fishing-stats/"><h3>UK carp fishing stats</h3><p>Rod licence sales, market size and trends - from EA and Angling Trust data.</p><div class="meta"><span>Data</span><span>Read →</span></div></a>
+      </div>
+    </article>
+  </div>
+</BaseLayout>

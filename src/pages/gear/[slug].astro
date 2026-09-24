@@ -1,0 +1,155 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import categories from "../../data/categories.json";
+import products from "../../data/products.json";
+import siteConfig from "../../data/site.config.json";
+import { amazonProductLink, money, stars } from "../../lib/amazon";
+import { breadcrumbListJsonLd, faqJsonLd } from "../../lib/schema";
+
+export function getStaticPaths() {
+  return categories.map((c) => ({ params: { slug: c.slug }, props: { category: c } }));
+}
+
+const { category } = Astro.props;
+const items = products.filter((p) => p.category === category.slug);
+
+const siteUrl = `https://${siteConfig.domain}`;
+const pageUrl = `${siteUrl}/gear/${category.slug}/`;
+const title = `Best ${category.name.toLowerCase()} UK ${new Date().getFullYear()}, reviews & buying guide`;
+const description = `${category.tagline} Reviews, prices, buying advice and what to avoid for the UK ${new Date().getFullYear()} carp market.`;
+
+const jsonLd = [
+  breadcrumbListJsonLd([
+    { label: "Home", url: `${siteUrl}/` },
+    { label: category.name, url: pageUrl },
+  ]),
+  faqJsonLd(category.faq ?? []),
+];
+---
+<BaseLayout
+  title={title}
+  description={description}
+  indexable={true}
+  crumbs={[
+    { label: category.name },
+  ]}
+  jsonLd={jsonLd}
+>
+  <div class="wrap">
+    <article class="guide-content">
+      <div class="page-head">
+        <div class="kicker">{category.short} · UK · {new Date().getFullYear()}</div>
+        <h1>The best {category.name.toLowerCase()} in the UK</h1>
+        <p class="lede">{category.tagline}</p>
+        <p class="byline">By <strong>{siteConfig.authorName}</strong> · Updated {new Date().toLocaleDateString("en-GB", { month: "long", year: "numeric" })}</p>
+      </div>
+
+      <p>{category.intro}</p>
+
+      <div class="aff-notice">
+        <strong>Affiliate disclosure:</strong> Amazon UK links below earn us a commission at no extra cost to you. It does not affect what we recommend. <a href="/affiliate-disclosure/">Details</a>.
+      </div>
+
+      <h2>{category.short} at a glance</h2>
+      <div class="table-responsive">
+        <table class="table compare mb-0">
+          <tbody>
+            <tr><th style="width: 30%;">Best for</th><td>{category.bestFor}</td></tr>
+            <tr><th>Watch out for</th><td>{category.watchOut}</td></tr>
+            <tr><th>Typical price</th><td>{money(category.priceFrom)} - {money(category.priceTo)}</td></tr>
+            <tr><th>Typical spend</th><td>{category.cupCost}</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Our picks</h2>
+      {items.length === 0 && (
+        <p><em>Reviews for this category are being added. Check back shortly.</em></p>
+      )}
+      {items.map((p, i) => (
+        <div class="product-card">
+          <div class="row g-3 align-items-start">
+            <div class="col">
+              <div class="rank">#{i + 1}</div>
+              <h3><a href={`/reviews/${p.slug}/`}>{p.name}</a></h3>
+              <div class="mb-1"><span class="stars">{stars(p.rating)}</span> <small class="text-muted ms-1">{p.rating.toFixed(1)}/5</small></div>
+              <p class="verdict">{p.verdict}</p>
+              <p class="small text-muted mb-2">Best for: {p.bestFor}</p>
+              <div class="d-flex flex-wrap gap-2">
+                <a class="btn btn-amazon" rel="sponsored nofollow noopener" target="_blank" href={amazonProductLink({ asin: p.asin, brand: p.brand, product: p.name })}>See on Amazon UK</a>
+                <a class="btn btn-outline-secondary" href={`/reviews/${p.slug}/`}>Full review</a>
+              </div>
+            </div>
+            <div class="col-auto text-end">
+              <div class="price">{money(p.price)}</div>
+              <div class="price-note">RRP guide</div>
+            </div>
+          </div>
+        </div>
+      ))}
+
+      {category.whatMatters && category.whatMatters.length > 0 && (
+        <>
+          <h2>What actually matters when buying {category.short.toLowerCase()}</h2>
+          <p>The specs that decide whether the kit lasts a decade or lets you down mid-session. Everything else is marketing.</p>
+          {category.whatMatters.map((item: {title: string, body: string}) => (
+            <>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </>
+          ))}
+        </>
+      )}
+
+      {category.priceTiers && category.priceTiers.length > 0 && (
+        <>
+          <h2>How much should you spend</h2>
+          <p>Four price bands, four different levels of what you're buying. Pick by what you can afford to sacrifice, not what you'd like to have.</p>
+          <div class="table-responsive">
+            <table class="table compare mb-0">
+              <thead><tr><th>Budget</th><th>What you get</th></tr></thead>
+              <tbody>
+                {category.priceTiers.map((tier: {budget: string, what: string}) => (
+                  <tr><td><strong>{tier.budget}</strong></td><td>{tier.what}</td></tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
+
+      {category.whatToAvoid && category.whatToAvoid.length > 0 && (
+        <>
+          <h2>What we'd avoid in this category</h2>
+          <p>Not every piece of {category.short.toLowerCase()} kit on the UK market is worth your money. These are the sub-categories we'd walk past:</p>
+          <ul>
+            {category.whatToAvoid.map((item: string) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </>
+      )}
+
+      {category.faq && category.faq.length > 0 && (
+        <>
+          <h2>Common questions</h2>
+          {category.faq.map((f: {q: string, a: string}) => (
+            <details class="faq"><summary>{f.q}</summary><p>{f.a}</p></details>
+          ))}
+        </>
+      )}
+
+      <h2>Continue reading</h2>
+      <div class="cat-grid">
+        <a class="cat-card" href="/"><h3>The pillar guide</h3><p>Every gear family, cost, and how to build a first setup.</p><div class="meta"><span>Pillar</span><span>Read →</span></div></a>
+        {categories.filter((c) => c.slug !== category.slug).slice(0, 4).map((c) => (
+          <a class="cat-card" href={`/gear/${c.slug}/`}>
+            <h3>{c.name}</h3>
+            <p>{c.tagline}</p>
+            <div class="meta"><span>From {money(c.priceFrom)}</span><span>Read →</span></div>
+          </a>
+        ))}
+      </div>
+    </article>
+  </div>
+</BaseLayout>

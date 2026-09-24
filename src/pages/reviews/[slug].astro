@@ -1,0 +1,253 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import products from "../../data/products.json";
+import categories from "../../data/categories.json";
+import siteConfig from "../../data/site.config.json";
+import { amazonProductLink, money, stars } from "../../lib/amazon";
+import { breadcrumbListJsonLd, productJsonLd, faqJsonLd } from "../../lib/schema";
+
+export function getStaticPaths() {
+  return products.map((p) => ({ params: { slug: p.slug }, props: { product: p } }));
+}
+
+const { product } = Astro.props;
+const category = categories.find((c) => c.slug === product.category)!;
+const related = products.filter((p) => p.category === product.category && p.slug !== product.slug).slice(0, 3);
+
+const upgradeProduct = (product as any).alternatives?.upgrade?.slug
+  ? products.find((p) => p.slug === (product as any).alternatives.upgrade.slug)
+  : null;
+const downgradeProduct = (product as any).alternatives?.downgrade?.slug
+  ? products.find((p) => p.slug === (product as any).alternatives.downgrade.slug)
+  : null;
+
+const siteUrl = `https://${siteConfig.domain}`;
+const pageUrl = `${siteUrl}/reviews/${product.slug}/`;
+const amazonUrl = amazonProductLink({ asin: product.asin, brand: product.brand, product: product.name });
+const title = `${product.name} review UK ${new Date().getFullYear()}, honest test - ${siteConfig.siteName}`;
+const description = `${product.verdict.replace(/[.,;]+$/, "")}. Full review with pros, cons, specs and what to buy instead.`;
+
+const faqs = [
+  {
+    q: `Is the ${product.name} worth the price?`,
+    a: `At ${money(product.price)}, we rate it ${product.rating.toFixed(1)}/5 because ${product.verdict.charAt(0).toLowerCase() + product.verdict.slice(1).replace(/\.$/, "")}. Whether that is worth the money depends on how the strengths above line up with your session type and venue.`,
+  },
+  {
+    q: `How does it compare to other ${category.short.toLowerCase()} in this bracket?`,
+    a: `See our full <a href="/gear/${product.category}/">${category.name.toLowerCase()} comparison</a> for direct alternatives at higher and lower price points.`,
+  },
+  {
+    q: "Where should I buy it in the UK?",
+    a: "Amazon UK is usually the fastest route with the strongest return policy on kit over £100. Tackle-specific retailers (Angling Direct, Nash Direct, Trakker UK) sometimes match on price and add extras like matched accessories. Check both before committing.",
+  },
+];
+
+const jsonLd = [
+  breadcrumbListJsonLd([
+    { label: "Home", url: `${siteUrl}/` },
+    { label: category.name, url: `${siteUrl}/gear/${category.slug}/` },
+    { label: product.name, url: pageUrl },
+  ]),
+  productJsonLd({
+    name: product.name,
+    description: product.verdict,
+    category: category.name,
+    brand: product.brand,
+    price: product.price,
+    rating: product.rating,
+    url: pageUrl,
+    summary: product.summary,
+    amazonUrl,
+  }),
+  faqJsonLd(faqs),
+];
+---
+<BaseLayout
+  title={title}
+  description={description}
+  indexable={true}
+  crumbs={[
+    { label: category.name, href: `/gear/${category.slug}/` },
+    { label: product.name },
+  ]}
+  jsonLd={jsonLd}
+>
+  <div class="wrap">
+    <article class="guide-content">
+      <div class="page-head">
+        <div class="kicker">Review · {category.short} · UK</div>
+        <h1>{product.name} review</h1>
+        <p class="lede">{product.verdict}</p>
+        <p class="byline">
+          By <strong>{siteConfig.authorName}</strong> · Updated {new Date().toLocaleDateString("en-GB", { month: "long", year: "numeric" })}
+          &nbsp;·&nbsp;<span class="stars">{stars(product.rating)}</span> <strong>{product.rating.toFixed(1)}/5</strong>
+          &nbsp;·&nbsp;<strong>{money(product.price)}</strong> RRP guide
+        </p>
+      </div>
+
+      <div class="aff-notice">
+        <strong>Affiliate disclosure:</strong> The Amazon UK link below earns us a commission at no extra cost to you. It does not affect our rating. <a href="/affiliate-disclosure/">Details</a>.
+      </div>
+
+      <div class="product-card" style="border-width: 2px; border-color: var(--brand);">
+        <div class="row g-3 align-items-start">
+          <div class="col">
+            <div class="rank">Our verdict</div>
+            <p class="verdict" style="font-size: 1.05rem;">{product.verdict}</p>
+            <p class="small text-muted mb-2">Best for: {product.bestFor}</p>
+            <a
+              class="btn btn-amazon"
+              rel="sponsored nofollow noopener"
+              target="_blank"
+              href={amazonUrl}
+            >Check price on Amazon UK</a>
+          </div>
+          <div class="col-auto text-end">
+            <div class="price">{money(product.price)}</div>
+            <div class="price-note">Indicative RRP</div>
+          </div>
+        </div>
+      </div>
+
+      {(product as any).context && (
+        <>
+          <h2>Where this kit fits in</h2>
+          <p>{(product as any).context}</p>
+        </>
+      )}
+
+      {(product as any).deepDive && (
+        <>
+          <h2>How it actually works on the bank</h2>
+          <p>{(product as any).deepDive}</p>
+        </>
+      )}
+
+      <h2>The full picture</h2>
+      <p>{product.summary}</p>
+
+      <div class="proscons-grid">
+        <div class="pros">
+          <h4>What we like</h4>
+          <ul>{product.pros.map((x: string) => <li>{x}</li>)}</ul>
+        </div>
+        <div class="cons">
+          <h4>What we don't</h4>
+          <ul>{product.cons.map((x: string) => <li>{x}</li>)}</ul>
+        </div>
+      </div>
+
+      <h2>Key specifications</h2>
+      <table class="specs-table w-100">
+        <tbody>
+          {Object.entries(product.specs).map(([k, v]) => (
+            <tr><td>{k}</td><td>{v}</td></tr>
+          ))}
+        </tbody>
+      </table>
+
+      {(product as any).longTerm && (
+        <>
+          <h2>Long-term ownership notes</h2>
+          <p>{(product as any).longTerm}</p>
+        </>
+      )}
+
+      {(product as any).maintenance && (product as any).maintenance.length > 0 && (
+        <>
+          <h2>Care & maintenance schedule</h2>
+          <p>The routine that keeps the {product.name.split(" ")[0]} platform running for its expected lifespan.</p>
+          <ul>
+            {(product as any).maintenance.map((item: string) => <li>{item}</li>)}
+          </ul>
+        </>
+      )}
+
+      {(product as any).commonIssues && (product as any).commonIssues.length > 0 && (
+        <>
+          <h2>Common issues owners report</h2>
+          <p>Problems reported by long-term users, plus the practical fixes.</p>
+          <ul>
+            {(product as any).commonIssues.map((item: string) => <li>{item}</li>)}
+          </ul>
+        </>
+      )}
+
+      {(product as any).alternatives && (
+        <>
+          <h2>If you'd rather spend more or less</h2>
+          <div class="proscons-grid">
+            <div>
+              <h4 style="color: var(--brand);">Upgrade</h4>
+              {upgradeProduct ? (
+                <>
+                  <p><strong><a href={`/reviews/${upgradeProduct.slug}/`}>{upgradeProduct.name}</a></strong> - {money(upgradeProduct.price)}</p>
+                  <p style="font-size: 0.95rem;">{(product as any).alternatives.upgrade.why}</p>
+                  <a class="btn btn-amazon btn-sm" rel="sponsored nofollow noopener" target="_blank" href={amazonProductLink({ asin: upgradeProduct.asin, brand: upgradeProduct.brand, product: upgradeProduct.name })}>See on Amazon UK</a>
+                </>
+              ) : (
+                <p style="font-size: 0.95rem;">{(product as any).alternatives.upgrade?.why ?? "No direct upgrade at a sensible price point."}</p>
+              )}
+            </div>
+            <div>
+              <h4 style="color: #3d5a2c;">Downgrade</h4>
+              {downgradeProduct ? (
+                <>
+                  <p><strong><a href={`/reviews/${downgradeProduct.slug}/`}>{downgradeProduct.name}</a></strong> - {money(downgradeProduct.price)}</p>
+                  <p style="font-size: 0.95rem;">{(product as any).alternatives.downgrade.why}</p>
+                  <a class="btn btn-amazon btn-sm" rel="sponsored nofollow noopener" target="_blank" href={amazonProductLink({ asin: downgradeProduct.asin, brand: downgradeProduct.brand, product: downgradeProduct.name })}>See on Amazon UK</a>
+                </>
+              ) : (
+                <p style="font-size: 0.95rem;">{(product as any).alternatives.downgrade?.why ?? "No sensible cheaper alternative - this is already the entry point."}</p>
+              )}
+            </div>
+          </div>
+        </>
+      )}
+
+      <div class="cta-banner">
+        <h3>See the current price on Amazon UK</h3>
+        <p>Prices fluctuate - we quote {money(product.price)} as indicative, but expect promotions around Black Friday, Prime Day, and end-of-season sales in October.</p>
+        <a
+          class="btn btn-amazon"
+          rel="sponsored nofollow noopener"
+          target="_blank"
+          href={amazonUrl}
+        >Check today's price</a>
+      </div>
+
+      <h2>Common questions</h2>
+      {faqs.map((f) => (
+        <details class="faq"><summary>{f.q}</summary><p set:html={f.a}></p></details>
+      ))}
+
+      {related.length > 0 && (
+        <>
+          <h2>Others in the same category</h2>
+          {related.map((rp) => (
+            <div class="product-card">
+              <div class="row g-3 align-items-start">
+                <div class="col">
+                  <div class="rank">{category.short}</div>
+                  <h3><a href={`/reviews/${rp.slug}/`}>{rp.name}</a></h3>
+                  <p class="verdict">{rp.verdict}</p>
+                  <a class="btn btn-outline-secondary" href={`/reviews/${rp.slug}/`}>Read review</a>
+                </div>
+                <div class="col-auto text-end">
+                  <div class="price">{money(rp.price)}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </>
+      )}
+
+      <h2>Continue reading</h2>
+      <div class="cat-grid">
+        <a class="cat-card" href={`/gear/${category.slug}/`}><h3>All {category.short.toLowerCase()}</h3><p>Every {category.short.toLowerCase()} we've reviewed for UK {new Date().getFullYear()}.</p><div class="meta"><span>Category</span><span>Read →</span></div></a>
+        <a class="cat-card" href="/"><h3>The pillar guide</h3><p>Every gear family, cost, and how to build a first setup.</p><div class="meta"><span>Pillar</span><span>Read →</span></div></a>
+        <a class="cat-card" href="/guides/how-to-choose-first-bivvy/"><h3>How to choose your first bivvy</h3><p>The specs that matter and the traps to avoid.</p><div class="meta"><span>Guide</span><span>Read →</span></div></a>
+      </div>
+    </article>
+  </div>
+</BaseLayout>

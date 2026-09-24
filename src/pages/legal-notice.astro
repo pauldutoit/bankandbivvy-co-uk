@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import siteConfig from "../data/site.config.json";
+import { breadcrumbListJsonLd } from "../lib/schema";
+import { legalUpdated } from "../lib/legal";
+
+const siteUrl = `https://${siteConfig.domain}`;
+const pageUrl = `${siteUrl}/legal-notice/`;
+const title = `Legal notice - ${siteConfig.siteName}`;
+const description = "Publisher information and legal notice for the site.";
+
+const jsonLd = [breadcrumbListJsonLd([
+  { label: "Home", url: `${siteUrl}/` },
+  { label: "Legal notice", url: pageUrl },
+])];
+---
+<BaseLayout title={title} description={description} indexable={true} crumbs={[{ label: "Legal notice" }]} jsonLd={jsonLd}>
+  <div class="wrap">
+    <article class="guide-content">
+      <div class="page-head">
+        <h1>Legal notice</h1>
+        <p class="byline">Last updated <time>{legalUpdated}</time></p>
+      </div>
+
+      <h2>Publisher</h2>
+      <p><strong>{siteConfig.legalName}</strong>{siteConfig.legalForm ? ` (${siteConfig.legalForm})` : ""}.</p>
+      {siteConfig.registrationNumber && <p>Company registration: {siteConfig.registrationNumber}</p>}
+      {siteConfig.legalAddress && <p>Registered address: {siteConfig.legalAddress}</p>}
+      <p>VAT status: {siteConfig.vatStatus}.</p>
+      <p>Contact: via our <a href="/contact/">contact form</a>.</p>
+
+      <h2>Editorial responsibility</h2>
+      <p>Content is written and edited by the {siteConfig.siteName} desk. Reviews reflect the opinion of the editorial team at the time of writing.</p>
+
+      <h2>Copyright</h2>
+      <p>The site name, logo and editorial content are copyright © {new Date().getFullYear()} {siteConfig.legalName}. All rights reserved. Product names and images belong to their respective owners.</p>
+
+      <h2>Third-party trademarks</h2>
+      <p>Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates. All other trademarks belong to their respective owners.</p>
+    </article>
+  </div>
+</BaseLayout>

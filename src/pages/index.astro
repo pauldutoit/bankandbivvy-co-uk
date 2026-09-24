@@ -1,0 +1,288 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import categories from "../data/categories.json";
+import products from "../data/products.json";
+import siteConfig from "../data/site.config.json";
+import { amazonProductLink, money, stars } from "../lib/amazon";
+import { breadcrumbListJsonLd, websiteJsonLd, faqJsonLd } from "../lib/schema";
+
+const siteUrl = `https://${siteConfig.domain}`;
+const title = `Carp fishing gear reviews UK ${new Date().getFullYear()} - bivvies, alarms, rods & bait, tested honestly`;
+const description = `Independent buying guide for UK carp anglers. Bivvies, bedchairs, bite alarms, rods, mats, luggage and bait - real gear that lasts, no manufacturer sponsorship, no fluff.`;
+
+const picks = [
+  products.find((p) => p.slug === "trakker-tempest-advanced-100"),
+  products.find((p) => p.slug === "delkim-txi-plus-set"),
+  products.find((p) => p.slug === "nash-scope-black-ops-12ft-3lb"),
+].filter((p): p is NonNullable<typeof p> => Boolean(p));
+
+const faqs = [
+  {
+    q: "What is the minimum realistic budget for a first carp fishing setup in the UK?",
+    a: "Around £600-800 gets you a serviceable weekend setup: entry-level 3-rod combo (£150), a 3+1 alarm set (£100), a basic bedchair (£120), a shelter or brolly system (£160), an unhooking mat (£40), plus bait and small terminals (£100). Below £500 you are compromising on kit that will fail within two seasons.",
+  },
+  {
+    q: "Do I need a proper cradle or is a flat mat enough for UK stillwaters?",
+    a: "For fish under 15 lb, a floor-fill mat is adequate. For anything over that, most syndicate waters now require a rigid cradle by rule - and it is genuinely better for fish welfare. A Nash Titan T3 at £100 covers the vast majority of UK venues.",
+  },
+  {
+    q: "Are shelf-life or freezer boilies better?",
+    a: "Freezer baits carry higher protein levels and stronger attractor profiles, but must be frozen until use. Shelf-life boilies are more practical for casual anglers and still catch. On pressured venues where every angler is on the same shelf-life brand, switching to a freezer bait often gets you noticed.",
+  },
+  {
+    q: "How much does it cost to run a carp setup per year?",
+    a: "Rough breakdown once kit is bought: syndicate ticket or day-ticket costs £150-800 per year, bait for 30 sessions £250-450, terminal tackle and consumables £100-150, occasional kit replacement £150-300. Budget around £700-1,500 per year on top of initial gear cost for a regular UK carper.",
+  },
+  {
+    q: "Which brand offers the best UK warranty?",
+    a: "Trakker UK, Nash Tackle and Fox International all offer 2-3 year manufacturer warranties on frames and poles, with UK-based spares. Delkim genuinely services 10-year-old alarms through their UK repair centre. Avoid brands sold only through supermarket channels - replacement parts are usually not available.",
+  },
+];
+
+const jsonLd = [
+  websiteJsonLd(),
+  breadcrumbListJsonLd([{ label: "Home", url: `${siteUrl}/` }]),
+  faqJsonLd(faqs),
+];
+
+const yr = new Date().getFullYear();
+---
+<BaseLayout
+  title={title}
+  description={description}
+  indexable={true}
+  jsonLd={jsonLd}
+>
+  <div class="wrap">
+    <article class="guide-content">
+      <div class="page-head">
+        <div class="kicker">Carp gear guide · UK · {yr}</div>
+        <h1>The honest carp fishing kit guide for UK anglers</h1>
+        <p class="lede">Seven gear families, forty products, no manufacturer sponsorship. What we would actually buy today for a UK stillwater carp setup, and the traps we would walk past.</p>
+        <p class="byline">By <strong>{siteConfig.authorName}</strong> · Updated {new Date().toLocaleDateString("en-GB", { month: "long", year: "numeric" })}</p>
+      </div>
+
+      <p>
+        Building a first carp setup in the UK is more expensive than most beginners expect and cheaper than the tackle shops make it feel.
+        Roughly £700 gets you serviceable kit; roughly £1,500 gets you kit that lasts a decade. In between sits a middle ground where every
+        purchase matters - and where a lot of anglers waste £200 on a bivvy that fails on the second wet weekend.
+      </p>
+
+      <p>
+        This guide is written for the angler two months into carp fishing who has realised the starter combo is not going to last, and for
+        the returning angler wondering what has changed since 2015. Every category page below covers what actually matters (in specs, not
+        marketing), the four honest price bands, common traps, and what we would buy across each budget level.
+      </p>
+
+      <div class="aff-notice">
+        <strong>Affiliate disclosure:</strong> Every Amazon UK link on this site earns us a commission at no extra cost to you. It never
+        affects what we recommend - the picks below stand or fall on kit we believe genuinely earns its price. <a href="/affiliate-disclosure/">How this works</a>.
+      </div>
+
+      {/* ==== SEVEN FAMILIES ==== */}
+      <h2>The seven kit families for a UK carp setup</h2>
+      <p>Any full-session UK carp setup breaks into these seven pieces. Skip any of them and you are compromising either fish welfare, sleep, or session length.</p>
+      <div class="table-responsive">
+        <table class="table compare mb-0">
+          <thead>
+            <tr>
+              <th style="width: 22%;">Category</th>
+              <th>What it does</th>
+              <th style="width: 20%;">Typical price</th>
+            </tr>
+          </thead>
+          <tbody>
+            {categories.map((c: any) => (
+              <tr>
+                <td><strong><a href={`/gear/${c.slug}/`}>{c.name}</a></strong></td>
+                <td>{c.tagline}</td>
+                <td>{money(c.priceFrom)}-{money(c.priceTo)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* ==== THREE PICKS ==== */}
+      <h2>Three flagship picks worth their price</h2>
+      <p>Kit that would still be in most serious UK carpers' setups five years from now. These are not the cheapest options; they are the ones that stop needing replacement.</p>
+
+      {picks.map((p, i) => (
+        <div class="product-card">
+          <div class="row g-3 align-items-start">
+            <div class="col">
+              <div class="rank">Pick #{i + 1}</div>
+              <h3><a href={`/reviews/${p.slug}/`}>{p.name}</a></h3>
+              <div class="mb-1"><span class="stars">{stars(p.rating)}</span> <small class="text-muted ms-1">{p.rating.toFixed(1)}/5</small></div>
+              <p class="verdict">{p.verdict}</p>
+              <p class="small text-muted mb-2">Best for: {p.bestFor}</p>
+              <div class="d-flex flex-wrap gap-2">
+                <a class="btn btn-amazon" rel="sponsored nofollow noopener" target="_blank" href={amazonProductLink({ asin: p.asin, brand: p.brand, product: p.name })}>See on Amazon UK</a>
+                <a class="btn btn-outline-secondary" href={`/reviews/${p.slug}/`}>Full review</a>
+              </div>
+            </div>
+            <div class="col-auto text-end">
+              <div class="price">{money(p.price)}</div>
+              <div class="price-note">RRP guide</div>
+            </div>
+          </div>
+        </div>
+      ))}
+
+      {/* ==== SESSION COST CALC ==== */}
+      <h2>What a UK carp setup actually costs</h2>
+      <p>Two honest budget lines: the entry setup that lets you fish safely and comfortably, and the ten-year setup you buy once and refresh in pieces.</p>
+      <div class="table-responsive">
+        <table class="table compare mb-0">
+          <thead>
+            <tr>
+              <th>Kit</th>
+              <th>Entry (~£800)</th>
+              <th>Long-haul (~£1,900)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Shelter</strong></td><td>Brolly system, £160</td><td>Two-man bivvy + wrap, £520</td></tr>
+            <tr><td><strong>Bedchair</strong></td><td>Six-leg entry, £120</td><td>Wide memory-foam, £280</td></tr>
+            <tr><td><strong>Rods (×3)</strong></td><td>Xtractor combo, £150</td><td>Nash Scope × 3, £480</td></tr>
+            <tr><td><strong>Alarms</strong></td><td>Sonik SKS 3+1, £90</td><td>Delkim Txi Plus 3+1, £340</td></tr>
+            <tr><td><strong>Mat / cradle</strong></td><td>Floor-fill mat, £55</td><td>Titan T3 cradle, £100</td></tr>
+            <tr><td><strong>Luggage</strong></td><td>Basic holdall + carryall, £120</td><td>Trakker NXG + Fox Voyager, £165</td></tr>
+            <tr><td><strong>Bait & terminals</strong></td><td>£100</td><td>£100 (per session, ongoing)</td></tr>
+            <tr><td><strong>Total, kit only</strong></td><td><strong>~£795</strong></td><td><strong>~£1,885</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small text-muted mt-2">Numbers indicative for {yr}. Bait, terminals and tickets are ongoing costs - the tables above only cover reusable kit.</p>
+
+      {/* ==== WHO SHOULD BUY WHAT ==== */}
+      <h2>Who should buy what</h2>
+
+      <h3>The angler five sessions in</h3>
+      <p>
+        Do not skip straight to premium kit. Buy the entry setup above, learn how you actually fish (short-range stalking? long-range big-pit?
+        Weekend overnighter or 72-hour campaigns?), then upgrade one category per year based on what genuinely limits you. The Sonik combo,
+        the JRC Contact brolly, and a floor-fill mat will land you fish through your first season without embarrassment.
+      </p>
+
+      <h3>The weekend regular (30-plus sessions per year)</h3>
+      <p>
+        The middle tier: aluminium-pole two-man bivvy, wide bedchair with real memory foam, mid-range vibration alarms, three matched 40T
+        rods. Roughly £1,200 for a setup that lasts eight to twelve years with basic care.
+      </p>
+
+      <h3>The serious session angler (60-plus sessions per year, targeting big fish)</h3>
+      <p>
+        Go long-haul first time. Flagship bivvy (Trakker Tempest, Nash Titan), premium bedchair, Delkim alarms, proper cradle. The kit is
+        heavier and pricier but it stops being a variable - sessions succeed or fail on watercraft, not on whether the alarm bleeped.
+      </p>
+
+      {/* ==== COMMON TRAPS ==== */}
+      <h2>Common traps we would tell you to avoid</h2>
+      <ul>
+        <li><strong>Supermarket-branded bivvies at £120.</strong> Fibreglass poles snap; the flysheet leaks by the second wet weekend. There is no such thing as a genuinely good £120 two-man bivvy in {yr}.</li>
+        <li><strong>Three-rod combos where the reels cost £20 each.</strong> The rods are usually fine; the reels are throwaway. Better to buy two-rod combos and a spare reel from a real brand than three cheap reels that all die at once.</li>
+        <li><strong>Roller-sensor alarms above £30 per head.</strong> If you are paying alarm money, get a vibration sensor. Rollers miss drop-backs, which are 30% of takes on a well-stocked UK water.</li>
+        <li><strong>Cradles under £50.</strong> The frame is not rigid enough to actually contain a lively 20 lb fish. Either buy a floor-fill mat properly (£40-60) or a real cradle (£90-150). Nothing in between works.</li>
+        <li><strong>Bulk 5 kg bags of unbranded boilies at £15.</strong> The ingredient cost tells the story. Fine as prebait on a stocked day-ticket; useless on a pressured water where the fish are already educated on branded baits.</li>
+        <li><strong>Storing rods loose in a hard tube.</strong> Reel handles bend, tip guides chip. Get a proper padded 3-rod holdall from the start.</li>
+      </ul>
+
+      {/* ==== MARKETING CLAIMS TO IGNORE ==== */}
+      <h2>Marketing language to translate carefully</h2>
+      <ul>
+        <li><strong>"Storm-tested".</strong> Meaningless without a wind-speed rating. Look for kit that states force 6, force 7 or peg-out speed in mph.</li>
+        <li><strong>"Fast pitch".</strong> Every bivvy claims this. What matters is the actual pole system - clip-in vs sleeve pitch is a genuine 60-second time difference. Watch a real pitch video before buying.</li>
+        <li><strong>"XL cradle".</strong> Almost always means bigger frame, same padding depth. Padding depth is what actually protects fish, not frame size.</li>
+        <li><strong>"46T carbon" alone.</strong> The carbon grade is one input; wall thickness and taper design decide the rod feel. A well-made 40T rod out-performs a poorly-designed 46T rod every time.</li>
+        <li><strong>"UK-made" on rebranded imports.</strong> Some brands assemble in the UK from imported blanks. Ask what "made" means - moulded, machined, or just packed.</li>
+      </ul>
+
+      {/* ==== KEY TAKEAWAY ==== */}
+      <div class="callout">
+        <strong>Key takeaway.</strong> A carp setup is not a single purchase, it is a five-year plan. Buy an honest entry setup for £700-800,
+        fish it hard for a season, then upgrade one category per year based on the piece that most limited you. The anglers who blow £2,000
+        in one weekend on flagship kit usually end up owning most of the same gear as the ones who built up carefully - just faster, with
+        more mistakes on the way.
+      </div>
+
+      {/* ==== ALSO READ ==== */}
+      <h2>Continue reading</h2>
+      <div class="cat-grid">
+        {categories.slice(0, 6).map((c: any) => (
+          <a class="cat-card" href={`/gear/${c.slug}/`}>
+            <h3>{c.name}</h3>
+            <p>{c.tagline}</p>
+            <div class="meta"><span>From {money(c.priceFrom)}</span><span>Read →</span></div>
+          </a>
+        ))}
+        <a class="cat-card" href="/guides/how-to-choose-first-bivvy/">
+          <h3>How to choose your first bivvy</h3>
+          <p>The four specs that decide whether a bivvy lasts a decade or fails on the second wet weekend.</p>
+          <div class="meta"><span>Guide</span><span>Read →</span></div>
+        </a>
+        <a class="cat-card" href="/compare/">
+          <h3>Head-to-head comparisons</h3>
+          <p>Trakker vs Fox bivvies, Delkim vs Fox alarms, Nash vs Fox rods, Mainline vs Sticky bait - the "X vs Y" queries answered honestly.</p>
+          <div class="meta"><span>Compare</span><span>Read →</span></div>
+        </a>
+        <a class="cat-card" href="/guides/carp-rig-fundamentals/">
+          <h3>Carp rig fundamentals</h3>
+          <p>Hair, chod, zig, safe leadcore - the four rigs every UK carper should know and when to use each.</p>
+          <div class="meta"><span>Guide</span><span>Read →</span></div>
+        </a>
+        <a class="cat-card" href="/guides/uk-carp-welfare-and-legal-basics/">
+          <h3>UK welfare & legal basics</h3>
+          <p>Rod licence, safe rigs, retention rules, best-practice fish care - what UK law and syndicates require.</p>
+          <div class="meta"><span>Guide</span><span>Read →</span></div>
+        </a>
+        <a class="cat-card" href="/tools/session-cost-calculator/">
+          <h3>Session cost calculator</h3>
+          <p>Interactive: enter sessions/year, bait tier, water type → your realistic annual UK carp budget.</p>
+          <div class="meta"><span>Tool</span><span>Try it →</span></div>
+        </a>
+        <a class="cat-card" href="/data/uk-carp-records/">
+          <h3>UK carp records</h3>
+          <p>British Record Fish Committee historical data - how the record has evolved.</p>
+          <div class="meta"><span>Data</span><span>Read →</span></div>
+        </a>
+        <a class="cat-card" href="/data/uk-carp-fishing-stats/">
+          <h3>UK carp fishing stats {yr}</h3>
+          <p>Rod licence sales, tackle market size, participation trends - sourced from EA and Angling Trust.</p>
+          <div class="meta"><span>Data</span><span>Read →</span></div>
+        </a>
+        <a class="cat-card" href="/data/famous-uk-carp-waters/">
+          <h3>Famous UK carp waters</h3>
+          <p>Twelve waters every UK carp angler should know - Redmire to Waterside, records and access.</p>
+          <div class="meta"><span>Data</span><span>Read →</span></div>
+        </a>
+        <a class="cat-card" href="/data/when-to-buy-carp-gear/">
+          <h3>When to buy carp gear</h3>
+          <p>Amazon UK {yr} promo calendar (Prime Day 23-26 June, Big Deal Days 6-7 Oct) + seasonality per category.</p>
+          <div class="meta"><span>Data</span><span>Read →</span></div>
+        </a>
+        <a class="cat-card" href="/tools/bait-quantity-calculator/">
+          <h3>Bait quantity calculator</h3>
+          <p>How many kg of boilies per session, per year, and per pound - with tier picks.</p>
+          <div class="meta"><span>Tool</span><span>Try it →</span></div>
+        </a>
+        <a class="cat-card" href="/guides/uk-carp-session-costs/">
+          <h3>What a UK carp season really costs</h3>
+          <p>Kit, tickets, bait and terminals broken down honestly for the {yr} UK carper.</p>
+          <div class="meta"><span>Guide</span><span>Read →</span></div>
+        </a>
+        <a class="cat-card" href="/guides/boilies-explained/">
+          <h3>Boilies explained</h3>
+          <p>Shelf-life vs freezer, fishmeal vs birdfood, and when to switch bait on a pressured venue.</p>
+          <div class="meta"><span>Guide</span><span>Read →</span></div>
+        </a>
+      </div>
+
+      {/* ==== FAQ ==== */}
+      <h2>Common questions</h2>
+      {faqs.map((f) => (
+        <details class="faq"><summary>{f.q}</summary><p set:html={f.a}></p></details>
+      ))}
+    </article>
+  </div>
+</BaseLayout>

@@ -1,0 +1,334 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import siteConfig from "../../data/site.config.json";
+import products from "../../data/products.json";
+import { amazonProductLink, money, stars } from "../../lib/amazon";
+import { breadcrumbListJsonLd, faqJsonLd } from "../../lib/schema";
+
+const tackleSpendPicks = [
+  products.find((p) => p.slug === "trakker-tempest-advanced-100"),
+  products.find((p) => p.slug === "nash-scope-black-ops-12ft-3lb"),
+  products.find((p) => p.slug === "delkim-txi-plus-set"),
+].filter((p): p is NonNullable<typeof p> => Boolean(p));
+
+const baitPicks = products.filter((p) => p.category === "boilies-bait");
+const juniorPick = products.find((p) => p.slug === "sonik-xtractor-pro-3-rod-combo");
+
+const siteUrl = `https://${siteConfig.domain}`;
+const title = `UK carp fishing stats ${new Date().getFullYear()} - rod licences, market size, participation`;
+const description = `UK freshwater angling stats sourced from Environment Agency and Angling Trust. 973,859 rod licences sold in 2025/26, £1.7bn freshwater market, one million anglers, junior participation up 92% since 2022.`;
+
+const faqs = [
+  {
+    q: "How many people fish for carp in the UK?",
+    a: "The Environment Agency does not publish a carp-specific licence breakdown - coarse anglers, of which carp anglers are a large subset, are aggregated in the coarse/non-migratory trout category. What we know: 973,859 rod licences were sold in 2025/26 across all freshwater angling, of which the vast majority are coarse anglers. Industry estimates place UK carp anglers specifically at roughly 300,000 to 500,000 active participants.",
+  },
+  {
+    q: "Is UK carp fishing growing or shrinking?",
+    a: "Growing, on every measurable line. Total rod licence sales rose 4.2% in 2025/26 vs 2024/25. Junior licence sales are the standout - up from 61,530 in 2022/23 to 118,341 in 2025/26 (+92% in three years). Annual junior 2-rod licences rose 16.7% year-on-year, and 3-rod juniors rose 46.5%. The post-COVID interest in outdoor angling proved durable.",
+  },
+  {
+    q: "How much do UK anglers spend on tackle and bait per year?",
+    a: "The Environment Agency's Substance study (updated 2018, still the standard citation) valued the UK freshwater angling economy at £1.7 billion per year. Of that, tackle spend was £412m, bait £225m, day tickets £172m. Total angling days across UK freshwater: 17 million per year.",
+  },
+  {
+    q: "How much does the Environment Agency raise from rod licences?",
+    a: "£25.1 million in 2025/26 (up from £24.15m in 2024/25). The full sum is ring-fenced by law for fisheries improvement - stocking, habitat work, enforcement against illegal fishing, and grants to angling clubs and coaching programmes.",
+  },
+  {
+    q: "Where do the numbers on this page come from?",
+    a: "Rod licence figures are from the Environment Agency, reported via the Angling Trades Association and The Game Fair press channels. Freshwater angling economic value is the 2018 EA/Substance study, which remains the standard official citation. All sources are linked at the bottom of the page.",
+  },
+];
+
+const jsonLd = [
+  breadcrumbListJsonLd([
+    { label: "Home", url: `${siteUrl}/` },
+    { label: "Data", url: `${siteUrl}/data/` },
+    { label: "UK carp fishing stats", url: `${siteUrl}/data/uk-carp-fishing-stats/` },
+  ]),
+  faqJsonLd(faqs),
+];
+
+const rodLicence = [
+  { year: "2021/22", total: "~935,000", income: "~£22m", note: "COVID recovery peak - anglers taking up outdoor sport" },
+  { year: "2022/23", total: "~920,000", income: "~£22.5m", note: "Junior baseline: 61,530 licences" },
+  { year: "2023/24", total: "~925,000", income: "~£23.2m", note: "Modest recovery" },
+  { year: "2024/25", total: "934,000", income: "£24.15m", note: "Return to sustained growth" },
+  { year: "2025/26", total: "973,859", income: "£25.1m", note: "+4.2% year-on-year. Juniors 118,341 (nearly double 2022/23)" },
+];
+
+const spendBreakdown = [
+  { line: "Tackle & equipment", value: "£412 million" },
+  { line: "Bait", value: "£225 million" },
+  { line: "Day tickets & venue fees", value: "£172 million" },
+  { line: "Travel, accommodation, other", value: "£891 million" },
+  { line: "Total freshwater angling economy", value: "£1.7 billion / year" },
+];
+
+const juniorGrowth = [
+  { year: "2022/23", licences: 61530 },
+  { year: "2023/24", licences: 78000, note: "estimated interpolation" },
+  { year: "2024/25", licences: 95000, note: "estimated interpolation" },
+  { year: "2025/26", licences: 118341, note: "official" },
+];
+---
+<BaseLayout
+  title={title}
+  description={description}
+  indexable={true}
+  crumbs={[
+    { label: "Data" },
+    { label: "UK carp fishing stats" },
+  ]}
+  jsonLd={jsonLd}
+>
+  <div class="wrap">
+    <article class="guide-content">
+      <div class="page-head">
+        <div class="kicker">Data · Market · UK · {new Date().getFullYear()}</div>
+        <h1>UK carp fishing stats {new Date().getFullYear()}</h1>
+        <p class="lede">Rod licence sales, market size, participation trends - every headline number for UK freshwater angling, sourced from Environment Agency and Angling Trust data.</p>
+        <p class="byline">By <strong>{siteConfig.authorName}</strong> · Updated {new Date().toLocaleDateString("en-GB", { month: "long", year: "numeric" })}</p>
+      </div>
+
+      <div class="callout">
+        <strong>The headline numbers.</strong> UK freshwater angling in 2026: <strong>973,859 rod licences</strong> sold (£25.1m income to the
+        Environment Agency), <strong>£1.7 billion</strong> total economic value, <strong>~1 million</strong> anglers, <strong>17 million</strong>
+        angling days per year. Junior participation has nearly doubled in three years.
+      </div>
+
+      <h2>Rod licence sales, 2021-2026</h2>
+      <p>
+        Every freshwater angler in England and Wales over 13 needs an Environment Agency rod licence. Total sales are the closest single
+        proxy for UK angler participation. Note: figures for 2021/22 through 2023/24 are approximations from EA press releases; 2024/25 and
+        2025/26 are the official figures cited in the Angling Trades Association and Game Fair press releases.
+      </p>
+
+      <div class="table-responsive">
+        <table class="table compare mb-0">
+          <thead>
+            <tr>
+              <th>Financial year</th>
+              <th>Total licences</th>
+              <th>Income to EA</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rodLicence.map((r) => (
+              <tr>
+                <td><strong>{r.year}</strong></td>
+                <td>{r.total}</td>
+                <td>{r.income}</td>
+                <td class="small text-muted">{r.note}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <h2>The junior licence boom</h2>
+      <p>
+        The genuinely striking line in the EA figures is junior licences. Between 2022/23 and 2025/26 the number of 13-16 year old anglers
+        holding an EA rod licence nearly doubled - from 61,530 to 118,341. This has been driven by post-COVID interest in outdoor hobbies
+        plus targeted junior-outreach programmes funded by the ring-fenced rod licence income.
+      </p>
+
+      <div class="table-responsive">
+        <table class="table compare mb-0">
+          <thead><tr><th>Year</th><th>Junior licences</th><th>Growth vs 2022/23</th></tr></thead>
+          <tbody>
+            {juniorGrowth.map((r) => (
+              <tr>
+                <td><strong>{r.year}</strong></td>
+                <td>{r.licences.toLocaleString("en-GB")}{r.note ? <span class="small text-muted"> ({r.note})</span> : null}</td>
+                <td>{r.year === "2022/23" ? "-" : "+" + Math.round(((r.licences - 61530) / 61530) * 100) + "%"}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Within the junior figures, annual 3-rod licences (traditionally the carp setup) rose 46.5% year-on-year in 2025/26 - evidence that
+        the growth is not just any-species juniors but specifically young anglers targeting carp with full three-rod setups. If this
+        continues, the UK carp angling audience will look meaningfully younger by 2030 than it did in 2020.
+      </p>
+
+      <h2>UK freshwater angling economy</h2>
+      <p>
+        The £1.7 billion figure comes from the 2018 Environment Agency / Substance study of angling's economic impact. It has not been
+        formally updated since, though rising participation and inflation both suggest the real 2026 number is higher. It remains the
+        canonical official citation.
+      </p>
+
+      <div class="table-responsive">
+        <table class="table compare mb-0">
+          <tbody>
+            {spendBreakdown.map((r) => (
+              <tr>
+                <td>{r.line}</td>
+                <td class="text-end"><strong>{r.value}</strong></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Two figures worth pausing on. First, tackle at £412m - bigger than bait plus day tickets combined. Second, day tickets at £172m -
+        which by our rough calculation implies around 11.5 million day-ticket transactions per year at an average £15, or ~40 tickets
+        per angler across the freshwater base. Both figures square with what tackle-shop and syndicate operators report anecdotally.
+      </p>
+
+      <div class="aff-notice">
+        <strong>Affiliate disclosure:</strong> The product suggestions in the sections below link to Amazon UK and earn us a commission at no extra cost to you. <a href="/affiliate-disclosure/">Details</a>.
+      </div>
+
+      <h2>Where the £412 million tackle spend actually goes</h2>
+      <p>
+        Tackle is the biggest freshwater angling spend line - bigger than bait and day-tickets combined. For carp anglers specifically, the
+        money concentrates on three categories: shelter (bivvies), rods, and bite alarms. These are the products where paying a premium
+        genuinely changes how many sessions you land per year.
+      </p>
+
+      {tackleSpendPicks.map((p, i) => {
+        const tier = i === 0 ? "Where bivvy money goes" : i === 1 ? "Where rod money goes" : "Where alarm money goes";
+        return (
+          <div class="product-card">
+            <div class="row g-3 align-items-start">
+              <div class="col">
+                <div class="rank">{tier}</div>
+                <h3><a href={`/reviews/${p.slug}/`}>{p.name}</a></h3>
+                <div class="mb-1"><span class="stars">{stars(p.rating)}</span> <small class="text-muted ms-1">{p.rating.toFixed(1)}/5</small></div>
+                <p class="verdict">{p.verdict}</p>
+                <div class="d-flex flex-wrap gap-2">
+                  <a class="btn btn-amazon" rel="sponsored nofollow noopener" target="_blank" href={amazonProductLink({ asin: p.asin, brand: p.brand, product: p.name })}>See on Amazon UK</a>
+                  <a class="btn btn-outline-secondary" href={`/reviews/${p.slug}/`}>Full review</a>
+                </div>
+              </div>
+              <div class="col-auto text-end">
+                <div class="price">{money(p.price)}</div>
+                <div class="price-note">RRP guide</div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+
+      <h2>Where the £225 million bait spend goes</h2>
+      <p>
+        Bait is the annual expense most anglers underestimate at the start of a season. The £225m/year figure across UK freshwater angling
+        concentrates heavily on named brands with the marketing budgets to sponsor competitive circuits - Mainline, Sticky Baits, Nash,
+        CC Moore, Fox. On pressured venues, brand choice matters more than most anglers admit.
+      </p>
+
+      {baitPicks.map((p, i) => (
+        <div class="product-card">
+          <div class="row g-3 align-items-start">
+            <div class="col">
+              <div class="rank">{i === 0 ? "All-year default" : "Freezer bait pick"}</div>
+              <h3><a href={`/reviews/${p.slug}/`}>{p.name}</a></h3>
+              <div class="mb-1"><span class="stars">{stars(p.rating)}</span> <small class="text-muted ms-1">{p.rating.toFixed(1)}/5</small></div>
+              <p class="verdict">{p.verdict}</p>
+              <div class="d-flex flex-wrap gap-2">
+                <a class="btn btn-amazon" rel="sponsored nofollow noopener" target="_blank" href={amazonProductLink({ asin: p.asin, brand: p.brand, product: p.name })}>See on Amazon UK</a>
+                <a class="btn btn-outline-secondary" href={`/reviews/${p.slug}/`}>Full review</a>
+              </div>
+            </div>
+            <div class="col-auto text-end">
+              <div class="price">{money(p.price)}</div>
+              <div class="price-note">Per kg</div>
+            </div>
+          </div>
+        </div>
+      ))}
+
+      {juniorPick && (
+        <>
+          <h2>The junior boom starter kit</h2>
+          <p>
+            Junior 3-rod licences up 46.5% year-on-year means tens of thousands of new UK carpers building their first setup right now.
+            The honest starter combo - three matched rods with reels and cases in one purchase - is where most of them begin.
+          </p>
+          <div class="product-card">
+            <div class="row g-3 align-items-start">
+              <div class="col">
+                <div class="rank">First full setup</div>
+                <h3><a href={`/reviews/${juniorPick.slug}/`}>{juniorPick.name}</a></h3>
+                <div class="mb-1"><span class="stars">{stars(juniorPick.rating)}</span> <small class="text-muted ms-1">{juniorPick.rating.toFixed(1)}/5</small></div>
+                <p class="verdict">{juniorPick.verdict}</p>
+                <div class="d-flex flex-wrap gap-2">
+                  <a class="btn btn-amazon" rel="sponsored nofollow noopener" target="_blank" href={amazonProductLink({ asin: juniorPick.asin, brand: juniorPick.brand, product: juniorPick.name })}>See on Amazon UK</a>
+                  <a class="btn btn-outline-secondary" href={`/reviews/${juniorPick.slug}/`}>Full review</a>
+                </div>
+              </div>
+              <div class="col-auto text-end">
+                <div class="price">{money(juniorPick.price)}</div>
+                <div class="price-note">RRP guide</div>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+
+      <h2>Participation in context</h2>
+      <ul>
+        <li>UK freshwater anglers: <strong>~1 million</strong>. Roughly 1.7% of the UK population.</li>
+        <li>Angling days per year across freshwater: <strong>17 million</strong> - an average of 17 days per angler.</li>
+        <li>Sea anglers (separate from freshwater): <strong>~800,000</strong>, generating a further £1.5-2 billion of economic impact (Cefas, 2020).</li>
+        <li>Estimated UK carp anglers specifically (industry estimate, not official): <strong>300,000-500,000</strong> active participants.</li>
+      </ul>
+
+      <div class="callout warning">
+        <strong>Why there is no official carp-specific figure.</strong> The Environment Agency's rod licence types split by rod count
+        (1-rod, 2-rod, 3-rod) and by age (junior/senior/concession), but not by target species. Coarse anglers, carp anglers, pike anglers,
+        tench specimen hunters and match anglers all buy the same licence types. The 300,000-500,000 carp-angler estimate comes from tackle
+        industry surveys, not from EA figures.
+      </div>
+
+      <h2>What the data means for a UK carper today</h2>
+      <p>
+        Three things stand out from the 2026 numbers:
+      </p>
+      <ol>
+        <li><strong>The sport is genuinely growing.</strong> Rod licence sales up, junior participation up sharply, market spend at record levels. This is not a declining hobby - it is a hobby that survived COVID and grew stronger.</li>
+        <li><strong>Bait accounts for £225m/year across UK anglers.</strong> This is why boilie brands can afford to sponsor entire competitive angling circuits - the total addressable market is vast.</li>
+        <li><strong>Syndicate and day-ticket prices will keep rising.</strong> Growing demand plus finite water access is the classic supply/demand squeeze. Anglers considering a good syndicate ticket should probably not wait a season for prices to fall - they won't.</li>
+      </ol>
+
+      <div class="cta-banner">
+        <h3>Join the £412m tackle market on your terms</h3>
+        <p>Our full picks across every category - bivvies, alarms, rods, bait, welfare kit, luggage. Independent, no manufacturer sponsorship.</p>
+        <a class="btn btn-amazon" href="/">See the pillar gear guide →</a>
+      </div>
+
+      <h2>Common questions</h2>
+      {faqs.map((f) => (
+        <details class="faq"><summary>{f.q}</summary><p>{f.a}</p></details>
+      ))}
+
+      <h2>Sources</h2>
+      <ul>
+        <li><a href="https://thegamefair.org/rising-rod-licence-sales-boost-fishing-projects/" rel="nofollow noopener" target="_blank">Rising rod licence sales boost fishing projects - The Game Fair</a> (2025/26 EA figures)</li>
+        <li><a href="https://anglingtradesassociation.com/rod-licence-sales-on-the-up/" rel="nofollow noopener" target="_blank">Rod licence sales on the up - Angling Trades Association</a> (year-on-year comparison)</li>
+        <li><a href="https://www.gov.uk/government/news/environment-agency-22m-in-rod-licence-income-delivers-fisheries-boost" rel="nofollow noopener" target="_blank">Environment Agency: £22m in rod licence income delivers fisheries boost - gov.uk</a> (2021/22 figures)</li>
+        <li><a href="https://anglingtrust.net/2021/09/09/uks-freshwater-fisheries-provide-1-7billion-of-economic-benefit/" rel="nofollow noopener" target="_blank">UK freshwater fisheries provide £1.7 billion of economic benefit - Angling Trust</a> (Substance study)</li>
+        <li><a href="https://www.cefas.co.uk/news-and-resources/news/sea-angling-contributes-over-1-5bn-to-uk-economy/" rel="nofollow noopener" target="_blank">Sea angling contributes over £1.5bn to UK economy - Cefas</a> (sea angling context)</li>
+      </ul>
+
+      <div class="callout">
+        <strong>Reuse policy.</strong> The tables and figures on this page can be reproduced with attribution: link back to this page as the
+        source and to the original EA/Angling Trust/Cefas citations above.
+      </div>
+
+      <h2>Continue reading</h2>
+      <div class="cat-grid">
+        <a class="cat-card" href="/data/uk-carp-records/"><h3>UK carp records</h3><p>Every British record carp from Walker's Clarissa (1952) to today.</p><div class="meta"><span>Data</span><span>Read →</span></div></a>
+        <a class="cat-card" href="/tools/session-cost-calculator/"><h3>Session cost calculator</h3><p>Interactive: enter your fishing habits, get your realistic annual budget.</p><div class="meta"><span>Tool</span><span>Try it →</span></div></a>
+        <a class="cat-card" href="/guides/uk-carp-session-costs/"><h3>UK carp season costs guide</h3><p>Three angler profiles: occasional, weekend regular, specimen hunter.</p><div class="meta"><span>Guide</span><span>Read →</span></div></a>
+      </div>
+    </article>
+  </div>
+</BaseLayout>

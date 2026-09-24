@@ -1,0 +1,92 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import siteConfig from "../data/site.config.json";
+import { breadcrumbListJsonLd } from "../lib/schema";
+
+const siteUrl = `https://${siteConfig.domain}`;
+const title = `About ${siteConfig.siteName} - independent UK carp gear reviews`;
+const description = `Who we are, how we test, and why we take no manufacturer sponsorship. Independent carp fishing gear reviews for UK anglers.`;
+
+const jsonLd = breadcrumbListJsonLd([
+  { label: "Home", url: `${siteUrl}/` },
+  { label: "About", url: `${siteUrl}/about/` },
+]);
+---
+<BaseLayout
+  title={title}
+  description={description}
+  indexable={true}
+  crumbs={[{ label: "About" }]}
+  jsonLd={jsonLd}
+>
+  <div class="wrap">
+    <article class="guide-content">
+      <div class="page-head">
+        <div class="kicker">About</div>
+        <h1>About {siteConfig.siteName}</h1>
+        <p class="lede">Independent carp fishing gear reviews for UK anglers. No sponsorship, no free kit from manufacturers, no rankings shaped by commission rates.</p>
+      </div>
+
+      <h2>Why this site exists</h2>
+      <p>
+        Most UK carp fishing content online is either written by tackle-shop staff whose job is to move stock, or by sponsored anglers whose
+        rod bag came free. Both produce useful content and both have a bias. We started {siteConfig.siteName} because it was hard to find
+        honest opinions on kit we were paying real money for, and because "best bivvy 2025" articles that recommend the same seven brands
+        as every other article are not helping anyone decide.
+      </p>
+
+      <h2>How we test and rate</h2>
+      <p>
+        Every product we review at four stars or above is one we would put our own money on. Ratings are editorial and reflect long-term
+        performance, not opening-day impressions. We rate kit against realistic UK use - a bivvy is tested in November rain, not summer
+        campsite conditions; alarms are judged on how they behave with 300 m of braid in the wind, not on a test bench.
+      </p>
+      <p>
+        We accept that we cannot test every product long-term ourselves. Where we haven't put ten sessions into a piece of kit, we say so -
+        our summary either flags the review as based on published specs and community consensus, or the product does not appear on the site.
+      </p>
+
+      <h2>How we make money</h2>
+      <p>
+        Every product page and every guide on this site carries Amazon UK affiliate links. When a reader buys through one of those links,
+        Amazon pays us a small commission (typically 3% on Sports & Outdoors category items, capped at £7 per item). This costs the reader
+        nothing extra. It is our only source of income.
+      </p>
+      <p>
+        Because Amazon pays the same commission regardless of which brand is bought, we have no reason to push one manufacturer over another.
+        We recommend what we would buy. If a product is priced better on a specialist retailer (Angling Direct, Nash Direct, Trakker UK
+        website), we say so - we lose the sale but keep the trust.
+      </p>
+      <p>
+        Full details of our commercial relationships are on the <a href="/affiliate-disclosure/">affiliate disclosure page</a>.
+      </p>
+
+      <h2>Who writes this</h2>
+      <p>
+        {siteConfig.siteName} is run by a small editorial desk of UK carp anglers with combined experience across syndicate waters, big-pit
+        day-ticket venues, and specimen fishing. Editorial decisions are made on kit, not on which brand happens to be currently promoting.
+      </p>
+
+      <h2>Corrections and disagreements</h2>
+      <p>
+        We get things wrong. If a review misrepresents a product, or if a specification is out of date because a manufacturer has changed a
+        blank or a pole material, please <a href="/contact/">send us a message</a>. We correct
+        openly, dated, and named at the bottom of the affected page.
+      </p>
+
+      <h2>What we do not do</h2>
+      <ul>
+        <li>We do not accept manufacturer sponsorship.</li>
+        <li>We do not accept free product for review.</li>
+        <li>We do not run "sponsored posts" of any kind.</li>
+        <li>We do not use AI to generate product reviews - writing is done by humans who have handled or owned the kit.</li>
+        <li>We do not track visitors beyond basic anonymised traffic analytics. See <a href="/privacy/">privacy policy</a>.</li>
+      </ul>
+
+      <div class="callout">
+        <strong>The short version.</strong> Independent UK carp gear reviews. Paid for by Amazon commissions on links you click. Ratings
+        reflect what we would buy with our own money. That is it.
+      </div>
+    </article>
+  </div>
+</BaseLayout>

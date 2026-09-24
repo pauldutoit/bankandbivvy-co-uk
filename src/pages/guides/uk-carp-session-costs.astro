@@ -1,0 +1,148 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import siteConfig from "../../data/site.config.json";
+import { breadcrumbListJsonLd, faqJsonLd } from "../../lib/schema";
+
+const siteUrl = `https://${siteConfig.domain}`;
+const title = `What a UK carp fishing season actually costs (${new Date().getFullYear()})`;
+const description = `Honest cost breakdown for a UK carp fishing year. Kit, tickets, bait, terminals, travel - where the money really goes and how to control it.`;
+
+const faqs = [
+  { q: "Is a syndicate ticket worth the money compared to day-ticket fishing?", a: "Depends on how many nights you fish. A £600 syndicate ticket paid across 40 nights works out at £15 per session - comparable to day-ticket rates, but you get better quality water and less pressure. Under 20 nights per year and day-ticket usually wins on cost per session." },
+  { q: "How much bait do I realistically get through in a year?", a: "A weekend angler fishing 25-30 sessions per year uses roughly 60-80 kg of boilies plus 15-20 kg of particle. At mid-range prices that is £700-1,000 in bait alone, more if pre-baiting heavily between sessions." },
+  { q: "Can I fish decently on £600 total per year?", a: "Yes, if kit is already bought. £600 covers roughly: one day-ticket water membership (£150), 30 sessions of bait and terminals at £15 average (£450), and no kit upgrades. Any kit failure eats into that fast." },
+  { q: "What insurance do I need?", a: "Public liability is a syndicate requirement on most UK carp waters (£2m minimum, usually via membership of a body like the Angling Trust for £30 per year). Personal kit insurance is optional; check whether your home contents policy covers fishing kit off-premises before paying extra." },
+];
+
+const jsonLd = [
+  breadcrumbListJsonLd([
+    { label: "Home", url: `${siteUrl}/` },
+    { label: "Guides", url: `${siteUrl}/guides/` },
+    { label: "What a UK carp season costs", url: `${siteUrl}/guides/uk-carp-session-costs/` },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+<BaseLayout
+  title={title}
+  description={description}
+  indexable={true}
+  crumbs={[
+    { label: "Guides" },
+    { label: "UK carp season costs" },
+  ]}
+  jsonLd={jsonLd}
+>
+  <div class="wrap">
+    <article class="guide-content">
+      <div class="page-head">
+        <div class="kicker">Guide · UK · {new Date().getFullYear()}</div>
+        <h1>What a UK carp fishing season actually costs</h1>
+        <p class="lede">Kit is the upfront cost most beginners see. Bait, tickets, terminals and travel are what most anglers actually spend the most on across a full year.</p>
+        <p class="byline">By <strong>{siteConfig.authorName}</strong> · Updated {new Date().toLocaleDateString("en-GB", { month: "long", year: "numeric" })}</p>
+      </div>
+
+      <p>
+        Most cost breakdowns you see online focus on the upfront kit purchase - "how much for a first setup" - and stop there. This guide
+        looks at what a full year of UK carp fishing actually costs once the kit is in the shed, using realistic numbers for the {new Date().getFullYear()}
+        UK market and three angler profiles.
+      </p>
+
+      <h2>The three cost lines</h2>
+      <p>Every UK carp fishing year breaks into three cost lines:</p>
+      <ul>
+        <li><strong>Fixed annual costs.</strong> Syndicate ticket or day-ticket water membership, angling body membership (for public liability insurance), rod licence (mandatory, £35.80 in 2026), fuel or travel to venues.</li>
+        <li><strong>Per-session variable costs.</strong> Bait (boilies, particle, spod mix), terminal tackle consumables (hooks, hooklinks, leads lost to snags), food and drink, occasional overnight campsite fees.</li>
+        <li><strong>Kit refresh.</strong> Replacement of consumable-lifespan items each year: end tackle rigs, torch batteries, occasionally an alarm battery or a rod holder rubber. Larger kit failures (a broken bedchair leg, a lost bivvy peg set) happen every 3-5 years.</li>
+      </ul>
+
+      <h2>Three angler profiles, three annual budgets</h2>
+
+      <h3>The occasional angler - 12 sessions per year</h3>
+      <p>Day-ticket only, mostly summer overnighters, one or two winter tests. Bait usage low.</p>
+      <div class="table-responsive">
+        <table class="table compare mb-0">
+          <tbody>
+            <tr><td><strong>Rod licence</strong></td><td>£36</td></tr>
+            <tr><td><strong>Angling Trust membership (PLI)</strong></td><td>£31</td></tr>
+            <tr><td><strong>Day-ticket fees (12 × £15)</strong></td><td>£180</td></tr>
+            <tr><td><strong>Bait (30 kg avg per year)</strong></td><td>£450</td></tr>
+            <tr><td><strong>Terminals + consumables</strong></td><td>£80</td></tr>
+            <tr><td><strong>Fuel to venues (est.)</strong></td><td>£150</td></tr>
+            <tr><td><strong>Kit refresh contingency</strong></td><td>£75</td></tr>
+            <tr><td><strong>Annual total</strong></td><td><strong>~£1,000</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>The weekend regular - 30 sessions per year</h3>
+      <p>Mix of one day-ticket water and one syndicate. Fishes 20 nights over summer, 10 over winter. Baits consistently.</p>
+      <div class="table-responsive">
+        <table class="table compare mb-0">
+          <tbody>
+            <tr><td><strong>Rod licence + PLI</strong></td><td>£67</td></tr>
+            <tr><td><strong>Syndicate ticket</strong></td><td>£450</td></tr>
+            <tr><td><strong>Day-ticket top-ups</strong></td><td>£120</td></tr>
+            <tr><td><strong>Bait (60 kg mid-range)</strong></td><td>£900</td></tr>
+            <tr><td><strong>Terminals + consumables</strong></td><td>£150</td></tr>
+            <tr><td><strong>Fuel to venues</strong></td><td>£400</td></tr>
+            <tr><td><strong>Kit refresh contingency</strong></td><td>£200</td></tr>
+            <tr><td><strong>Annual total</strong></td><td><strong>~£2,300</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>The specimen hunter - 60 sessions per year</h3>
+      <p>Two syndicate tickets, pre-baits heavily, longer sessions on multiple waters, some travel for named-fish venues.</p>
+      <div class="table-responsive">
+        <table class="table compare mb-0">
+          <tbody>
+            <tr><td><strong>Rod licence + PLI</strong></td><td>£67</td></tr>
+            <tr><td><strong>Syndicate tickets (×2)</strong></td><td>£1,100</td></tr>
+            <tr><td><strong>Guest tickets on other waters</strong></td><td>£200</td></tr>
+            <tr><td><strong>Bait (120 kg premium)</strong></td><td>£2,000</td></tr>
+            <tr><td><strong>Terminals + consumables</strong></td><td>£350</td></tr>
+            <tr><td><strong>Fuel to venues</strong></td><td>£900</td></tr>
+            <tr><td><strong>Kit refresh contingency</strong></td><td>£400</td></tr>
+            <tr><td><strong>Annual total</strong></td><td><strong>~£5,000</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Where the money actually leaks</h2>
+      <p>Across the three profiles above, the big cost lines are consistently:</p>
+      <ol>
+        <li><strong>Bait (40-50% of annual spend).</strong> Ironically the item most beginners under-budget for. Premium freezer baits at £20/kg add up fast when you feed 2 kg per session.</li>
+        <li><strong>Water tickets (20-25%).</strong> Syndicate ticket prices have risen sharply post-2020 - waters that were £300 in 2019 are £500-650 in {new Date().getFullYear()}.</li>
+        <li><strong>Fuel and travel (15-20%).</strong> Silent cost most anglers do not track. A 40-mile round trip 30 times per year at 45p per mile is £540.</li>
+        <li><strong>Everything else (10-15%).</strong> Licence, insurance, terminals, kit refresh. Small compared to the top three.</li>
+      </ol>
+
+      <h2>How to control it without fishing less</h2>
+      <ul>
+        <li><strong>Bulk-buy bait.</strong> Buying 20 kg direct from Mainline, Sticky or CC Moore cuts per-kg cost by 25-30% compared to 1 kg bags on Amazon.</li>
+        <li><strong>Pool travel with a fishing partner.</strong> Halves the fuel line. Also useful for barrow-sharing on multi-lake syndicates.</li>
+        <li><strong>Fish fewer venues per season.</strong> Concentrating on one syndicate cuts travel and lets your pre-bait actually work - most anglers spread themselves too thin and pay for it.</li>
+        <li><strong>Rig your own hooklinks.</strong> Buying components in bulk cuts hook-link costs by 60% vs pre-tied. Payback is one session.</li>
+        <li><strong>Buy second-hand kit in October.</strong> End of season is when kit gets sold - 30-40% off list on year-old flagship gear is normal.</li>
+      </ul>
+
+      <div class="callout">
+        <strong>Bottom line.</strong> Budget £1,000 for occasional day-ticket carping, £2,300 for a serious weekend habit, £5,000 for
+        specimen-level commitment. Bait is the biggest single line - control that and you control the total.
+      </div>
+
+      <h2>Common questions</h2>
+      {faqs.map((f) => (
+        <details class="faq"><summary>{f.q}</summary><p>{f.a}</p></details>
+      ))}
+
+      <h2>Continue reading</h2>
+      <div class="cat-grid">
+        <a class="cat-card" href="/"><h3>The pillar gear guide</h3><p>Seven kit families, three angler profiles, honest picks.</p><div class="meta"><span>Pillar</span><span>Read →</span></div></a>
+        <a class="cat-card" href="/gear/boilies-bait/"><h3>Boilies & bait reviews</h3><p>Which brands actually earn their premium.</p><div class="meta"><span>Category</span><span>Read →</span></div></a>
+        <a class="cat-card" href="/guides/boilies-explained/"><h3>Boilies explained</h3><p>Shelf-life vs freezer, fishmeal vs birdfood.</p><div class="meta"><span>Guide</span><span>Read →</span></div></a>
+      </div>
+    </article>
+  </div>
+</BaseLayout>
