@@ -3,7 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import products from "../../data/products.json";
 import categories from "../../data/categories.json";
 import siteConfig from "../../data/site.config.json";
-import { amazonProductLink, money, stars } from "../../lib/amazon";
+import { amazonProductLink, amazonPrimeLink, money, stars } from "../../lib/amazon";
 import { breadcrumbListJsonLd, productJsonLd, faqJsonLd } from "../../lib/schema";
 
 export function getStaticPaths() {
@@ -101,6 +101,7 @@ const jsonLd = [
               target="_blank"
               href={amazonUrl}
             >Check price on Amazon UK</a>
+            <p class="small text-muted mt-2 mb-0">Not on Prime? <a rel="sponsored nofollow noopener" target="_blank" href={amazonPrimeLink()}>Start a free Amazon Prime trial</a>.</p>
           </div>
           <div class="col-auto text-end">
             <div class="price">{money(product.price)}</div>

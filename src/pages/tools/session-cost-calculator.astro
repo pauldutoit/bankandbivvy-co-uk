@@ -6,7 +6,7 @@ import { amazonProductLink, money, stars } from "../../lib/amazon";
 import { breadcrumbListJsonLd, faqJsonLd } from "../../lib/schema";
 
 const tierPicks = [
-  { tier: "Entry (~£800/year total)", label: "Budget starter", product: products.find((p) => p.slug === "sonik-xtractor-pro-3-rod-combo") },
+  { tier: "Entry (~£800/year total)", label: "Budget starter", product: products.find((p) => p.slug === "sonik-xtractor-pro-10ft-3lb") },
   { tier: "Weekend regular (~£1,500/year)", label: "Mid-range value", product: products.find((p) => p.slug === "fox-frontier-xd") },
   { tier: "Specimen hunter (~£3,000/year+)", label: "Flagship long-haul", product: products.find((p) => p.slug === "trakker-tempest-advanced-100") },
 ].filter((t): t is typeof t & { product: NonNullable<typeof t.product> } => Boolean(t.product));

@@ -28,6 +28,16 @@ export function amazonProductLink(args: {
   return amazonSearchLink(`${args.brand} ${args.product}`);
 }
 
+// Prime free-trial landing page with the affiliate tag (Amazon Associates bounty).
+// Check in Associates that the Prime bounty is active on the account.
+export function amazonPrimeLink(): string {
+  const params = new URLSearchParams({
+    primeCampaignId: "prime_assoc_ft",
+    tag: siteConfig.amazonAssociateTag,
+  });
+  return `https://www.${siteConfig.amazonMarketplace}/amazonprime?${params.toString()}`;
+}
+
 // Format a numeric price for display. Marketplace suffix decides the
 // currency symbol; add more when adding marketplaces.
 export function money(price: number): string {

@@ -7,12 +7,12 @@ import { breadcrumbListJsonLd, faqJsonLd } from "../../lib/schema";
 
 const tackleSpendPicks = [
   products.find((p) => p.slug === "trakker-tempest-advanced-100"),
-  products.find((p) => p.slug === "nash-scope-black-ops-12ft-3lb"),
+  products.find((p) => p.slug === "nash-scope-black-ops-10ft-3-5lb"),
   products.find((p) => p.slug === "delkim-txi-plus-set"),
 ].filter((p): p is NonNullable<typeof p> => Boolean(p));
 
 const baitPicks = products.filter((p) => p.category === "boilies-bait");
-const juniorPick = products.find((p) => p.slug === "sonik-xtractor-pro-3-rod-combo");
+const juniorPick = products.find((p) => p.slug === "sonik-xtractor-pro-10ft-3lb");
 
 const siteUrl = `https://${siteConfig.domain}`;
 const title = `UK carp fishing stats ${new Date().getFullYear()} - rod licences, market size, participation`;
@@ -250,7 +250,7 @@ const juniorGrowth = [
           <h2>The junior boom starter kit</h2>
           <p>
             Junior 3-rod licences up 46.5% year-on-year means tens of thousands of new UK carpers building their first setup right now.
-            The honest starter combo - three matched rods with reels and cases in one purchase - is where most of them begin.
+            A good entry-level rod, bought one at a time and built into a matched set, is where most of them begin.
           </p>
           <div class="product-card">
             <div class="row g-3 align-items-start">

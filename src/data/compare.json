@@ -58,29 +58,68 @@
   {
     "slug": "nash-scope-black-ops-vs-fox-horizon-x4",
     "category": "carp-rods",
-    "leftSlug": "nash-scope-black-ops-12ft-3lb",
+    "leftSlug": "nash-scope-black-ops-10ft-3-5lb",
     "rightSlug": "fox-horizon-x4-12ft-3lb",
-    "tagline": "The premium mid-range vs the value benchmark - which UK 3lb carp rod is worth its price in 2026?",
-    "intro": "At £160 and £130 respectively, the Nash Scope Black Ops and Fox Horizon X4 are the two rods most UK anglers weigh up when building their first matched set of three. Same 12ft length, same 3lb test curve, both from serious UK brands. The blank technology (46T vs 40T) and finish quality differ - but does it matter for practical UK carp fishing?",
-    "verdict": "For most UK carpers, the Fox Horizon X4 is the smarter buy - the 40T blank casts 3oz leads to 100+ m confidently, the Fuji fittings are honest, and the £90 saving on a matched set of three (£390 vs £480) buys a decent alarm set upgrade. The Nash Scope Black Ops earns its extra £30/rod for anglers who fish 40+ sessions a year and value the reduced swing weight over long sessions, plus the matte-black cosmetic if you're building a full stealth setup.",
+    "tagline": "A short travel rod against a full-length 12ft rod - two different jobs, not two prices for the same one.",
+    "intro": "The Nash Scope Black Ops only exists in 9ft and 10ft; the Fox Horizon X4 here is a 12ft 3.25lb abbreviated-handle rod. So this is not a like-for-like price comparison. The question is which kind of rod your fishing needs: a compact, powerful short rod for close work and travel, or a 12ft rod for distance on bigger waters.",
+    "verdict": "For most UK carp anglers fishing open stillwaters, the 12ft Fox Horizon X4 is the right tool: it casts further and costs far less per rod. The Nash Scope Black Ops earns its price only if you need a rod that packs very small and fishes close - margin stalking, overgrown swims, boats or travel.",
     "dimensions": [
-      { "criterion": "Blank technology", "winner": "left", "note": "Nash: 46T carbon with modified biax weave. Fox: 40T standard carbon. Nash has thinner walls at same test curve - lighter in hand." },
-      { "criterion": "Casting distance", "winner": "tie", "note": "Both cast 3oz leads to 100-110 m in confident hands. Nash's oversized 40mm butt guide gives a marginal edge on the physics; in real fishing it is not the deciding factor." },
-      { "criterion": "Action and forgiveness", "winner": "right", "note": "Fox X4's through-progressive taper is slightly more forgiving on side-cast angles and small-fish takes. Nash Scope Black Ops firms up faster - tighter action, less margin for error." },
-      { "criterion": "Value for money", "winner": "right", "note": "£130 vs £160 per rod, £390 vs £480 for a set of three. The Fox is not compromised at this price - it is genuinely well-specced." },
-      { "criterion": "Long-term finish and durability", "winner": "left", "note": "Nash's matte-black finish holds up better than gloss finishes over 5+ years. Fox X4 whipping shows wear slightly sooner." },
-      { "criterion": "Cosmetic and stealth", "winner": "left", "note": "If you're building a full black stealth setup, the Nash Scope Black Ops is purpose-designed. Fox X4 is dark grey with silver accents - fine, not stealth." }
+      {
+        "criterion": "Length and packed size",
+        "winner": "left",
+        "note": "Nash: 10ft with a retractable butt, so it packs much shorter than a standard two-piece. Fox: 12ft two-piece, transport length about 187-188 cm."
+      },
+      {
+        "criterion": "Casting distance",
+        "winner": "right",
+        "note": "Two extra feet of rod is a real advantage at range. For fishing beyond the margins on a big water, the 12ft rod wins."
+      },
+      {
+        "criterion": "Blank",
+        "winner": "tie",
+        "note": "Nash: 24T and 30T carbon blend with cross wrap and 1K weave. Fox: high modulus multi-directional carbon with a full 2K weave wrap. Both are proper carbon blanks; they are built for different lengths."
+      },
+      {
+        "criterion": "Fittings",
+        "winner": "tie",
+        "note": "Nash: 50 mm Pacific Bay Minima high stand-off guides, 16 mm anti-frap tip, ALPS ARD reel fitting. Fox: anti-tangle guides, 50 mm butt ring, Fuji 18 mm DPS reel seat."
+      },
+      {
+        "criterion": "Price",
+        "winner": "right",
+        "note": "The Black Ops lists at around £450 on Amazon UK; the Fox X4 costs a fraction of that, which matters when you buy three."
+      }
     ],
     "personas": [
-      { "who": "First-time carp angler building a first matched set of three", "recommend": "right", "why": "£390 for three Fox X4s is honest kit. Save the £90 gap for a proper cradle or alarm upgrade." },
-      { "who": "Session angler, 40+ sessions/year, prioritises reduced swing weight", "recommend": "left", "why": "Nash Scope Black Ops' 46T thinner blank pays back over long sessions where handling weight matters." },
-      { "who": "Angler building a stealth all-black setup", "recommend": "left", "why": "Nash Scope Black Ops is the natural rod for that build." },
-      { "who": "Stalker or short-range angler", "recommend": "right", "why": "Fox X4's slightly more forgiving action suits short-range work better than the tighter Nash Scope." }
+      {
+        "who": "Angler fishing open stillwaters at range",
+        "recommend": "right",
+        "why": "The 12ft Fox X4 casts further and three of them cost less than one Black Ops."
+      },
+      {
+        "who": "Margin stalker or angler on small, overgrown waters",
+        "recommend": "left",
+        "why": "A 10ft retractable-butt rod is easier to handle under trees and in tight swims."
+      },
+      {
+        "who": "Angler with a small car or who travels to fish",
+        "recommend": "left",
+        "why": "The retractable butt makes the Black Ops much shorter to carry."
+      }
     ],
     "faqs": [
-      { "q": "Is the Nash's 46T blank actually noticeable in hand?", "a": "Yes, but subtly. Held side-by-side, most anglers can feel the Nash is slightly lighter with less swing weight. Fished alone, the difference is not the deciding factor - fatigue over a long session is where you notice it." },
-      { "q": "Can I mix a Nash reel with a Fox rod or vice versa?", "a": "Completely, the reel seat is a standard Fuji DPS-18 on both, and any 8000-size front-drag reel fits either. Matched brand sets are cosmetic, not functional." },
-      { "q": "What if I only want one rod, not a set?", "a": "For a single rod purchase, the Nash Scope Black Ops is the marginally better buy - the extra £30 gets you the better blank and cosmetic. The value argument for the Fox X4 depends on multiplying the saving across three rods." }
+      {
+        "q": "Is there a 12ft Nash Scope Black Ops?",
+        "a": "No. The Scope Black Ops is made in 9ft and 10ft lengths, with 3lb and 3.5lb test curves."
+      },
+      {
+        "q": "Can I use the same reels on both?",
+        "a": "Yes. Both take standard carp reels; the Fox has a Fuji 18 mm DPS reel seat and the Nash an ALPS ARD fitting."
+      },
+      {
+        "q": "Which is better for a first set of rods?",
+        "a": "For most first sets, a 12ft rod like the Fox Horizon X4. Add a short rod later if you find yourself stalking or fishing tight swims."
+      }
     ]
   },
   {
