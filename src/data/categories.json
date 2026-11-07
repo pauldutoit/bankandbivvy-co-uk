@@ -8,7 +8,7 @@
     "bestFor": "Anglers doing sessions of 24 hours or more, year-round, in exposed UK venues.",
     "watchOut": "Cheap fibreglass poles snap; single-skin bivvies drip on you every night from November to March.",
     "priceFrom": 120,
-    "priceTo": 500,
+    "priceTo": 800,
     "cupCost": "£120-500 (10-15 year lifespan on decent kit)",
     "whatMatters": [
       { "title": "Hydrostatic head", "body": "Look for 5,000 mm minimum on the flysheet and 10,000 mm on the groundsheet. Below that, prolonged UK rain will find its way through eventually." },
@@ -42,7 +42,7 @@
     "bestFor": "Regular overnighters, back sleepers, and anyone over 90 kg who has broken a bedchair before.",
     "watchOut": "\"Six-leg\" marketing sometimes hides thin tubing; check declared max user weight, not leg count.",
     "priceFrom": 90,
-    "priceTo": 400,
+    "priceTo": 600,
     "cupCost": "£90-400 (frame lifespan 5-12 years depending on grade)",
     "whatMatters": [
       { "title": "Declared max user weight", "body": "The only spec that actually matters. Aim for at least 30 kg above your body weight to account for kit stored on the bed, dynamic loads, and long-term frame fatigue." },
@@ -70,7 +70,7 @@
     "bestFor": "Any angler fishing more than 20 sessions a year who wants to know what is happening 90 metres out at 3am.",
     "watchOut": "Battery type (9V vs AA) and water ingress rating decide long-term running cost more than head sensitivity.",
     "priceFrom": 60,
-    "priceTo": 400,
+    "priceTo": 500,
     "cupCost": "£60-400 for 3+1 set; £25-80 replacement heads if needed",
     "whatMatters": [
       { "title": "Vibration vs roller sensor", "body": "Roller wheels are the traditional standard - direct, tactile, silent under still line. Vibration alarms (Delkim, Fox Micron X) register drop-backs and slack-line takes a roller misses entirely." },

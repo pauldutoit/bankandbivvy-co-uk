@@ -30,7 +30,7 @@ const description = `${product.verdict.replace(/[.,;]+$/, "")}. Full review with
 const faqs = [
   {
     q: `Is the ${product.name} worth the price?`,
-    a: `At ${money(product.price)}, we rate it ${product.rating.toFixed(1)}/5 because ${product.verdict.charAt(0).toLowerCase() + product.verdict.slice(1).replace(/\.$/, "")}. Whether that is worth the money depends on how the strengths above line up with your session type and venue.`,
+    a: `${product.price != null ? `At about ${money(product.price)} in UK shops (November 2026), we` : "We"} score it ${product.rating.toFixed(1)}/5 from its specs and published owner reviews, because ${product.verdict.charAt(0).toLowerCase() + product.verdict.slice(1).replace(/\.$/, "")}. Whether that is worth the money depends on how the strengths above line up with your session type and venue.`,
   },
   {
     q: `How does it compare to other ${category.short.toLowerCase()} in this bracket?`,
@@ -81,7 +81,7 @@ const jsonLd = [
         <p class="byline">
           By <strong>{siteConfig.authorName}</strong> · Updated {new Date().toLocaleDateString("en-GB", { month: "long", year: "numeric" })}
           &nbsp;·&nbsp;<span class="stars">{stars(product.rating)}</span> <strong>{product.rating.toFixed(1)}/5</strong>
-          &nbsp;·&nbsp;<strong>{money(product.price)}</strong> RRP guide
+          &nbsp;·&nbsp;<strong>{money(product.price)}</strong> in UK shops, Nov 2026
         </p>
       </div>
 
@@ -105,19 +105,19 @@ const jsonLd = [
           </div>
           <div class="col-auto text-end">
             <div class="price">{money(product.price)}</div>
-            <div class="price-note">Indicative RRP</div>
+            <div class="price-note">UK shops, Nov 2026</div>
           </div>
         </div>
       </div>
 
-      {(product as any).context && (
+      {(product as any).sourced && (product as any).context && (
         <>
           <h2>Where this kit fits in</h2>
           <p>{(product as any).context}</p>
         </>
       )}
 
-      {(product as any).deepDive && (
+      {(product as any).sourced && (product as any).deepDive && (
         <>
           <h2>How it actually works on the bank</h2>
           <p>{(product as any).deepDive}</p>
@@ -147,14 +147,14 @@ const jsonLd = [
         </tbody>
       </table>
 
-      {(product as any).longTerm && (
+      {(product as any).sourced && (product as any).longTerm && (
         <>
           <h2>Long-term ownership notes</h2>
           <p>{(product as any).longTerm}</p>
         </>
       )}
 
-      {(product as any).maintenance && (product as any).maintenance.length > 0 && (
+      {(product as any).sourced && (product as any).maintenance && (product as any).maintenance.length > 0 && (
         <>
           <h2>Care & maintenance schedule</h2>
           <p>The routine that keeps the {product.name.split(" ")[0]} platform running for its expected lifespan.</p>
@@ -164,7 +164,7 @@ const jsonLd = [
         </>
       )}
 
-      {(product as any).commonIssues && (product as any).commonIssues.length > 0 && (
+      {(product as any).sourced && (product as any).commonIssues && (product as any).commonIssues.length > 0 && (
         <>
           <h2>Common issues owners report</h2>
           <p>Problems reported by long-term users, plus the practical fixes.</p>
@@ -208,7 +208,7 @@ const jsonLd = [
 
       <div class="cta-banner">
         <h3>See the current price on Amazon UK</h3>
-        <p>Prices fluctuate - we quote {money(product.price)} as indicative, but expect promotions around Black Friday, Prime Day, and end-of-season sales in October.</p>
+        <p>Prices fluctuate - the price above was checked in UK tackle shops in November 2026 and Amazon's can differ; expect promotions around Black Friday, Prime Day, and end-of-season sales in October.</p>
         <a
           class="btn btn-amazon"
           rel="sponsored nofollow noopener"

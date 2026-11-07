@@ -22,7 +22,8 @@ const rightUrl = amazonProductLink({ asin: right.asin, brand: right.brand, produ
 const siteUrl = `https://${siteConfig.domain}`;
 const pageUrl = `${siteUrl}/compare/${cmp.slug}/`;
 const title = `${left.name} vs ${right.name} - which UK ${category.short.toLowerCase()} wins in ${new Date().getFullYear()}?`;
-const description = `${left.name} at ${money(left.price)} vs ${right.name} at ${money(right.price)}. Head-to-head comparison across 6 criteria with verdict, personas and honest recommendation.`;
+const priced = (p: { name: string; price: number | null }) => (p.price != null ? `${p.name} at about ${money(p.price)}` : p.name);
+const description = `${priced(left)} vs ${priced(right)}. Head-to-head comparison across 6 criteria with verdict, personas and honest recommendation.`;
 
 const winsLeft = cmp.dimensions.filter((d: any) => d.winner === "left").length;
 const winsRight = cmp.dimensions.filter((d: any) => d.winner === "right").length;
@@ -78,7 +79,7 @@ const jsonLd = [
             </tr>
           </thead>
           <tbody>
-            <tr><th>Price (RRP guide)</th><td><strong>{money(left.price)}</strong></td><td><strong>{money(right.price)}</strong></td></tr>
+            <tr><th>Price (UK shops, Nov 2026)</th><td><strong>{money(left.price)}</strong></td><td><strong>{money(right.price)}</strong></td></tr>
             <tr><th>Editorial rating</th><td><span class="stars">{stars(left.rating)}</span> {left.rating.toFixed(1)}/5</td><td><span class="stars">{stars(right.rating)}</span> {right.rating.toFixed(1)}/5</td></tr>
             <tr><th>One-line verdict</th><td class="small">{left.verdict}</td><td class="small">{right.verdict}</td></tr>
             <tr><th>Best for</th><td class="small">{left.bestFor}</td><td class="small">{right.bestFor}</td></tr>

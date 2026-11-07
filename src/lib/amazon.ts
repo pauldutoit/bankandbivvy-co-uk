@@ -40,7 +40,8 @@ export function amazonPrimeLink(): string {
 
 // Format a numeric price for display. Marketplace suffix decides the
 // currency symbol; add more when adding marketplaces.
-export function money(price: number): string {
+export function money(price: number | null): string {
+  if (price == null) return "price not confirmed";
   const symbol =
     siteConfig.amazonMarketplace === "amazon.com" ? "$" :
     siteConfig.amazonMarketplace === "amazon.co.uk" ? "£" :

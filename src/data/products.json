@@ -5,7 +5,7 @@
     "brand": "Trakker",
     "name": "Trakker Tempest Advanced 100",
     "asin": "B07XVPSV3V",
-    "price": 350,
+    "price": 750,
     "rating": 4.7,
     "verdict": "The UK long-session standard - sub-2-minute pitch, honest weather rating, replaceable parts.",
     "summary": "Trakker's flagship two-man shelter uses a fully aluminium T6-alloy pole set and a 10,000 mm hydrostatic-head heavy-duty groundsheet. The frame pitches in under two minutes with practice, holds shape in genuine force-6 wind, and every stress point has a factory-replaceable spare. It is the bivvy you buy once and use for a decade.",
@@ -19,7 +19,7 @@
     ],
     "cons": [
       "Heavy at 12+ kg fully packed",
-      "Wrap and overwrap sold separately, adds £180 for full winter setup",
+      "Wrap and overwrap sold separately",
       "Colour range is limited to olive and camo"
     ],
     "specs": {
@@ -48,11 +48,11 @@
     "alternatives": {
       "upgrade": {
         "slug": "",
-        "why": "The Tempest Advanced 100 is already the flagship in the practical UK two-man bivvy segment. Trakker's own Tempest 200 (double-skin winter version, ~£500) adds the wrap out of the box but is functionally identical. Nash Titan T2 Pro at ~£550 is the closest lateral option - different pole design, similar spec, personal preference."
+        "why": "The Tempest Advanced 100 already sits near the top of Trakker's two-man range. Nash's Titan range is the closest rival from another brand: compare pole design, groundsheet and pack size on the listings."
       },
       "downgrade": {
         "slug": "fox-frontier-xd",
-        "why": "The Fox Frontier XD gets you aluminium poles, two-skin construction and a decent 5,000 mm HH flysheet at £100 less. You lose refinement (heavier fabric, less internal storage, marginally slower pitch) but keep the core specs that decide whether a bivvy actually survives a UK winter."
+        "why": "The Fox Frontier XD usually costs less: about £500 to £700 in UK shops in November 2026, against about £750 for the Tempest Advanced 100. Compare the pole, flysheet and groundsheet specs on both listings before choosing."
       }
     },
     "bestFor": "Regular session anglers fishing 40+ nights a year in UK weather."
@@ -63,14 +63,14 @@
     "brand": "Fox",
     "name": "Fox Frontier XD",
     "asin": "B08R2NJMK4",
-    "price": 250,
+    "price": 600,
     "rating": 4.5,
-    "verdict": "The best-value two-man in the £250 bracket - real aluminium poles, decent flysheet, will not embarrass you.",
+    "verdict": "A two-man bivvy with aluminium poles that usually costs less than Trakker's Tempest range.",
     "summary": "Fox's mid-range bivvy hits a hard spot: aluminium poles at a price where competitors still ship fibreglass, a Ventec DWR-treated flysheet, and internal storage systems that actually work. Not the flagship polish of the Trakker Tempest but it will do 8-10 years without complaint.",
     "context": "The Fox Frontier line launched in 2016 as Fox's answer to weekend-angler anglers who wanted aluminium poles without paying flagship prices. The XD variant (introduced 2020) added the extended footprint that pushed pack size up marginally but gave real two-man capacity. It is now Fox International's best-selling bivvy by unit volume in the UK, targeted directly at the £250 sweet spot where competitors still ship fibreglass or single-skin construction.",
     "deepDive": "The Frontier XD uses a 4-pole aluminium alloy frame with cast-alloy hubs. Flysheet is 190D polyester with Ventec DWR treatment rated to 5,000 mm hydrostatic head - not as heavy-duty as the Trakker Tempest's 210D fabric, but perfectly adequate for UK weather when re-proofed at year 2-3. The bathtub floor is 8,000 mm HH PVC-coated, one grade down from Trakker's 10,000 mm. Internal storage is where Fox has focused refinement: two zipped storage pockets on the rear wall plus overhead hanging loops.",
     "pros": [
-      "Aluminium poles at a real £250 price point",
+      "Aluminium poles",
       "Two internal storage pockets and hanging loops",
       "Decent 3-year Fox warranty via UK dealers",
       "Fits most Fox wraps if you upgrade later"
@@ -104,7 +104,7 @@
     "alternatives": {
       "upgrade": {
         "slug": "trakker-tempest-advanced-100",
-        "why": "The Trakker Tempest Advanced 100 at £350 gets you flagship spec: 10,000 mm HH groundsheet, moulded alloy hubs (not cast), factory-replaceable parts programme, and 12-15 year expected lifespan. £100 more delivers real long-term ownership economics if you fish 40+ nights per year."
+        "why": "The Trakker Tempest Advanced 100 is the step up, at about £750 in UK shops in November 2026 against about £500 to £700 for the Frontier XD. Compare groundsheet, pole and fabric specs on both listings."
       },
       "downgrade": {
         "slug": "jrc-contact-zip-brolly-system",
@@ -115,11 +115,12 @@
   },
   {
     "slug": "jrc-contact-zip-brolly-system",
+    "sourced": true,
     "category": "bivvies",
     "brand": "JRC",
     "name": "JRC Contact Zip Brolly System",
     "asin": "B00835S8FS",
-    "price": 160,
+    "price": null,
     "rating": 4.1,
     "verdict": "A brolly that zips up into a basic shelter - simple, flexible, and fine for overnighters.",
     "summary": "The Contact Zip is a brolly system made from 210D Oxford nylon with a 3000 mm hydrostatic head. It comes with storm poles (24\" and 36\" cam lock), a lightweight PE groundsheet, side vents, a three-door option and a full zip-out front panel, so you can fish it closed like a small shelter or open like an umbrella.",
@@ -175,7 +176,7 @@
     "brand": "Nash",
     "name": "Nash Indulgence SS4 Wide",
     "asin": "B08B415NR4",
-    "price": 280,
+    "price": null,
     "rating": 4.7,
     "verdict": "The wide-mattress benchmark - memory foam, 140 kg rating, no wobble on any UK bank.",
     "summary": "Nash's SS4 Wide is the bedchair most seriously kitted-up UK anglers end up with. 95 cm wide mattress with proper memory foam, individually adjustable steel legs with big level feet, and a genuine 140 kg user weight rating that has been tested rather than optimistically declared.",
@@ -216,7 +217,7 @@
     "alternatives": {
       "upgrade": {
         "slug": "",
-        "why": "The SS4 Wide is Nash's flagship. The Indulgence Big Daddy (£400) uses the same construction with a wider 105 cm mattress and reinforced 160 kg rating - the natural upgrade only if you're over 110 kg or genuinely need extra width."
+        "why": "Nash makes other Indulgence models in different widths and weight ratings: check the mattress width and the maximum weight on each listing if you need more room."
       },
       "downgrade": {
         "slug": "trakker-rlx-flat-6-bedchair",
@@ -227,6 +228,7 @@
   },
   {
     "slug": "trakker-rlx-flat-6-bedchair",
+    "sourced": true,
     "category": "bedchairs",
     "brand": "Trakker",
     "name": "Trakker RLX Flat-6 Bedchair",
@@ -288,7 +290,7 @@
     "brand": "Delkim",
     "name": "Delkim TXi Plus 4+1 Set",
     "asin": "B00HV2JSXU",
-    "price": 340,
+    "price": null,
     "rating": 4.9,
     "verdict": "The 10-year alarm set - sensitivity nothing else matches, receiver range that just works.",
     "summary": "The Delkim Txi Plus has been the UK carper's target alarm for a decade for one reason: the vibration sensor picks up drop-back and slack-line takes that every other alarm sleeps through. The RX-Pro receiver pairs cleanly at 300 m in open air. Buy once, run for 10-15 years.",
@@ -329,7 +331,7 @@
     "alternatives": {
       "upgrade": {
         "slug": "",
-        "why": "There is no meaningful upgrade in the UK carp alarm market. Delkim TXi EV variant (£400) adds silent-mode and vibrating receiver for hearing-impaired anglers but is functionally the same sensor. Custom-tuned Nevilles are the only real premium alternative and are hand-built to order - not available on Amazon UK."
+        "why": "Delkim's newer TXi-D V2 has replaced the TXi Plus at many UK shops (a 2-rod TXi-D V2 set was about £450 in UK shops in November 2026). Check whether the TXi Plus set is still sold new before buying."
       },
       "downgrade": {
         "slug": "fox-mini-micron-x-set",
@@ -384,11 +386,11 @@
     "alternatives": {
       "upgrade": {
         "slug": "delkim-txi-plus-set",
-        "why": "The Delkim Txi Plus at £340 is the natural upgrade: proprietary DPS vibration sensor with genuinely better drop-back sensitivity, IPX7 sealing (submersible), and 10-15 year lifespan vs the Fox's 5-8 years. £140 more if fishing style justifies it."
+        "why": "Delkim is the usual step up and costs much more: a 2-rod TXi-D V2 set was about £450 in UK shops in November 2026, against about £160 to £240 for a 3-rod Mini Micron X set."
       },
       "downgrade": {
         "slug": "sonik-sks-set",
-        "why": "The Sonik SKS at £90 gets you a real 3+1 receiver set at less than half the price. You drop from vibration to roller sensor - meaningful gap on pressured water but not a deal-breaker on stocked day-ticket venues."
+        "why": "The Sonik SKS2 3+1 set costs less: about £110 to £175 in UK shops in November 2026. It is Sonik's entry-level set."
       }
     },
     "bestFor": "Mid-budget anglers who fish regularly but not obsessively."
@@ -399,14 +401,14 @@
     "brand": "Sonik",
     "name": "Sonik SKS2 3-Rod Alarm Set",
     "asin": "B0C4L7RDLS",
-    "price": 90,
+    "price": 140,
     "rating": 4.1,
-    "verdict": "The honest budget starter - does what £90 for four units can reasonably do.",
+    "verdict": "An entry-level 3+1 alarm set with a receiver, for anglers starting out.",
     "summary": "The SKS set is the entry point for anglers who need a receiver on a tight budget. Roller sensors, 9V batteries, adequate 50-80 m range through moderate cover. Buy expecting to upgrade in 2-3 seasons once you know what you actually want.",
     "context": "Sonik launched in 2010 as a UK-based value-focused tackle brand and has grown steadily by targeting the entry-to-mid price segments other brands underserve. The SKS alarm set has been in continuous production since 2018, updated with minor revisions every 2 years. It is not the best alarm at any spec - it is the honest cheapest 3+1 receiver set that isn't outright junk. On UK forums, it's the default 'buy this while you figure out what you actually need' recommendation.",
     "deepDive": "The sensor is a roller-wheel triggered magnetic reed switch - the same architecture used in cheap alarms since the 1990s. Roller triggers on line motion in the take direction, misses drop-back and slack-line takes that a vibration sensor would catch. Range is limited to 80-100 m in open air, 50-60 m through moderate tree cover. The receiver housing is plastic with basic splash resistance - not rated IPX5 or higher.",
     "pros": [
-      "Real 3+1 receiver set at under £100",
+      "Three alarms and a receiver in one set",
       "Standard 9V PP3 batteries, cheap to replace",
       "Snag ears switch on and off cleanly"
     ],
@@ -437,22 +439,23 @@
     "alternatives": {
       "upgrade": {
         "slug": "fox-mini-micron-x-set",
-        "why": "The Fox Mini Micron X at £200 is the honest upgrade path from SKS - real vibration sensing, IPX5 sealing, longer range. £110 more but the step-up is huge for anglers who fish pressured venues."
+        "why": "The Fox Mini Micron X 3-rod set is the usual step up, at about £160 to £240 in UK shops in November 2026."
       },
       "downgrade": {
         "slug": "",
-        "why": "Below £90 for a 3+1 receiver set there is nothing worth recommending. Cheaper 3-alarm-no-receiver sets exist but the receiver is the whole point of a modern set."
+        "why": "Cheaper sets exist without a receiver; for night fishing the receiver is the part worth paying for."
       }
     },
     "bestFor": "First-time buyers, occasional session anglers, or a backup set."
   },
   {
     "slug": "fox-horizon-x4-12ft-3lb",
+    "sourced": true,
     "category": "carp-rods",
     "brand": "Fox",
     "name": "Fox Horizon X4 Abbreviated 12ft 3.25lb",
     "asin": "B0874P6WWT",
-    "price": 130,
+    "price": 230,
     "rating": 4.5,
     "verdict": "A proper 12ft distance rod at a sensible price per rod - the one to buy three of.",
     "summary": "The Horizon X4 12ft 3.25lb with the abbreviated handle is a two-piece distance rod. Fox describes a high modulus, multi-directional carbon construction with a full 2K weave wrap, anti-tangle guides with a 50 mm butt ring and a Fuji 18 mm DPS reel seat. Transport length is about 187 cm. It is the rod most anglers buy as a matched set for open stillwaters.",
@@ -505,11 +508,12 @@
   },
   {
     "slug": "nash-scope-black-ops-10ft-3-5lb",
+    "sourced": true,
     "category": "carp-rods",
     "brand": "Nash",
     "name": "Nash Scope Black Ops 10ft 3.5lb S",
     "asin": "B07NDLBKP4",
-    "price": 450,
+    "price": 320,
     "rating": 4.3,
     "verdict": "A short, retractable-butt rod for stalking, small waters and small car boots - not a like-for-like swap for a 12ft distance rod.",
     "summary": "The Scope Black Ops is Nash's short-rod range in a matt black finish. It only comes in 9ft and 10ft, in 3lb and 3.5lb test curves - there is no 12ft Black Ops. This is the 10ft 3.5lb model: a two-piece rod with a retractable butt section, so it packs far shorter than a standard 10ft two-piece. It is expensive for a short rod; you are paying for the compact build and the fittings.",
@@ -562,13 +566,14 @@
   },
   {
     "slug": "sonik-xtractor-pro-10ft-3lb",
+    "sourced": true,
     "category": "carp-rods",
     "brand": "Sonik",
     "name": "Sonik Xtractor Pro 10ft 3lb",
     "asin": "B0C2VMF84S",
-    "price": 100,
+    "price": 75,
     "rating": 4.1,
-    "verdict": "A well-specified entry rod at around £100 - buy one at a time and build a matched set as you go.",
+    "verdict": "A well-specified entry rod at well under £100 - buy one at a time and build a matched set as you go.",
     "summary": "The Xtractor Pro sits above the standard Sonik Xtractor. This is the 10ft 3lb model; the listing describes black M-Series guides, an 18 mm DPS reel seat and a slim Japanese shrink handle. It is sold as a single rod, so a matched set of three costs about three times the listed price.",
     "context": "The Xtractor family is Sonik's entry range and comes in 9ft and 10ft lengths. A 10ft rod is easier to handle on small and medium waters and in tight swims, at the cost of some casting distance against 12ft rods.",
     "deepDive": "From the listing: a high modulus carbon blank with a lite-ply 1K armoured carbon weave throughout and a multi-directional carbon lay-up in the tip section. Guides are super-light M-Series DL black guides with an anti-frap tip; Sonik uses a 40 mm guide pattern below 3.25lb and 50 mm on 3.25lb models and above, so this 3lb rod has the 40 mm pattern. The 18 mm black DPS reel seat takes any standard big-pit or freespool reel.",
@@ -618,6 +623,7 @@
   },
   {
     "slug": "nash-carp-care-air-cradle",
+    "sourced": true,
     "category": "unhooking-mats",
     "brand": "Nash",
     "name": "Nash Carp Care Air Cradle Camo (T0070)",
@@ -666,7 +672,7 @@
       },
       "downgrade": {
         "slug": "fox-carpmaster-standard-mat",
-        "why": "If your water accepts a mat, the Fox Carpmaster Air mat costs much less. It is a padded mat rather than a raised cradle."
+        "why": "If your water accepts a mat, the Fox Carpmaster Air mat usually costs a little less (about £135 to £170 against about £170 to £200 for the cradle in UK shops in November 2026). It is a padded mat rather than a raised cradle."
       }
     },
     "bestFor": "Anglers on waters that ask for a cradle who carry kit on a barrow or in a small car."
@@ -677,14 +683,14 @@
     "brand": "Fox",
     "name": "Fox Carpmaster Camo Air Unhooking Mat",
     "asin": "B07KB5MKQ9",
-    "price": 55,
+    "price": 150,
     "rating": 4.4,
-    "verdict": "The floor-fill mat that costs half a cradle - real welfare protection for day-ticket fishing.",
+    "verdict": "An inflatable unhooking mat for waters that accept a mat rather than a cradle.",
     "summary": "The Carpmaster Standard is a floor-fill unhooking mat with raised sides. Not a cradle - a lively fish can still roll off with force - but for the price it delivers 50 mm base padding, waterproof underside, and enough side height to contain most twenties calmly. The right buy for anglers whose venues don't require a cradle by rule.",
     "context": "Fox launched the Carpmaster range in 2014 to bridge the gap between flat foam mats (adequate but risky for lively fish) and full rigid cradles (welfare-optimal but £100+). The Standard variant has been the biggest-seller in the range and is the default first-mat recommendation for beginners on day-ticket waters where a cradle isn't required by venue rule.",
     "deepDive": "The mat uses a 50 mm EVA foam base padding with 20 cm raised sides made of PVC-reinforced polyester. The underside is a 0.5 mm PVC laminate that fully waterproofs the base but is not rated for extreme abrasion (thorns, rocks). Weep holes are basic - 4 grommeted holes vs the Nash Titan's 6 reinforced ones. Folded, the mat rolls to a 40 x 15 cm cylinder held with two Velcro straps.",
     "pros": [
-      "Genuine £55 with real 50 mm padding",
+      "Inflatable, so it packs smaller than a foam mat",
       "Raised sides contain most fish",
       "Waterproof PVC underside",
       "Folds small for tackle bag"
@@ -719,18 +725,19 @@
       },
       "downgrade": {
         "slug": "",
-        "why": "Below £55 the mat market drops into thin foam pads under 30 mm - not enough padding for real welfare protection. The Carpmaster Standard is essentially the floor of what we'd recommend."
+        "why": "A basic foam mat costs less but protects the fish less; check what your water's rules require."
       }
     },
     "bestFor": "Day-ticket venue anglers, first-mat buyers, or as a backup mat in the car boot."
   },
   {
     "slug": "fox-barrow-bag-60cm",
+    "sourced": true,
     "category": "rod-holdalls",
     "brand": "Fox",
     "name": "Fox Barrow Bag 60 × 38 × 44 cm",
     "asin": "B0DKKVZW4W",
-    "price": 80,
+    "price": 75,
     "rating": 4.1,
     "verdict": "A big padded bag sized for a barrow - about 100 litres by its outer dimensions.",
     "summary": "A large Fox tackle bag designed to sit on a barrow. It measures 60 × 38 × 44 cm, has a polyester outer with a coating, polyethylene padding and an EVA base. That outer size works out at roughly 100 litres, enough for a cooker, food, spare clothes and bait for an overnighter.",
@@ -784,7 +791,7 @@
     "brand": "Trakker",
     "name": "Trakker NXG 3-Rod Sleeve 12ft",
     "asin": "B0F7Y84T7J",
-    "price": 90,
+    "price": 80,
     "rating": 4.6,
     "verdict": "The three-rod holdall that keeps made-up rods away from each other - proper dividers, real padding.",
     "summary": "Trakker's NXG holdall accepts three made-up 12ft rods without crushing reels together. Fully padded internal channels, hard-wearing outer fabric, and reinforced base tabs that survive being dropped on gravel car parks. The kit that lets you pitch and cast within ten minutes at the bank.",
@@ -822,11 +829,11 @@
     "alternatives": {
       "upgrade": {
         "slug": "",
-        "why": "Nash Dwarf luggage 3-rod holdall (£140) is the natural upgrade with premium build. Fox Ultra 3-Rod Holdall (£130) is the closest lateral option with different pocket layout."
+        "why": "Nash and Fox both make padded 3-rod holdalls and sleeves: compare internal length, butt-ring capacity and padding on each listing."
       },
       "downgrade": {
         "slug": "",
-        "why": "Below £90 the 3-rod holdall market drops into cases that either don't have internal channel dividers or use fibreglass reinforcement (breaks under load). The NXG is close to the value floor for proper padded 3-channel construction."
+        "why": "Unpadded sleeves cost less but protect made-up rods less in transit."
       }
     },
     "bestFor": "Anglers running three matched rods who want pitch-to-cast in under 15 minutes."
@@ -837,7 +844,7 @@
     "brand": "Mainline",
     "name": "Mainline Cell Boilies 1 kg",
     "asin": "B00H9DLMXU",
-    "price": 15,
+    "price": 13,
     "rating": 4.7,
     "verdict": "The UK's most consistent all-year fishmeal boilie - works in January, works in July.",
     "summary": "Mainline Cell has been the UK's default consistent boilie for over 15 years and it earned that position. Fishmeal base with a well-balanced attractor profile, shelf-life for practical use, and consistent rolling quality bag to bag. Buy a 5 kg bulk and stick with it for six sessions - that is how Cell wins.",
@@ -876,7 +883,7 @@
     "alternatives": {
       "upgrade": {
         "slug": "sticky-baits-the-krill-1kg",
-        "why": "Sticky Baits The Krill at £17/kg is the natural upgrade if you want a freezer-grade freshness step-up. Higher protein levels, stronger krill-based attractor profile, but requires freezer storage until use - less practical for casual anglers, but a genuine performance step on pressured water."
+        "why": "Sticky Baits The Krill is the usual alternative. The shelf-life version costs about the same as Cell: about £12 to £15 per 1 kg bag in UK shops in November 2026."
       },
       "downgrade": {
         "slug": "",
@@ -891,7 +898,7 @@
     "brand": "Sticky Baits",
     "name": "Sticky Baits The Krill 1 kg",
     "asin": "B00D2V49TM",
-    "price": 17,
+    "price": 13,
     "rating": 4.8,
     "verdict": "The premium fresh boilie UK carpers switch to when Cell stops producing - stronger attractors, higher price.",
     "summary": "Sticky Baits' The Krill leans on krill meal and shellfish extracts for a stronger attractor profile than mainline-shelf boilies. Freezer bait grade means higher protein content and better attractors than shelf-life, but you must plan storage. On pressured, high-stock waters where every angler is on Cell, switching to Krill often gets you noticed.",
@@ -930,11 +937,11 @@
     "alternatives": {
       "upgrade": {
         "slug": "",
-        "why": "Sticky's own Manilla range (£19/kg freezer) is the natural upsize - similar krill base with additional attractor complexity, marketed at specimen anglers. CC Moore Odyssey XXX (£19/kg freezer) is the closest lateral competitor with a different attractor profile."
+        "why": "Sticky Baits also sells The Krill frozen and in an Active version: compare per-kg prices on the listings."
       },
       "downgrade": {
         "slug": "mainline-cell-boilies-1kg",
-        "why": "Mainline Cell at £15/kg (shelf-life) is the natural downgrade if freezer storage is impractical or if you fish mixed venues where freezer logistics don't work. £2/kg less and no storage complexity, at the cost of the freezer-grade attractor edge."
+        "why": "Mainline Cell shelf-life costs about the same: about £12 to £14 per 1 kg bag in UK shops in November 2026."
       }
     },
     "bestFor": "Anglers on pressured venues wanting a distinctive alternative to shelf-life mainline baits."

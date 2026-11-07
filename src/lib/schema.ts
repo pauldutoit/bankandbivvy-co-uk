@@ -40,23 +40,9 @@ export function productJsonLd(args: {
     category: args.category,
     brand: { "@type": "Brand", name: args.brand },
     url: args.url,
-    offers: {
-      "@type": "Offer",
-      priceCurrency: currency,
-      price: String(args.price),
-      url: args.amazonUrl,
-      availability: "https://schema.org/InStock",
-    },
-    review: {
-      "@type": "Review",
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: String(args.rating),
-        bestRating: "5",
-      },
-      author: { "@type": "Organization", name: siteConfig.siteName },
-      reviewBody: args.summary,
-    },
+    ...(args.price != null
+      ? { offers: { "@type": "Offer", priceCurrency: currency, price: String(args.price), url: args.amazonUrl } }
+      : {}),
   };
 }
 
