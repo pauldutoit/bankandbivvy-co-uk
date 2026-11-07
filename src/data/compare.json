@@ -2,57 +2,130 @@
   {
     "slug": "trakker-tempest-vs-fox-frontier-xd",
     "category": "bivvies",
-    "leftSlug": "trakker-tempest-advanced-100",
+    "leftSlug": "trakker-tempest-100",
     "rightSlug": "fox-frontier-xd",
-    "tagline": "Flagship long-session shelter vs best-value mid-range - which UK bivvy is worth your money in 2026?",
-    "intro": "The Trakker Tempest Advanced 100 and Fox Frontier XD differ on price (about £750 for the Tempest Advanced 100 against about £500 to £700 for the Frontier XD in UK shops in November 2026) and suit different anglers. Both use aluminium poles, both are two-skin, both survive real UK weather. The question is whether the Tempest's refinement is worth the price gap - and whether the Frontier's value covers what an average weekend angler actually needs.",
-    "verdict": "For many nights a year in exposed weather, the Trakker Tempest Advanced 100 is the more refined bivvy. For fewer nights, the Fox Frontier XD usually costs less and covers the same basic needs. Prices move a lot between UK shops, so compare them on the day; the choice is about how many nights you fish, not which brand is better.",
+    "tagline": "Quick-erect Trakker or roomy Fox: which shelter suits your sessions?",
+    "intro": "The Trakker Tempest 100 (2025) and the Fox Frontier XD are both aluminium-framed carp shelters, built for different anglers. The Tempest goes up in seconds around its hinge block and sold for about £420 in UK shops in November 2026; the Frontier XD is bigger, at 270 × 210 × 165 cm, and sold for about £500 to £700.",
+    "verdict": "Choose the Tempest 100 if you move swims often and want speed and a smaller footprint. Choose the Frontier XD for long sessions where headroom and space matter and you do not carry it far. Both makers sell wraps and extra panels, so compare complete setups, not just the shelter.",
     "dimensions": [
-      { "criterion": "Pole material and durability", "winner": "left", "note": "Both use aluminium T6 poles. Trakker uses moulded aluminium hubs vs Fox's mixed alloy hubs - marginal edge to Trakker over 8+ years." },
-      { "criterion": "Pitch time and ease", "winner": "left", "note": "Trakker: sub-2-minute with practice. Fox: 3-4 minutes. Real difference when pitching in wind and rain at 1am." },
-      { "criterion": "Hydrostatic head (weather rating)", "winner": "left", "note": "Trakker: 5,000 mm fly / 10,000 mm ground. Fox: 5,000 mm fly / 8,000 mm ground. Both are honest UK-weather ratings; Trakker's heavier groundsheet earns the edge." },
-      { "criterion": "Value for money", "winner": "right", "note": "The Fox Frontier XD usually costs less. If your session count doesn't justify the Trakker's refinement, the Fox is the smarter buy." },
-      { "criterion": "Long-term ownership economics", "winner": "left", "note": "Trakker's factory-replaceable parts programme is genuine - replacement pole segments, zip runners, peg-out rings all available and self-fit. Fox spares available but less comprehensive." },
-      { "criterion": "Pack size and weight", "winner": "right", "note": "Both are close to 12 kg packed, roughly the same footprint. Fox is very marginally lighter and packs slightly slimmer - more relevant if you barrow long distances." }
+      {
+        "criterion": "Speed of pitching",
+        "winner": "left",
+        "note": "Trakker's patented quick-erect hinge block lets the Tempest be assembled in seconds. The Frontier XD pitches conventionally, with cam-lok storm poles."
+      },
+      {
+        "criterion": "Space and headroom",
+        "winner": "right",
+        "note": "The Frontier XD measures 270 × 210 × 165 cm with a high flat back. Trakker's 2025 listing gives no dimensions; the 100 size is meant for one angler with a large bed and kit."
+      },
+      {
+        "criterion": "Carrying",
+        "winner": "left",
+        "note": "The Frontier XD weighs 14.9 kg and packs to 160 × 26 cm. Trakker gives no weight for the 2025 Tempest; the previous Tempest 100 was about 9.6 kg plus pegs and groundsheet."
+      },
+      {
+        "criterion": "Price",
+        "winner": "left",
+        "note": "About £420 for the Tempest 100 against about £500 to £700 for the Frontier XD in UK shops in November 2026."
+      }
     ],
     "personas": [
-      { "who": "Weekend angler, 20-30 sessions/year, day-ticket + one syndicate", "recommend": "right", "why": "The Frontier XD usually costs less and covers the essentials. Put the difference towards bait or a proper cradle." },
-      { "who": "Session angler, 40+ nights/year, exposed venues", "recommend": "left", "why": "The Tempest's refinement and parts programme pay back within 3 years of regular use." },
-      { "who": "Occasional angler stepping up from a brolly", "recommend": "right", "why": "Fox Frontier XD is the honest \"first proper bivvy\" - no over-spend, real quality." },
-      { "who": "Angler planning to add a winter wrap and stay in-family", "recommend": "left", "why": "Trakker Tempest wraps and overwraps are widely stocked and fit consistently - you commit to the ecosystem." }
+      {
+        "who": "Mobile angler who moves to showing fish",
+        "recommend": "left",
+        "why": "Speed of pitching and a smaller footprint matter more than space."
+      },
+      {
+        "who": "Weekend or week-long sessions from one swim",
+        "recommend": "right",
+        "why": "The extra space and headroom make long stays more comfortable."
+      },
+      {
+        "who": "First shelter on a budget",
+        "recommend": "left",
+        "why": "It costs less and is simpler to put up."
+      }
     ],
     "faqs": [
-      { "q": "Can I use a Fox wrap on a Trakker bivvy or vice versa?", "a": "No - wraps are cut to specific brand pole geometry and will not fit across brands. Committing to Trakker or Fox is a decision that affects future winter upgrades." },
-      { "q": "Is a Nash Titan closer to the Tempest at similar money?", "a": "Yes. Nash's Titan range is the closest rival. Compare current prices, pole design and warranty on the listings." },
-      { "q": "Do either come with a groundsheet included?", "a": "Check each listing for whether a groundsheet is included and how it attaches. Many anglers add a separate protector under any bivvy." }
+      {
+        "q": "Is the Frontier XD a one-man or two-man shelter?",
+        "a": "Amazon's listing title calls it a one-man bivvy. At 270 × 210 cm it leaves room for a bedchair and kit."
+      },
+      {
+        "q": "Does the Tempest 100 come with a groundsheet?",
+        "a": "Check the listing: groundsheets, wraps and insect panels for the Tempest range are often sold separately."
+      },
+      {
+        "q": "Which handles condensation better?",
+        "a": "Both can drip on cold, clear nights. Ventilate, and add a wrap or inner dome if you fish through winter."
+      }
     ]
   },
   {
-    "slug": "delkim-txi-plus-vs-fox-mini-micron-x",
+    "slug": "delkim-txi-d-v2-vs-fox-mini-micron-x",
     "category": "bite-alarms",
-    "leftSlug": "delkim-txi-plus-set",
+    "leftSlug": "delkim-txi-d-v2-presentation-set",
     "rightSlug": "fox-mini-micron-x-set",
-    "tagline": "The 10-year alarm vs the mid-range value - which UK carp alarm set is worth its price in 2026?",
-    "intro": "The Delkim Txi Plus and Fox Mini Micron X are both vibration-sensor alarm sets aimed at serious UK carp anglers, but Delkim costs much more (a 3-rod Mini Micron X set was about £160 to £240 in UK shops in November 2026, a 2-rod Delkim TXi-D V2 set about £450). The question is whether Delkim's sensitivity justifies the gap for your fishing.",
-    "verdict": "For frequent sessions on pressured waters, the Delkim is the more sensitive choice. For fewer sessions on stocked day-ticket water, the Fox Mini Micron X costs far less and does the job. Delkim's TXi-D V2 has replaced the TXi Plus at many shops, so check what is still sold new.",
+    "tagline": "Delkim's vibration alarms or Fox's roller alarms: is the price gap worth it?",
+    "intro": "Two alarm sets with receivers at very different prices: the Delkim TXi-D v2 3-rod presentation set at about £580 and the Fox Mini Micron X 3-rod set at about £160 to £240 in UK shops in November 2026. They also detect bites differently: Delkim senses vibration, Fox uses a roller wheel.",
+    "verdict": "Choose the Delkim if you fish often on pressured water and want the most adjustment, with a receiver that has a rain mode. Choose the Fox if you want a well-featured set with a receiver for far less.",
     "dimensions": [
-      { "criterion": "Sensor technology", "winner": "left", "note": "Delkim uses proprietary DPS piezoelectric vibration - no dead zone at zero motion. Fox uses a standard piezo vibration sensor that has a small dead zone which occasionally misses the finest drop-backs." },
-      { "criterion": "Receiver range and stability", "winner": "left", "note": "Delkim: 300 m open air, 150 m through cover. Fox: 200 m open air, 100-120 m through cover. Both are usable at typical UK big-pit ranges; Delkim edges it in trees." },
-      { "criterion": "Water resistance", "winner": "left", "note": "Delkim: IPX7 (submersible). Fox: IPX5 (heavy rain). Both survive UK weather; Delkim survives being dropped in the margin." },
-      { "criterion": "Battery life and running cost", "winner": "left", "note": "Both use 9V PP3. Delkim: 12-18 months per battery under UK use. Fox: 8-12 months. Same batteries, longer life for Delkim due to lower quiescent current." },
-      { "criterion": "Value for money", "winner": "right", "note": "The Fox Mini Micron X 3-rod set costs much less (about £160 to £240 in UK shops in November 2026) and comes with a receiver." },
-      { "criterion": "Long-term resale and serviceability", "winner": "left", "note": "Delkim holds 60-70 % of new list at 5 years old on the UK second-hand market. Delkim UK still services 10-year-old units. Fox alarms hold ~40 % of value at 5 years." }
+      {
+        "criterion": "Bite detection",
+        "winner": "left",
+        "note": "Delkim senses line movement and vibration, with an adjustable vibration response. Fox uses D-Tec roller wheel sensing with four sensitivity settings and a drop-back differential."
+      },
+      {
+        "criterion": "Settings",
+        "winner": "left",
+        "note": "Delkim: 32 tones, 8 LED brightness levels, day and night modes, stealth mode and an anti-theft alert. Fox: 7 volume levels, 4 tones and 4 sensitivity settings."
+      },
+      {
+        "criterion": "Receiver",
+        "winner": "left",
+        "note": "Delkim's Rx-D v2 pairs with up to 12 alarms, has a Do Not Disturb setting for heavy showers and a quick torch. Fox does not publish a range figure for its receiver."
+      },
+      {
+        "criterion": "In the box",
+        "winner": "left",
+        "note": "The Delkim set includes Safe-D carbon snag bars and hard cases for the alarms and receiver."
+      },
+      {
+        "criterion": "Price",
+        "winner": "right",
+        "note": "About £160 to £240 for the Fox set against about £580 for the Delkim set in UK shops in November 2026."
+      }
     ],
     "personas": [
-      { "who": "Serious carper, 40+ sessions/year, pressured syndicate water", "recommend": "left", "why": "Drop-back sensitivity converts to fish on the bank. Buy once, run for 15 years." },
-      { "who": "Weekend angler, 15-25 sessions/year, mostly day-ticket", "recommend": "right", "why": "Fox Mini Micron X covers the practical need for much less." },
-      { "who": "Upgrading from a budget roller-sensor set", "recommend": "right", "why": "The step-up from rollers to Fox vibration sensing is huge; the further step to Delkim is real but smaller. Start with Fox, upgrade to Delkim in 3-5 years if fishing seriously." },
-      { "who": "Angler who fishes in genuinely wet UK winter", "recommend": "left", "why": "IPX7 vs IPX5 matters when alarms fall over on wet banks. Delkim survives; Fox usually survives but with more risk." }
+      {
+        "who": "Frequent angler on pressured syndicate water",
+        "recommend": "left",
+        "why": "The adjustable vibration sensing and rain mode are worth having over many sessions."
+      },
+      {
+        "who": "Weekend angler on day-ticket waters",
+        "recommend": "right",
+        "why": "The Fox set covers the practical need for much less."
+      },
+      {
+        "who": "Buying a first set with a receiver",
+        "recommend": "right",
+        "why": "Start with the Fox; the step to Delkim can come later if you fish more."
+      }
     ],
     "faqs": [
-      { "q": "Can I mix Delkim heads with a Fox receiver?", "a": "No - alarm-to-receiver pairing is proprietary to each brand's radio protocol. Committing to Delkim or Fox is a full-set decision." },
-      { "q": "Is buying second-hand Delkim a better play than new Fox at similar money?", "a": "It can be. Check the seals, the battery compartments and the receiver screen before buying a used set." },
-      { "q": "How much difference does the drop-back sensitivity actually make?", "a": "On stocked day-ticket waters where fish self-hook and run: minimal. On pressured syndicate waters where takes are cautious and drop-backs common: often the difference between 3 fish and 6 fish a session." }
+      {
+        "q": "Can I mix Delkim alarms with a Fox receiver?",
+        "a": "No. Each brand's receiver pairs with its own alarms."
+      },
+      {
+        "q": "Is the Delkim TXi Plus still sold?",
+        "a": "The TXi-D v2 has replaced it at many UK shops, and the TXi Plus 4+1 set is unavailable on Amazon UK."
+      },
+      {
+        "q": "What batteries do they take?",
+        "a": "Delkim's TXi-D v2 alarms take a 9V PP3 (Delkim advises against rechargeables); the Fox Mini Micron X takes small N type (LR1) batteries."
+      }
     ]
   },
   {
@@ -125,29 +198,58 @@
   {
     "slug": "mainline-cell-vs-sticky-baits-the-krill",
     "category": "boilies-bait",
-    "leftSlug": "mainline-cell-boilies-1kg",
-    "rightSlug": "sticky-baits-the-krill-1kg",
-    "tagline": "The UK's default shelf-life boilie vs the specialist freezer bait - which wins in 2026?",
-    "intro": "Mainline Cell and Sticky Baits The Krill are the two most-mentioned boilies in UK carp fishing forums, but they represent different bait philosophies. Cell is a shelf-life fishmeal boilie designed for consistent all-year performance. The Krill is a freezer-grade krill/shellfish bait built for maximum attractor strength on pressured waters. Which one belongs in your rucksack depends less on quality (both are excellent) and more on how you fish.",
-    "verdict": "For most UK carpers, Mainline Cell is the correct default. Consistent bag-to-bag quality, works all seasons, no freezer logistics, and 17 years of proven form. Switch to Sticky Baits The Krill only on pressured venues where every angler is on shelf-life fishmeal boilies and you need to stand out with a stronger attractor profile. On stocked day-ticket waters, the difference between the two is invisible.",
+    "leftSlug": "mainline-cell-shelf-life-5kg",
+    "rightSlug": "sticky-baits-the-krill-shelf-life-5kg",
+    "tagline": "Two of the best-known UK shelf-life boilies, side by side",
+    "intro": "Both are sold as shelf-life boilies in 5 kg bags. Mainline describes Cell as a complete food-source boilie; Sticky Baits says The Krill has a high inclusion of krill among 25 ingredients, and that its shelf-life version differs from the freezer bait only by a natural preservative. A 5 kg bag cost about £55 to £60 for Cell and about £50 for The Krill in UK shops in November 2026.",
+    "verdict": "Both are proven, widely used baits. The choice often comes down to what is already being used on your water, the size you need and price per kilo. Check the size on the listing: the Cell bag we link is 10 mm, The Krill 16 mm.",
     "dimensions": [
-      { "criterion": "Bait format", "winner": "left", "note": "Cell: shelf-life, 12-month storage at room temperature, no logistics. Krill: freezer bait, must be frozen until use - practical challenge on multi-venue sessions." },
-      { "criterion": "Attractor strength", "winner": "right", "note": "Krill's shellfish and krill-meal attractor profile is genuinely stronger than Cell's balanced fishmeal profile - measurable in leaching tests, sometimes noticeable in fish response on pressured water." },
-      { "criterion": "All-year performance", "winner": "left", "note": "Cell fishes consistently in water from 4°C to 22°C. Krill performs stronger in warm water (10°C+) but not clearly better in cold water below 6°C." },
-      { "criterion": "Price per kg", "winner": "left", "note": "Both sell for about £12 to £15 per 1 kg shelf-life bag in UK shops in November 2026; bulk bags cost less per kg." },
-      { "criterion": "Consistency across batches", "winner": "left", "note": "Cell's mechanised production gives it near-perfect bag-to-bag consistency. Sticky's smaller batch runs occasionally show minor variation in bait density - doesn't affect performance but noticeable side-by-side." },
-      { "criterion": "Effectiveness on pressured venues", "winner": "right", "note": "On syndicate waters where 80 % of anglers are on Cell, switching to Krill for 3-4 sessions genuinely gets you noticed. Fish that are ignoring standard fishmeal will take a novel shellfish profile." }
+      {
+        "criterion": "Price per kilo",
+        "winner": "right",
+        "note": "About £10 a kilo for The Krill against about £11 to £12 for Cell in 5 kg bags in UK shops in November 2026."
+      },
+      {
+        "criterion": "Sizes",
+        "winner": "left",
+        "note": "Mainline lists shelf-life Cell in 10, 15, 18 and 20 mm. The Krill shelf life is sold in sizes including 12, 16 and 20 mm."
+      },
+      {
+        "criterion": "Matching range",
+        "winner": "left",
+        "note": "Mainline lists matching Cell pop-ups, wafters, groundbaits, additives, pellets and particles. Sticky Baits also sells matching hookbaits for The Krill; compare what your local shop stocks."
+      }
     ],
     "personas": [
-      { "who": "Casual angler, mixed venues, 10-20 sessions/year", "recommend": "left", "why": "Cell's shelf-life practicality and consistent all-year performance beat Krill's marginal attractor edge for your use case." },
-      { "who": "Serious syndicate angler, one water, prebaiting weekly", "recommend": "right", "why": "Krill's stronger profile pays back when you feed the same water week after week and want to stand out from other members' baits." },
-      { "who": "Angler switching baits after a run of blanks on Cell", "recommend": "right", "why": "Krill is the standard next-step for anglers whose default fishmeal has stopped producing. The attractor profile difference is real." },
-      { "who": "Winter carp angler, water below 6°C", "recommend": "left", "why": "Cell's balanced profile holds up better in genuinely cold water than Krill's shellfish-heavy attractors. Krill outperforms in warm water only." }
+      {
+        "who": "Wants the lowest price per kilo",
+        "recommend": "right",
+        "why": "The Krill 5 kg bag usually costs a little less."
+      },
+      {
+        "who": "Wants small boilies for spod and PVA mixes",
+        "recommend": "left",
+        "why": "The Cell bag we link is 10 mm."
+      },
+      {
+        "who": "Wants a matching range from one brand",
+        "recommend": "left",
+        "why": "Mainline lists a wide matching Cell range, from pop-ups to groundbait."
+      }
     ],
     "faqs": [
-      { "q": "Can I use Sticky Krill pop-ups over a Cell freebie bed?", "a": "Yes and it works. A visually and attractant-wise contrasting pop-up over a matched-colour freebie bed is a classic combination. Some anglers deliberately mix bait attractors on hookbait vs bed to create standout." },
-      { "q": "Does Sticky Krill require a chest freezer or is a domestic freezer OK?", "a": "Domestic freezer is fine. 1 kg bags stack cleanly; 5 kg bulk needs planning. Take out only what you need per session, keep the rest frozen. Do not refreeze once thawed." },
-      { "q": "Is there a big price gap?", "a": "No. 1 kg shelf-life bags of both sold for about £12 to £15 in UK shops in November 2026. Over a season of heavy prebaiting small per-kg gaps still add up, so compare bulk prices." }
+      {
+        "q": "Are shelf-life baits as good as freezer baits?",
+        "a": "Sticky Baits says its shelf-life baits are as close to the freezer versions as possible, with a natural preservative added. Mainline also sells Cell fresh-frozen."
+      },
+      {
+        "q": "Is there a big price gap?",
+        "a": "No. In 5 kg bags in UK shops in November 2026, Cell cost about £55 to £60 and The Krill about £50."
+      },
+      {
+        "q": "Which size should I buy?",
+        "a": "Smaller boilies (10 to 12 mm) suit spod and PVA mixes and smaller fish; 16 to 20 mm are more selective for bigger carp."
+      }
     ]
   }
 ]

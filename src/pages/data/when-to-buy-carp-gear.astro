@@ -10,10 +10,10 @@ const title = `When to buy UK carp gear ${new Date().getFullYear()} - Amazon pro
 const description = `The confirmed Amazon UK 2026 promotional calendar (Big Spring Sale, Prime Day 23-26 June, Prime Big Deal Days 6-7 October, Black Friday) plus seasonal buying patterns for bivvies, alarms, rods, bedchairs and bait.`;
 
 const flagshipPicks = [
-  products.find((p) => p.slug === "trakker-tempest-advanced-100"),
-  products.find((p) => p.slug === "delkim-txi-plus-set"),
+  products.find((p) => p.slug === "trakker-tempest-100"),
+  products.find((p) => p.slug === "delkim-txi-d-v2-presentation-set"),
   products.find((p) => p.slug === "nash-scope-black-ops-10ft-3-5lb"),
-  products.find((p) => p.slug === "nash-indulgence-ss4-wide"),
+  products.find((p) => p.slug === "nash-mf60-indulgence-ss4"),
 ].filter((p): p is NonNullable<typeof p> => Boolean(p));
 
 const seasonalityByCategory = [

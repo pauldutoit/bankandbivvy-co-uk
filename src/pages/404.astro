@@ -17,7 +17,7 @@ const description = "The page you were looking for is not here. Try the homepage
 
       <div class="cat-grid">
         {categories.map((c: any) => (
-          <a class="cat-card" href={`/machines/${c.slug}/`}>
+          <a class="cat-card" href={`/gear/${c.slug}/`}>
             <h3>{c.name}</h3>
             <p>{c.tagline}</p>
             <div class="meta"><span>From {money(c.priceFrom)}</span><span>Read guide →</span></div>

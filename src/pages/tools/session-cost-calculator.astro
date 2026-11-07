@@ -7,8 +7,8 @@ import { breadcrumbListJsonLd, faqJsonLd } from "../../lib/schema";
 
 const tierPicks = [
   { tier: "Entry (~£800/year total)", label: "Budget starter", product: products.find((p) => p.slug === "sonik-xtractor-pro-10ft-3lb") },
-  { tier: "Weekend regular (~£1,500/year)", label: "Mid-range value", product: products.find((p) => p.slug === "fox-frontier-xd") },
-  { tier: "Specimen hunter (~£3,000/year+)", label: "Flagship long-haul", product: products.find((p) => p.slug === "trakker-tempest-advanced-100") },
+  { tier: "Weekend regular (~£1,500/year)", label: "Quick-erect shelter", product: products.find((p) => p.slug === "trakker-tempest-100") },
+  { tier: "Specimen hunter (~£3,000/year+)", label: "Roomy long-session shelter", product: products.find((p) => p.slug === "fox-frontier-xd") },
 ].filter((t): t is typeof t & { product: NonNullable<typeof t.product> } => Boolean(t.product));
 
 const siteUrl = `https://${siteConfig.domain}`;
